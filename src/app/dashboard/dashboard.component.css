@@ -1,0 +1,18 @@
+#top-bar{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+}
+button{
+    margin-right: 2rem;
+    background-color: aquamarine;
+    color: aliceblue;
+}
+
+#project-details{
+    background-color: lightgray;
+    border-radius: 10px;
+    height: 500px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}

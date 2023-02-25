@@ -1,0 +1,13 @@
+ <!-- @author = vinay, date = 25/2/23 -->
+<nav>
+    <div id="nav-container" >
+        <div id="brand-name">
+            <img src="" alt="">
+        </div>
+        <div>
+            <button mat-icon-button (click)="login()" *ngIf="!isLoggedIn"><mat-icon>login</mat-icon></button>
+            <button mat-icon-button (click)="logout()" *ngIf="isLoggedIn"><mat-icon>logout</mat-icon></button>
+            
+        </div>
+    </div>
+</nav>
