@@ -12,7 +12,7 @@
 }
 
 .mat-toolbar{
-  position: fixed;
+  position: sticky;
   height: 100px;
   top: 0;
   z-index: 1;
