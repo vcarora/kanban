@@ -14,12 +14,19 @@ import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './home/home.component';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import {MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomeComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    ScrollingModule
+    ScrollingModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
