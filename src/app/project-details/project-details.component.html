@@ -1,0 +1,61 @@
+<div id="main-container">
+    <div id="top-bar">
+        <div >
+            <h1>{{projectDetails?.name}}</h1>
+           
+            <p>{{projectDetails?.duration}} </p>
+        </div>
+        <div>
+            <!-- <button mat-icon-button (click)="taskDialog()" ><mat-icon>add</mat-icon></button>
+            <button mat-icon-button (click)="addMember()"><mat-icon>group_add</mat-icon></button> -->
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="taskDialog()">
+                  <mat-icon>add</mat-icon>
+                  <span>Add Task</span>
+                </button>
+                <button mat-menu-item (click)="addMember()">
+                  <mat-icon>group_add</mat-icon>
+                  <span>Add Members</span>
+                </button>
+                <button mat-menu-item (click)="deleteProject()">
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete Project</span>
+                </button>
+              </mat-menu>
+
+        </div>
+    </div>
+        
+        <mat-tab-group>
+            <mat-tab label="Tasks">
+              <mat-card class="scrollable-content">
+               
+                <mat-card-content>
+                  <app-task-board [taskList]="projectDetails?.taskList"></app-task-board>
+                </mat-card-content>
+              </mat-card>
+            </mat-tab>
+            <mat-tab label="Description">
+                <mat-card  class="scrollable-content">
+                 
+                  <mat-card-content>
+                    <p>{{projectDetails?.description}} </p>
+                  </mat-card-content>
+                </mat-card>
+              </mat-tab>
+            <mat-tab label="Members">
+              <mat-card  class="scrollable-content">
+               
+                <mat-card-content>
+                    <ul *ngFor="let member of projectDetails?.assigned_emp">
+                        <li>{{member}}</li>
+                    </ul>
+                </mat-card-content>
+              </mat-card>
+            </mat-tab>
+          </mat-tab-group>
+
+</div>

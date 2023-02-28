@@ -21,6 +21,24 @@ import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { InterceptorService } from './services/interceptor.service';
 import { NotFoundComponent } from './not-found/not-found.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ProjectDialogComponent } from './dialog/project-dialog/project-dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { TaskDialogComponent } from './dialog/task-dialog/task-dialog.component';
+import { FormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+import { AddMemberDialogComponent } from './dialog/add-member-dialog/add-member-dialog.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCardModule,MatCardHeader} from '@angular/material/card';
+import { TaskBoardComponent } from './task-board/task-board.component';
+import { TaskCardComponent } from './task-card/task-card.component'
 
 
 @NgModule({
@@ -31,7 +49,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DashboardComponent,
     HomeComponent,
     HeaderComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProjectDialogComponent,
+    ProjectDetailsComponent,
+    TaskDialogComponent,
+    AddMemberDialogComponent,
+    TaskBoardComponent,
+    TaskCardComponent,
 
   ],
   imports: [
@@ -46,9 +70,22 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
+    MatRadioModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatCardModule
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true}],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

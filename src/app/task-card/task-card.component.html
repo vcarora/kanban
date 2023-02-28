@@ -1,0 +1,33 @@
+<mat-card class="task-card">
+    <div>
+        
+        <mat-card-header>
+          <mat-card-title>{{task?.name}}</mat-card-title>
+          <mat-card-subtitle>{{task?.description}}</mat-card-subtitle>
+        </mat-card-header>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+           
+            <button mat-menu-item (click)="deleteTask(task)">
+              <mat-icon>delete</mat-icon>
+              <span>Delete Task</span>
+            </button>
+          </mat-menu>
+    
+    
+
+    </div>
+        <mat-card-content>
+      <p>{{task?.priority}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <mat-form-field appearance="outline">
+            <mat-label>Change Status</mat-label>
+            <mat-select  name="status" [(ngModel)]="task.status" #status="ngModel" (selectionChange)="changeStatus(task)" >
+            <mat-option *ngFor= "let status of statuses" [value]="status">{{status}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    </mat-card-actions>
+  </mat-card>
