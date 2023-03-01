@@ -36,6 +36,7 @@ export class HeaderComponent {
   logout(): void{
     this.token.logOut()
     this.isLoggedIn = false
+    this.route.toHome();
 
   }
 

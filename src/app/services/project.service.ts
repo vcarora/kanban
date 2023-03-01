@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { project, task, user } from '../model/project';
@@ -37,7 +37,13 @@ export class ProjectService {
     return this.http.delete(PROJECT_API+'deleteProject/'+project_id)
   }
 
-  deleteTask(project_id : number,task : any) : Observable<any>{
-    return this.http.delete(PROJECT_API+'delete/'+project_id,task)
+  deleteTask(project_id : number,task : task) : Observable<any>{
+    const httpOptions = {headers : new HttpHeaders({'Content-Type': 'application/json'}),
+     body:task}
+    return this.http.delete<any>(PROJECT_API+'delete/'+project_id,httpOptions)
+  }
+
+  getAssignedProjects(): Observable<any>{
+    return this.http.get(PROJECT_API+'getAssigned')
   }
 }

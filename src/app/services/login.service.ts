@@ -24,12 +24,11 @@ export class LoginService {
   // get isLoggedIn(){
   //   return this.loginStatus.asObservable()
   // }
-  register(name: string, email: string, password: string,role:string): Observable<any> {
+  register(username: string, email: string, password: string): Observable<any> {
     return this.http.post(Content_API + 'kanban/register', {
-      name,
+      username,
       email,
-      password,
-      role
+      password
     }, httpOptions);
   }
 
