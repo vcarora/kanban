@@ -1,0 +1,50 @@
+ <!-- @author = vinay, date = 25/2/23 -->
+<!-- <nav>
+    <div id="nav-container" >
+        <div id="brand-name">
+            <img src="" alt="">
+        </div>
+        <div>
+            <button mat-icon-button (click)="login()" *ngIf="!isLoggedIn"><mat-icon>login</mat-icon></button>
+            <button mat-icon-button (click)="logout()" *ngIf="isLoggedIn"><mat-icon>logout</mat-icon></button>
+            
+        </div>
+    </div>
+</nav> -->
+<mat-toolbar color="primary">
+    <button mat-icon-button (click)="sideNavToggle()" matTooltip="Menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>FOKUS</span>
+    <span class="toolbar-item-spacer"></span>
+    <!-- <button mat-icon-button matTooltip="Like">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Share">
+        <mat-icon>share</mat-icon>
+    </button> -->
+    <button mat-icon-button matTooltip="Notifications">
+        <mat-icon>notifications</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="My Account" [matMenuTriggerFor]="userAccountMenu">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+        <button mat-menu-item routerLink="#">
+            <mat-icon>person</mat-icon><span>My Account</span>
+        </button>
+        <button mat-menu-item routerLink="#">
+            <mat-icon>settings</mat-icon><span>Settings</span>
+        </button>
+        <button mat-menu-item routerLink="#">
+            <mat-icon>help</mat-icon><span>Help</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()" *ngIf="isLoggedIn">
+            <mat-icon>exit_to_app</mat-icon>Logout
+        </button>
+        <button mat-menu-item (click)="login()" *ngIf="!isLoggedIn">
+            <mat-icon>login</mat-icon>Login
+        </button>
+    </mat-menu>
+</mat-toolbar>  
