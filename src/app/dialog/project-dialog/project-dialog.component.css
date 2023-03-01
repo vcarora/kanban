@@ -1,0 +1,23 @@
+#main-container{
+    
+}
+form{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+}
+#col-1{
+    width: 50%;
+}
+
+#col-2{
+    width: 50%;
+}
+
+.form-fields{
+    width: 90%;
+}
+
+
+

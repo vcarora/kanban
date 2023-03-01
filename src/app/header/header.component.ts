@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { RouterService } from '../services/router.service';
+import { ToggleService } from '../services/toggle.service';
 import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
@@ -11,7 +12,11 @@ import { TokenStorageService } from '../services/token-storage.service';
 export class HeaderComponent {
 
   isLoggedIn = false;
-   constructor(private token : TokenStorageService, private route : RouterService,private loginService : LoginService){}
+   constructor(private token : TokenStorageService,
+    private route : RouterService,private loginService : LoginService,
+    private toggle :ToggleService){
+
+    }
 
    loginStatus : boolean = false
 
@@ -31,6 +36,7 @@ export class HeaderComponent {
   logout(): void{
     this.token.logOut()
     this.isLoggedIn = false
+    this.route.toHome();
 
   }
 
@@ -38,5 +44,9 @@ export class HeaderComponent {
     this.route.toLogin()
   }
 
+  
+ sideNavToggle(){
+  this.toggle.navToggle()
+ }
 
 }

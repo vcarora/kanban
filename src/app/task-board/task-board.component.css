@@ -1,0 +1,16 @@
+#task-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1{
+    border : 1px solid orange;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.task-status{
+    width: 22%;
+}
