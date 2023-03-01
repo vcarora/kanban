@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -40,10 +41,26 @@ import {MatCardModule,MatCardHeader} from '@angular/material/card';
 import { TaskBoardComponent } from './task-board/task-board.component';
 import { TaskCardComponent } from './task-card/task-card.component'
 
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { HomeComponent } from './home/home.component';
+import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import {MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
@@ -57,11 +74,19 @@ import { TaskCardComponent } from './task-card/task-card.component'
     TaskBoardComponent,
     TaskCardComponent,
 
+
+    NavBarComponent,
+    HomeComponent,
+    ContactUsComponent,
+    LoginComponent,
+    RegisterComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
@@ -83,6 +108,15 @@ import { TaskCardComponent } from './task-card/task-card.component'
     MatMenuModule,
     MatToolbarModule,
     MatTabsModule,
+
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    ScrollingModule,
+
     MatCardModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule],
