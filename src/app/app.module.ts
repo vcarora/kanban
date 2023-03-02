@@ -39,19 +39,24 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule,MatCardHeader} from '@angular/material/card';
 import { TaskBoardComponent } from './task-board/task-board.component';
 import { TaskCardComponent } from './task-card/task-card.component'
-
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
+
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import {GoogleLoginProvider, FacebookLoginProvider} from '@abacritt/angularx-social-login';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
-
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
@@ -63,8 +68,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     AddMemberDialogComponent,
     TaskBoardComponent,
     TaskCardComponent,
-
-
     NavBarComponent,
     HomeComponent,
     ContactUsComponent,
@@ -97,13 +100,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatMenuModule,
     MatTabsModule,
     LayoutModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatListModule,
     ScrollingModule,
+    MatToolbarModule,
     MatCardModule,
     SocialLoginModule,
     FlexLayoutModule
+
+ 
+
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
     provide: 'SocialAuthServiceConfig',

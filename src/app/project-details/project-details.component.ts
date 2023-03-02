@@ -20,6 +20,11 @@ export class ProjectDetailsComponent {
   constructor(public dialog : MatDialog, private project : ProjectService, private token : TokenStorageService){}
 
   task : task ={}
+
+
+  ngOnInit(){
+   
+  }
   
 
   taskDialog():  void {
@@ -65,4 +70,8 @@ export class ProjectDetailsComponent {
        })
       }
   }
+
+  
+
+  
 }

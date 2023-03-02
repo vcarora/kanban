@@ -43,6 +43,7 @@ export class ProjectService {
     return this.http.delete<any>(PROJECT_API+'delete/'+project_id,httpOptions)
   }
 
+
   getAssignedProjects(): Observable<any>{
     return this.http.get(PROJECT_API+'getAssigned')
   }
