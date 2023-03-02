@@ -16,6 +16,7 @@ footer{
   background-color: #212a37;
   height: 100px;
   width: 100%;
+
 }
 
 h2{
@@ -24,6 +25,14 @@ h2{
   font-size: 25px;
   font-family: 'Phudu', cursive;
   letter-spacing: 0.2rem;
+}
+
+h3{
+  font-size: 25px;
+  font-family: 'Phudu', cursive;
+  color: white;
+  margin-top: 40px;
+  margin-left: 350px;
 }
 
 video{
