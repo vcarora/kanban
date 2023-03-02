@@ -1,9 +1,11 @@
 <div>
+    <img src="../../assets/kanban.png" alt="background" id="img1">
+    <h1>WELCOME BACK !</h1>
     <div id="login-form" [class.mat-elevation-z2]="true">
         <a href=""></a>
-            <h1>Log In</h1>
+            <h2>Login</h2>
             <form [formGroup]="loginForm" (submit)="onLogin()">
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="outline">
                     <mat-label>Email Id</mat-label>
                     <input matInput type="email" formControlName="email">
                     <mat-error *ngIf="email?.errors?.['required']">
@@ -12,7 +14,7 @@
         
                 </mat-form-field>
         
-                <mat-form-field >
+                <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput type="password" formControlName="password">
                     <mat-error *ngIf="password?.invalid">
@@ -21,17 +23,19 @@
                  
                 </mat-form-field>
         
-                <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm?.valid">Login</button>
-        
-        
+                <button mat-mini-fab color="primary" type="submit" [disabled]="!loginForm.valid"><mat-icon>arrow_forward_ios</mat-icon></button>
+                <div id="register">
+                    <p>forgot Password?</p>
+                </div>
+                <button mat-mini-fab routerLink="/home" id="btn"><mat-icon id="back">arrow_back_ios</mat-icon></button>
+    
             </form>
         
             
         </div>
-        <div id="register">
-            <p>Forgot Password?</p>
-            <p routerLink="/register">Create Account</p>
-        </div>
+       
+       
+       
 
 </div>
 
