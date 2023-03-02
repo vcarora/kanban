@@ -4,3 +4,6 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; --navbar-scroll: transparent; 
     --navbar-scroll-text: white;
     --navbar-scroll-shadow: none; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

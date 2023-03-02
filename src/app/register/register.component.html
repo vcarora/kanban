@@ -1,9 +1,33 @@
 
+
+<mat-card>
+    <mat-card-title><h2>Collabrate With Your colleagues</h2></mat-card-title>
+    <mat-card-content>  
+        <h3>get all the updates to your pocket</h3>
+        <h3>Manage everthing in one single app</h3>
+        <h3>Share resources to anyone</h3>
+        <h3>Come OnBoard with us and get the full benefits</h3>
+        <h3>Below are some reviews from our "Satisfied Customer"...</h3>
+    
+    <div class="d-flex">
+        <div class="card">
+            <h2>Review 1</h2>
+        </div>
+        <div class="card">
+            <h2>Review 2</h2>
+        </div>
+
+    </div>
+    </mat-card-content>
+</mat-card>
+
+<h1>Get Started <br> 
+    <h3>Create Your Account Now</h3></h1>
 <div id="register-form" [class.mat-elevation-z2]="true">
-    <h1>Register</h1>
+    <h2>SignUP</h2>
     <form [formGroup]="registerForm" (submit)="onRegister()">
 
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="outline">
             <mat-label>Name</mat-label>
             <input matInput type="text" formControlName="name">
             <mat-error *ngIf="name?.errors?.['required']">
@@ -15,7 +39,7 @@
 
 
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance ="outline">
             <mat-label>Email Id</mat-label>
             <input matInput type="email" formControlName="email">
             <mat-error *ngIf="email?.errors?.['required']">
@@ -26,7 +50,7 @@
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field >
+        <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput type="password" formControlName="password">
             <mat-error *ngIf="password?.invalid">
@@ -35,8 +59,8 @@
          
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm?.valid">Register</button>
-
+        <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+        <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with" *ngIf="!user"></asl-google-signin-button>
 
     </form>
 
