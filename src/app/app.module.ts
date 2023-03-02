@@ -51,9 +51,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,8 +102,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCardModule,
     SocialLoginModule,
     FlexLayoutModule
-
- 
 
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
