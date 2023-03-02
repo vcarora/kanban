@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -42,8 +41,15 @@ import { TaskBoardComponent } from './task-board/task-board.component';
 import { TaskCardComponent } from './task-card/task-card.component'
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { ContactUsComponent } from './contact-us/contact-us.component';
+
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {GoogleLoginProvider, FacebookLoginProvider} from '@abacritt/angularx-social-login';
+import { FlexLayoutModule } from '@angular/flex-layout'; 
+
+
+
 
 
 
@@ -55,7 +61,6 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     RegisterComponent,
     DashboardComponent,
     HomeComponent,
-    HeaderComponent,
     NotFoundComponent,
     ProjectDialogComponent,
     ProjectDetailsComponent,
@@ -67,7 +72,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     HomeComponent,
     ContactUsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+
 
   ],
   imports: [
@@ -92,13 +98,38 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     MatExpansionModule,
     MatTooltipModule,
     MatMenuModule,
-    MatToolbarModule,
     MatTabsModule,
     LayoutModule,
     ScrollingModule,
-    MatCardModule
+    MatToolbarModule,
+    MatCardModule,
+    SocialLoginModule,
+    FlexLayoutModule
+
+ 
+
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(
+            '1010487201024-5afoeor6v4440ogm6bttlcqsm918i8of.apps.googleusercontent.com'
+          )
+        },
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('clientId')
+        }
+      ],
+      onError: (err) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

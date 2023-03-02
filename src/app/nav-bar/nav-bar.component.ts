@@ -2,6 +2,10 @@ import { Component, Host, HostListener } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { TokenStorageService } from '../services/token-storage.service';
+import { LoginService } from '../services/login.service';
+import { RouterService } from '../services/router.service';
+import { ToggleService } from '../services/toggle.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,23 +20,40 @@ export class NavBarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private token : TokenStorageService, private route : RouterService,private loginService : LoginService, private toggle :ToggleService) {}
+
+  isLoggedIn = false;
 
 
-    ngOnInit(): void {
-    }
+  loginStatus : boolean = false
 
-  navbar_var: boolean = false;
+  ngOnInit() : void{
+   let user = this.token.getToken();
+   if(user){
+     console.log(user)
+     this.isLoggedIn = true;
+   }else 
+   this.isLoggedIn =false
 
-  @HostListener("window.scroll")
-  scrollevent(){
-    if(document.body.scrollTop > 0 || document.documentElement.scrollTop > 0){
-      this.navbar_var = true;
-    }
-    else{
-      this.navbar_var= false;
-    }
-  }
+   this.loginService.loginStatus.subscribe( (staus)=>{
+     this.isLoggedIn = staus
+   })
+ } 
+
+ logout(): void{
+   this.token.logOut()
+   this.isLoggedIn = false
+
+ }
+
+ login():void{
+   this.route.toLogin()
+ }
+
+ 
+sideNavToggle(){
+ this.toggle.navToggle()
+}
 
 
 }

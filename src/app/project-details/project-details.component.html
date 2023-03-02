@@ -1,9 +1,9 @@
 <div id="main-container">
     <div id="top-bar">
         <div >
-            <h1>{{projectDetails?.name}}</h1>
+            <h1>{{projectDetails.name}}</h1>
            
-            <p>{{projectDetails?.duration}} </p>
+            <p>{{projectDetails.duration}} </p>
         </div>
         <div>
             <!-- <button mat-icon-button (click)="taskDialog()" ><mat-icon>add</mat-icon></button>
@@ -34,7 +34,7 @@
               <mat-card class="scrollable-content">
                
                 <mat-card-content>
-                  <app-task-board [taskList]="projectDetails?.taskList"></app-task-board>
+                  <app-task-board [taskList]="projectDetails.taskList"></app-task-board>
                 </mat-card-content>
               </mat-card>
             </mat-tab>
@@ -42,7 +42,7 @@
                 <mat-card  class="scrollable-content">
                  
                   <mat-card-content>
-                    <p>{{projectDetails?.description}} </p>
+                    <p>{{projectDetails.description}} </p>
                   </mat-card-content>
                 </mat-card>
               </mat-tab>

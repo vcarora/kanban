@@ -13,7 +13,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
    
-    <mat-toolbar id="navbar" [class.navbar]="navbar_var">
+    <mat-toolbar id="navbar">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -23,13 +23,13 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
    
-      <span><button id="logo"><img src="../../assets/FOKUS-01.png" alt="" ></button></span>
+      <span><button id="logo"><img src="../../assets/FOKUS-01.png" alt="" routerLink="/home"></button></span>
    
-      <button  mat-flat-button id="btn">Contact Us</button>
-      <button mat-raised-button color="primary" id="btn1">Log In</button>
-      <button mat-raised-button id="btn2">Sign Up</button>
+      <button  mat-flat-button id="btn" routerLink="/contact">Contact Us</button>
+      <button mat-raised-button color="primary" id="btn1" (click)="login()">Log In</button>
+      <button mat-raised-button id="btn2" routerLink="/register">Sign Up</button>
     </mat-toolbar>
-    <!-- <app-contact-us></app-contact-us> -->
+    <router-outlet></router-outlet>
     <!-- <app-home ></app-home> -->
     <!-- Add Content Here -->
   </mat-sidenav-content> 

@@ -1,8 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:wght@600&family=Phudu:wght@600&family=Raleway:wght@900&family=Roboto+Mono:ital,wght@1,600&display=swap');
+
+
+
 #top-bar{
     display: flex;
     padding-left: 2rem;
     justify-content: flex-start;
     text-align: center;
+    background-color: transparent;
+}
+
+
+h1{
+    font-family: 'Phudu', cursive;
+    font-weight: 900px;
+    font-size: 40px;
 }
 button{
     margin-right: 2rem;
@@ -13,6 +26,10 @@ button{
 #project-container{
     display: flex;
     justify-content: space-around;
+}
+
+#main-container{
+    height: 100%;
 }
 
 #projects-list{
@@ -36,7 +53,7 @@ button{
     margin-right: 1rem;
 }
 
-  .app-sidenav-content {
+.app-sidenav-content {
     display: flex;
     height: 100%;
     align-items: center;
@@ -45,6 +62,9 @@ button{
 
 .app-sidenav {
     width: 270px;
+    background-color: transparent;
+    margin-left: 30px;
+    height: 100%;
 }
 .app-sidenav-content {
     display: flex;
@@ -53,4 +73,11 @@ button{
     justify-content: center;
 } 
 
+
+.app-container{
+    background-color: transparent;
+}
+
   
+
+
