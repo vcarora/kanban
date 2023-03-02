@@ -18,8 +18,8 @@
                 <mat-expansion-panel-header>
                     Assigned Projects
                 </mat-expansion-panel-header>
-                <mat-nav-list>
-                    <a mat-list-item routerLink="#">Spring</a>
+                <mat-nav-list *ngFor="let project of assignedProjects">
+                    <a mat-list-item (click)="showProjectDetails(project)">{{project?.name}}</a>
                     
                 </mat-nav-list>
             </mat-expansion-panel>
@@ -45,4 +45,3 @@
     </mat-sidenav-content>
 </mat-sidenav-container>
 
- 

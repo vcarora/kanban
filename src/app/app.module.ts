@@ -77,7 +77,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
     MatIconModule,
     MatListModule,
     MatFormFieldModule,
@@ -95,19 +94,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSidenavModule,
     MatExpansionModule,
     MatTooltipModule,
-    MatSidenavModule,
     MatMenuModule,
-    MatToolbarModule,
     MatTabsModule,
-
     LayoutModule,
     MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
     MatIconModule,
     MatListModule,
     ScrollingModule,
-
     MatCardModule,
     SocialLoginModule,
     FlexLayoutModule

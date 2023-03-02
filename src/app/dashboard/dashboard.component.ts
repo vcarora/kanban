@@ -18,6 +18,8 @@ export class DashboardComponent {
 
   projectsList : project[] = []
 
+  assignedProjects : project[] =[]
+
   selectedProject : project = {}
 
   showFiller = false;
@@ -30,12 +32,11 @@ export class DashboardComponent {
       next: data =>{
         console.log(data)
         this.projectsList = data
-      }
-     
+      }     
     })
-    this.toggle.toggleStatus.subscribe((status)=>{
-      this.sidenav = status
-    })
+
+    this.getAssignedProjects()
+
 
   }
 
@@ -53,4 +54,17 @@ export class DashboardComponent {
 
     console.log(this.selectedProject)
   }
+
+  getCreatedProjects(){
+
+  }
+
+  getAssignedProjects(){
+    this.project.getAssignedProjects().subscribe({
+      next : data=>{
+        this.assignedProjects = data
+      }
+    })
+  }
+
 }
