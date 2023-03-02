@@ -18,7 +18,7 @@ export class DashboardComponent {
 
   projectsList : project[] = []
 
-  assignedProjects : project[] =[]
+  assignedProjects : project[] =[];
 
   selectedProject : project = {}
 
