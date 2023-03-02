@@ -20,6 +20,7 @@ export class DashboardComponent {
 
   assignedProjects : project[] =[];
 
+
   selectedProject : project = {}
 
   showFiller = false;
@@ -36,7 +37,8 @@ export class DashboardComponent {
     })
 
     this.getAssignedProjects()
-    
+
+
   }
 
   openDialog() {

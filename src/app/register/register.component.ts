@@ -50,14 +50,22 @@ export class RegisterComponent {
     // console.log(this.registerForm.value.name)
     // console.log(this.registerForm.value.password)
      let name : any;
+     let email : any
+     let password : any
      if(this.registerForm.value.name){
-      return name = this.registerForm.value.name;
+       name = this.registerForm.value.name;
+       email = this.registerForm.value.email
+       password = this.registerForm.value.password
      }
      else{
       name = this.user.name;
+      email = this.user.email
+      password = null;
+      console.log("Else con")
+
      }
-     let email : any;
-     let password : any = this.registerForm.value.password
+    //  let email : any;
+    //  let password : any = this.registerForm.value.password
      this.loginService.register(name,email,password).subscribe({
       next : data =>{   
         console.log(data)

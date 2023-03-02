@@ -98,12 +98,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatExpansionModule,
     MatTooltipModule,
     MatMenuModule,
-    MatToolbarModule,
     MatTabsModule,
     LayoutModule,
     ScrollingModule,
-
-
+    MatToolbarModule,
     MatCardModule,
     SocialLoginModule,
     FlexLayoutModule
