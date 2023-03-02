@@ -5,32 +5,28 @@
            
             <p>{{projectDetails.duration}} </p>
         </div>
-        <div>
-            <!-- <button mat-icon-button (click)="taskDialog()" ><mat-icon>add</mat-icon></button>
-            <button mat-icon-button (click)="addMember()"><mat-icon>group_add</mat-icon></button> -->
-            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="taskDialog()">
+        <mat-card id="card">
+          <mat-card-content>
+              
+                <button mat-fab (click)="taskDialog()">
                   <mat-icon>add</mat-icon>
-                  <span>Add Task</span>
-                </button>
-                <button mat-menu-item (click)="addMember()">
+                </button><br><br><br><br>
+                <button mat-fab (click)="addMember()">
                   <mat-icon>group_add</mat-icon>
-                  <span>Add Members</span>
-                </button>
-                <button mat-menu-item (click)="deleteProject()">
+                </button><br><br><br><br>
+                <button mat-fab (click)="deleteProject()">
                   <mat-icon>delete</mat-icon>
-                  <span>Delete Project</span>
                 </button>
-              </mat-menu>
-
-        </div>
+      
+            </mat-card-content>
+        </mat-card>
     </div>
         
-        <mat-tab-group>
-            <mat-tab label="Tasks">
+        <mat-tab-group color="warn" fitInkBarToContent> 
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <h1>TASK</h1>
+              </ng-template>
               <mat-card class="scrollable-content">
                
                 <mat-card-content>
@@ -39,6 +35,9 @@
               </mat-card>
             </mat-tab>
             <mat-tab label="Description">
+              <ng-template mat-tab-label>
+                <h1>Description</h1>
+              </ng-template>
                 <mat-card  class="scrollable-content">
                  
                   <mat-card-content>
@@ -47,6 +46,9 @@
                 </mat-card>
               </mat-tab>
             <mat-tab label="Members">
+              <ng-template mat-tab-label>
+                <h1>Members</h1>
+              </ng-template>
               <mat-card  class="scrollable-content">
                
                 <mat-card-content>
