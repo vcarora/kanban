@@ -1,7 +1,7 @@
 <div id="task-container">
           
         <div id="todo" class="task-status">
-            <h1>TO DO</h1>
+            <h1><mat-icon>create</mat-icon>TO DO</h1>
             <div *ngFor="let task of taskList">
                 <div *ngIf="task?.status=== 'TO DO'">
                     <app-task-card [task]="task"></app-task-card> 
@@ -10,7 +10,7 @@
 
         </div>
         <div id="in-progress" class="task-status" >
-            <h1>IN PROGRESS</h1>
+            <h1><mat-icon>loop</mat-icon>IN PROGRESS</h1>
             <div *ngFor="let task of taskList">
                 <div *ngIf="task?.status=== 'In Progress'">
                     <app-task-card [task]="task"></app-task-card> 
@@ -19,7 +19,7 @@
 
         </div>
         <div id="submitted" class="task-status">
-            <h1>SUBMITTED</h1>
+            <h1><mat-icon>check_circle_outline</mat-icon>SUBMITTED</h1>
             <div *ngFor="let task of taskList">
                 <div *ngIf="task?.status=== 'Submitted'">
                     <app-task-card [task]="task"></app-task-card> 
@@ -28,7 +28,7 @@
 
         </div>
         <div id="completed" class="task-status">
-            <h1>COMPLETED</h1>
+            <h1><mat-icon id="done">check_circle</mat-icon>COMPLETED</h1>
             <div *ngFor="let task of taskList">
                 <div *ngIf="task?.status=== 'Completed'">
                     <app-task-card [task]="task"></app-task-card> 
