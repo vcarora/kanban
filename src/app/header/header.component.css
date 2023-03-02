@@ -1,0 +1,44 @@
+/* nav{
+    width: 100%;
+    background-color: transparent;
+    position: sticky;
+    
+}
+
+#nav-container{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+   
+
+}
+
+h1{    
+    color: aliceblue;
+    vertical-align: middle;
+    margin: .3rem;
+}
+button{
+   
+    margin-right: 1rem;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+} */
+
+.toolbar-item-spacer {
+    flex: 1 1 auto;
+}
+
+.app-container {
+    height: 90%;
+    margin: 0;
+}  
+.app-sidenav {
+    width: 270px;
+}
+.app-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+} 

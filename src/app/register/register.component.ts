@@ -58,7 +58,7 @@ export class RegisterComponent {
      }
      let email : any;
      let password : any = this.registerForm.value.password
-     this.loginService.register(name,email,password,"user").subscribe({
+     this.loginService.register(name,email,password).subscribe({
       next : data =>{   
         console.log(data)
   

@@ -18,6 +18,8 @@ export class DashboardComponent {
 
   projectsList : project[] = []
 
+  assignedProjects : project[] =[]
+
   selectedProject : project = {}
 
   showFiller = false;
@@ -30,13 +32,11 @@ export class DashboardComponent {
       next: data =>{
         console.log(data)
         this.projectsList = data
-      }
-     
-    })
-    this.toggle.toggleStatus.subscribe((status)=>{
-      this.sidenav = status
+      }     
     })
 
+    this.getAssignedProjects()
+    
   }
 
   openDialog() {
@@ -52,5 +52,17 @@ export class DashboardComponent {
     this.token.saveProjectId(project?.project_id)
 
     console.log(this.selectedProject)
+  }
+
+  getCreatedProjects(){
+
+  }
+
+  getAssignedProjects(){
+    this.project.getAssignedProjects().subscribe({
+      next : data=>{
+        this.assignedProjects = data
+      }
+    })
   }
 }
