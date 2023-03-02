@@ -35,9 +35,6 @@ export class RegisterComponent {
         })
     }
 
-
-
-
   registerForm = this.fb.group({
     email : ['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
     password : ['',[Validators.required,Validators.minLength(8)]],
@@ -59,7 +56,7 @@ export class RegisterComponent {
      else{
       name = this.user.name;
      }
-     let email : any = this.registerForm.value.email
+     let email : any;
      let password : any = this.registerForm.value.password
      this.loginService.register(name,email,password,"user").subscribe({
       next : data =>{   
@@ -87,6 +84,4 @@ export class RegisterComponent {
       }
      })
   }
-
-
 }
