@@ -4,7 +4,10 @@ import { NgForm } from '@angular/forms';
 import { message } from '../model/chat';
 import { ChatService } from '../services/chat.service';
 import { LoginService } from '../services/login.service';
+import { RouterService } from '../services/router.service';
 import { TokenStorageService } from '../services/token-storage.service';
+import { interval, observable, Observable, Subscription } from 'rxjs';
+import { switchMap, takeWhile } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact-us',
@@ -13,7 +16,8 @@ import { TokenStorageService } from '../services/token-storage.service';
 })
 export class ContactUsComponent {
 
-  constructor(private chat : ChatService, private token : TokenStorageService,private login : LoginService){}
+  constructor(private chat : ChatService, private token : TokenStorageService,private login : LoginService,
+    private route : RouterService){}
 
   formData : any ={}
 
@@ -23,29 +27,55 @@ export class ContactUsComponent {
 
   isLoggedIn : boolean = false;
 
-  ngOnInit(){
-
+  async ngOnInit() { 
+    while (true) { 
+    await this.getMessage() 
     this.chat.newChat().subscribe({
-      next: data=>{
-        console.log(data)
-      }
-    })
-
-    this.getMessage()
-    this.email = this.token.getEmail()
-
-    this.login.loginStatus.subscribe((status)=>{
-      this.isLoggedIn = status
-      console.log(this.isLoggedIn)
-    })
+          next: data=>{
+            console.log(data)
+          }
+        })
+    
+        //this.getMessage()
+        this.email = this.token.getEmail()
+    
+        this.login.loginStatus.subscribe((status)=>{
+          this.isLoggedIn = status
+          console.log(this.isLoggedIn)
+        })
+    
+      await this.delay(1000); 
+    } 
+  } 
+  delay(milliseconds: number) { 
+    return new Promise(resolve => setTimeout(resolve, milliseconds)); 
   }
+  // ngOnInit(){
+
+  //   this.chat.newChat().subscribe({
+  //     next: data=>{
+  //       console.log(data)
+  //     }
+  //   })
+
+  //   //this.getMessage()
+  //   this.email = this.token.getEmail()
+
+  //   this.login.loginStatus.subscribe((status)=>{
+  //     this.isLoggedIn = status
+  //     console.log(this.isLoggedIn)
+  //   })
+
+    
+  // }
 
   sendMessage(chat : NgForm){
     this.chat.newMessage(chat.value).subscribe({
       next: data=>{
-        console.log(data)
+       
       }
     })
+    //this.route.toContact()
   }
 
   getMessage(){
@@ -56,6 +86,5 @@ export class ContactUsComponent {
     })
   }
 
- 
 
 }

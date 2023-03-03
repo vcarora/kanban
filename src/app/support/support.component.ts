@@ -21,9 +21,13 @@ export class SupportComponent {
 
   constructor(private chat : ChatService, private token : TokenStorageService){}
 
-  ngOnInit(){
+   ngOnInit(){
     this.getChats()
    
+     
+  }
+  delay(milliseconds: number) { 
+    return new Promise(resolve => setTimeout(resolve, milliseconds)); 
   }
 
   sendMessage(chat : NgForm){
@@ -34,8 +38,9 @@ export class SupportComponent {
     })
   }
 
-  getMessages(chat_id : any){
-     this.token.saveUserEmail(chat_id.substring(7))
+  async getMessages(chat_id : any){
+
+    await  this.token.saveUserEmail(chat_id.substring(7))
 
     setTimeout(()=>{
       this.chat.getMessage(chat_id).subscribe({
@@ -46,7 +51,8 @@ export class SupportComponent {
       this.email = this.token.getUserEmail()
 
     },1000)
-   
+
+    await this.delay(10000)
   }
 
   getChats(){
