@@ -35,7 +35,8 @@ span{
 
 #btn{
   background-color: transparent;
-  margin-left: 1000px;
+  margin-left: auto;
+  margin-top: 30p;
   color: white;
 }
 

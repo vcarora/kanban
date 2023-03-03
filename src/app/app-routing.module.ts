@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './services/auth.guard';
+import { SupportComponent } from './support/support.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
   {path: "home",component: HomeComponent},
   {path: "contact", component: ContactUsComponent},
+  {path: "support",component: SupportComponent},
   {path : "**",component: NotFoundComponent}
   
 ];

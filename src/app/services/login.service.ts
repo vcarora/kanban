@@ -15,11 +15,13 @@ const httpOptions = {
 export class LoginService {
 
   isLoggedIn : boolean = false;
+  isAdmin : boolean = false;
   
 
   constructor(private http : HttpClient) {}
 
    loginStatus = new EventEmitter<any>(); 
+  adminStatus = new EventEmitter<any>();
 
   // get isLoggedIn(){
   //   return this.loginStatus.asObservable()
@@ -35,8 +37,13 @@ export class LoginService {
   login(email : string, password : string): Observable<any>{
     let logginIn : any =  this.http.post(AUTH_API+'employee/login',{email,password},httpOptions);
     console.log("login service : "+logginIn)
+    if(email === 'care.fokus@gmail.com'){
+      this.isAdmin = true;
+    }else 
+    this.isAdmin = false
     this.isLoggedIn = true
     this.loginStatus.emit(this.isLoggedIn)
+    this.adminStatus.emit(this.isAdmin)
     return logginIn;
   }
 
