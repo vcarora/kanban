@@ -9,7 +9,7 @@
                 <mat-expansion-panel-header>
                     My Projects
                 </mat-expansion-panel-header>
-                <mat-nav-list *ngFor="let project of projectsList">
+                <mat-nav-list *ngFor="let project of projectsList$">
                     <a mat-list-item (click)="showProjectDetails(project)">{{project?.name}}</a>
                 </mat-nav-list>
             </mat-expansion-panel>

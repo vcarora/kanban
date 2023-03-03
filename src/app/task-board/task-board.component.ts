@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { task } from '../model/project';
+import { ProjectService } from '../services/project.service';
+import { TaskCardComponent } from '../task-card/task-card.component';
 
 @Component({
   selector: 'app-task-board',
@@ -11,4 +13,9 @@ export class TaskBoardComponent {
 @Input()
 taskList : task[] | undefined =[] 
 
+
+ngOnInit(){
+
+
+}
 }
