@@ -24,8 +24,10 @@ export class NavBarComponent {
 
   isLoggedIn = false;
 
+  isAdmin = false;
 
   loginStatus : boolean = false
+  
 
   ngOnInit() : void{
    let user = this.token.getToken();
@@ -38,11 +40,17 @@ export class NavBarComponent {
    this.loginService.loginStatus.subscribe( (staus)=>{
      this.isLoggedIn = staus
    })
+   this.loginService.adminStatus.subscribe( (staus)=>{
+    this.isAdmin = staus
+  })
+
+   
  } 
 
  logout(): void{
    this.token.logOut()
    this.isLoggedIn = false
+   this.route.toHome();
 
  }
 

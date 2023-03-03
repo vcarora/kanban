@@ -25,9 +25,11 @@
    
       <span><button id="logo"><img src="../../assets/FOKUS-01.png" alt="" routerLink="/home"></button></span>
    
-      <button  mat-flat-button id="btn" routerLink="/contact">Contact Us</button>
-      <button mat-raised-button color="primary" id="btn1" (click)="login()">Log In</button>
-      <button mat-raised-button id="btn2" routerLink="/register">Sign Up</button>
+      <button  mat-flat-button id="btn" routerLink="/contact" [hidden]="isAdmin">Contact Us</button>
+      <button  mat-flat-button id="btn" routerLink="/support" [hidden]="!isAdmin" >Support</button>
+      <button mat-raised-button color="primary" id="btn1" (click)="logout()" [hidden]="!isLoggedIn">Log Out</button>
+      <button mat-raised-button color="primary" id="btn1" (click)="login()" [hidden]="isLoggedIn">Log In</button>
+      <button mat-raised-button id="btn2" routerLink="/register" [hidden]="isLoggedIn">Sign Up</button>
     </mat-toolbar>
     <router-outlet></router-outlet>
     <!-- <app-home ></app-home> -->

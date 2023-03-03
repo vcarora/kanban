@@ -9,6 +9,7 @@
         <div id="support">
             <h2>Fokus Chat Support</h2>
           </div>
+          <div id="chat-history" >
           <mat-card-content *ngFor="let message of messages">
       
             <div id="sender" *ngIf="message?.email === 'care.fokus@gmail.com'">
@@ -19,6 +20,7 @@
             </div>
       
           </mat-card-content>
+        </div>
           <div id="input-message">
             <form #chat="ngForm" (ngSubmit)="sendMessage(chat)">        
                 <mat-form-field appearance="outline">      

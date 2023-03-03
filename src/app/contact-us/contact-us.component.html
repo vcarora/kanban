@@ -1,5 +1,6 @@
-<mat-card class="mat-card">
-    <!-- <mat-card-title><h1>WRITE TO US!</h1></mat-card-title>
+<mat-card class="mat-card" >
+  <!-- <div [hidden]="!isLoggedIn">
+    <mat-card-title><h1>WRITE TO US!</h1></mat-card-title>
     <mat-card-content>
         <form>
             <input type="text" name="name" class="question" id="nme" required autocomplete="off" />
@@ -8,12 +9,15 @@
             <label for="msg"><span>How Can We Help You?</span></label>
             <input id="submit" type="submit" value="Submit" />
           </form>
-    </mat-card-content> -->
+    </mat-card-content>
 
-    <div id="support">
-      <h2>Fokus Chat Support</h2>
-    </div>
-    <mat-card-content *ngFor="let message of messages">
+  </div> -->
+
+  <div id="support">
+    <h2>Fokus Chat Support</h2>
+  </div>
+  <div id="chat-history">
+    <mat-card-content  *ngFor="let message of messages">
 
       <div id="sender" *ngIf="message?.email === email">
         <p>{{message.message}}</p>
@@ -23,14 +27,20 @@
       </div>
 
     </mat-card-content>
-    <div id="input-message">
-      <form #chat="ngForm" (ngSubmit)="sendMessage(chat)">        
-          <mat-form-field appearance="outline">      
-            <input matInput type="text" name="message" placeholder="type your query here" [(ngModel)]="formData.message" #message="ngModel" required>
-          </mat-form-field>
-          <button mat-icon-button type="submit" [disabled]="chat.form.invalid"><mat-icon>send</mat-icon></button>
-      </form>
-    </div>
+
+
+  </div>
+      <div id="input-message">
+    <form #chat="ngForm" (ngSubmit)="sendMessage(chat)">        
+        <mat-form-field appearance="outline">      
+          <input matInput type="text" name="message" placeholder="type your query here" [(ngModel)]="formData.message" #message="ngModel" required>
+        </mat-form-field>
+        <button mat-icon-button type="submit" [disabled]="chat.form.invalid"><mat-icon>send</mat-icon></button>
+    </form>
+  </div>
+
+
+    
 
   </mat-card>
   <div>

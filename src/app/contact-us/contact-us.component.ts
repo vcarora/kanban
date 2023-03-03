@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { message } from '../model/chat';
 import { ChatService } from '../services/chat.service';
+import { LoginService } from '../services/login.service';
 import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
@@ -12,13 +13,15 @@ import { TokenStorageService } from '../services/token-storage.service';
 })
 export class ContactUsComponent {
 
-  constructor(private chat : ChatService, private token : TokenStorageService){}
+  constructor(private chat : ChatService, private token : TokenStorageService,private login : LoginService){}
 
   formData : any ={}
 
   messages : message[] = []
 
   email : any =''
+
+  isLoggedIn : boolean = false;
 
   ngOnInit(){
 
@@ -30,6 +33,11 @@ export class ContactUsComponent {
 
     this.getMessage()
     this.email = this.token.getEmail()
+
+    this.login.loginStatus.subscribe((status)=>{
+      this.isLoggedIn = status
+      console.log(this.isLoggedIn)
+    })
   }
 
   sendMessage(chat : NgForm){
