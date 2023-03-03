@@ -11,7 +11,6 @@
                 </mat-expansion-panel-header>
                 <mat-nav-list *ngFor="let project of projectsList">
                     <a mat-list-item (click)="showProjectDetails(project)">{{project?.name}}</a>
-                    
                 </mat-nav-list>
             </mat-expansion-panel>
             <mat-expansion-panel [class.mat-elevation-z0]="true">
@@ -20,7 +19,6 @@
                 </mat-expansion-panel-header>
                 <mat-nav-list *ngFor="let project of assignedProjects">
                     <a mat-list-item (click)="showProjectDetails(project)">{{project?.name}}</a>
-                    
                 </mat-nav-list>
             </mat-expansion-panel>
         </mat-nav-list>
@@ -31,7 +29,7 @@
     
         <div id="top-bar">
             <button mat-icon-button  (click)="sidenav.toggle()"><mat-icon>arrow_back_ios</mat-icon></button>
-            <h1>Projects</h1>            
+            <h1>Projects <button id="i" (click)="reload()"><i class="fa-solid fa-rotate-right"></i></button></h1>            
         </div>
 
         <div id="project-container">           

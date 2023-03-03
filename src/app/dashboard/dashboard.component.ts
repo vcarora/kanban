@@ -5,6 +5,7 @@ import { ProjectDialogComponent } from '../dialog/project-dialog/project-dialog.
 import { ProjectService } from '../services/project.service';
 import { ToggleService } from '../services/toggle.service';
 import { TokenStorageService } from '../services/token-storage.service';
+import { RouterService } from '../services/router.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ import { TokenStorageService } from '../services/token-storage.service';
 export class DashboardComponent {
 
   constructor(private dialog : MatDialog, private project: ProjectService,
-    private toggle : ToggleService, private token : TokenStorageService){}
+    private toggle : ToggleService, private token : TokenStorageService, private router: RouterService){}
 
   projectsList : project[] = []
 
@@ -39,6 +40,10 @@ export class DashboardComponent {
     this.getAssignedProjects()
 
 
+  }
+
+  reload(){
+    this.router.toDashboard();
   }
 
   openDialog() {
