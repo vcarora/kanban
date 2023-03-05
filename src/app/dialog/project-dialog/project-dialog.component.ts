@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { RouterService } from 'src/app/services/router.service';
 import { ProjectService } from '../../services/project.service';
 
 
@@ -10,7 +11,7 @@ import { ProjectService } from '../../services/project.service';
 })
 export class ProjectDialogComponent {
 
-  constructor(private fb : FormBuilder, private project : ProjectService){}
+  constructor(private fb : FormBuilder, private project : ProjectService, private router : RouterService){}
 
   
   projectForm = this.fb.group({
@@ -32,5 +33,6 @@ export class ProjectDialogComponent {
         console.log(data)
       }
     })
+    this.router.toDashboard()
 }
 }

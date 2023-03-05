@@ -69,6 +69,7 @@ export class ProjectDetailsComponent {
         // window.location.reload()
        })
       }
+      
   }
 
   

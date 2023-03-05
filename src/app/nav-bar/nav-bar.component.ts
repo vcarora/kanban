@@ -42,10 +42,26 @@ export class NavBarComponent {
    })
    this.loginService.adminStatus.subscribe( (staus)=>{
     this.isAdmin = staus
-  })
+  })  
 
-   
+  //window.addEventListener('scroll',this.changeBg)
  } 
+
+ toolbar_variable : boolean = false
+ @HostListener('window:scroll',['$event']) scrollFunc(e : Event){
+ 
+    let scrollValue = (e.target as Element).scrollTop  
+  if (scrollValue > 20)
+  {
+    this.toolbar_variable = true
+  }
+  else
+  {
+    this.toolbar_variable = false
+  }
+    
+}
+ 
 
  logout(): void{
    this.token.logOut()
