@@ -46,10 +46,9 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import {GoogleLoginProvider, FacebookLoginProvider} from '@abacritt/angularx-social-login';
-import { FlexLayoutModule } from '@angular/flex-layout'; 
-
-
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { SupportComponent } from './support/support.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -73,6 +72,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ContactUsComponent,
     LoginComponent,
     RegisterComponent,
+    SupportComponent,
+    FooterComponent
 
 
   ],
@@ -105,8 +106,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCardModule,
     SocialLoginModule,
     FlexLayoutModule
-
- 
 
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {

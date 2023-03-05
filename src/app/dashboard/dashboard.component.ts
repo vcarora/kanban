@@ -17,7 +17,7 @@ export class DashboardComponent {
   constructor(private dialog : MatDialog, private project: ProjectService,
     private toggle : ToggleService, private token : TokenStorageService, private router: RouterService){}
 
-  projectsList : project[] = []
+  projectsList$ : project[] = []
 
   assignedProjects : project[] =[];
 
@@ -30,14 +30,14 @@ export class DashboardComponent {
 
   ngOnInit(){
 
-    this.project.getProjects().subscribe({
-      next: data =>{
-        console.log(data)
-        this.projectsList = data
-      }     
+    this.getCreatedProjects()
+    this.project.RefreshRequired.subscribe(respose=>{
+      this.getCreatedProjects()
     })
-
     this.getAssignedProjects()
+    this.project.RefreshRequired.subscribe(respose=>{
+      this.getAssignedProjects()
+    })
 
 
   }
@@ -60,8 +60,16 @@ export class DashboardComponent {
 
     console.log(this.selectedProject)
   }
+  
 
   getCreatedProjects(){
+    this.project.getProjects().subscribe({
+      next: data =>{
+        console.log(data)
+        this.projectsList$ = data
+      }     
+    })
+
 
   }
 
