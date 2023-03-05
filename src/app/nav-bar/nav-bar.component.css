@@ -39,7 +39,8 @@ span{
 #logo{
   border: none;
   background-color: transparent;
-  margin-left: -13rem;
+  margin-left: -10rem;
+  width: 25rem;
 }
 
 mat-toolbar>div .btn_original{
