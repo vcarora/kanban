@@ -48,7 +48,10 @@ import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-s
 import {GoogleLoginProvider, FacebookLoginProvider} from '@abacritt/angularx-social-login';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SupportComponent } from './support/support.component';
+import { ForgetPassComponent } from './forget-pass/forget-pass.component';
+import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { FooterComponent } from './footer/footer.component';
+
 
 
 
@@ -73,9 +76,9 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     RegisterComponent,
     SupportComponent,
+    ForgetPassComponent,
+    ResetPassComponent,
     FooterComponent
-
-
   ],
   imports: [
     BrowserModule,
