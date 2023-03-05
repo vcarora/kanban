@@ -7,7 +7,7 @@
     <input matInput [(ngModel)]="data.email">
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
+<div id="actions" mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button [mat-dialog-close]="data.email" cdkFocusInitial>Invite</button>
 </div>

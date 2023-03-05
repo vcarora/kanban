@@ -51,6 +51,8 @@ import { SupportComponent } from './support/support.component';
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { FooterComponent } from './footer/footer.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -108,7 +110,8 @@ import { FooterComponent } from './footer/footer.component';
     MatToolbarModule,
     MatCardModule,
     SocialLoginModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatProgressBarModule
 
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
