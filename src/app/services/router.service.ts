@@ -23,4 +23,8 @@ export class RouterService {
   toHome(){
     this.router.navigate(['home'])
   }
+
+  toContact(){
+    this.router.navigate(['contact'])
+  }
 }
