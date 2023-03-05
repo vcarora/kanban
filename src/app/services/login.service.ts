@@ -46,6 +46,16 @@ export class LoginService {
     this.adminStatus.emit(this.isAdmin)
     return logginIn;
   }
+  forgetPassword(email: string){
+    return this.http.post(Content_API+'employee/forget_password?email='+email,null,{responseType: 'text'});
+  }
 
+  verifyToken(token:string): Observable<any>{
+    return this.http.get(Content_API+'employee//reset_password/forget?key='+token)
+  }
+
+  resetPass(email:string,password:string,token:string){
+    return this.http.post(Content_API+'employee//reset_password/forget?key='+token,{email,password},{responseType: 'text'})
+  }
  
 }
