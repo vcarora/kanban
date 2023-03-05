@@ -59,7 +59,7 @@
          
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+        <button mat-raised-button color="warn" type="submit" [disabled]="!registerForm.valid">Register</button>
         <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with" *ngIf="!user"></asl-google-signin-button>
 
     </form>

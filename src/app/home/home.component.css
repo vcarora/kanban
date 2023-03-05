@@ -1,47 +1,73 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:wght@600&family=Phudu:wght@600&family=Raleway:wght@900&family=Roboto+Mono:ital,wght@1,600&display=swap');
 
+@font-face {
+  font-family: kanyon-light;
+  src: url(../../assets/fonts/Fontspring-DEMO-kanyon-light.otf);
+}
+@font-face {
+  font-family: kanyon-heavy;
+  src: url(../../assets/fonts/Fontspring-DEMO-kanyon-heavy.otf);
+}
+
+@font-face {
+  font-family: kanyon;
+  src: url(../../assets/fonts/Fontspring-DEMO-kanyon-thinit.otf);
+}
 
 h1{
-  margin-top: 100px;
-  margin-left: 150px;
+  margin-top: 110px;
+  margin-left: 100px;
   font-size: 60px;
   font-weight: 900px;
-  font-family: 'Phudu', cursive;
+  font-family: 'kanyon-heavy';
   letter-spacing: 0.2rem;
+  width: 30%;
+  line-height: 60px;
+ 
 }
 
-footer{
-  margin-top: 30px;
-  background-color: #212a37;
-  height: 100px;
-  width: 100%;
 
-}
 
 h2{
   margin-top: 50px;
-  margin-left: 150px;
+  margin-left: 100px;
+  width: 30%;
   font-size: 25px;
-  font-family: 'Phudu', cursive;
+  font-family: 'kanyon-light';
   letter-spacing: 0.2rem;
+  line-height: 30px;
+  padding-top: 10px;
+}
+h2>mat-icon{
+  
+  padding-top: 4px;
+  /* line-height: 20px; */
+}
+#add{
+  color: gray;
 }
 
 h3{
   font-size: 25px;
-  font-family: 'Phudu', cursive;
-  color: white;
-  margin-top: 40px;
-  margin-left: 350px;
+  font-family: 'kanyon';
+  color: gray;
+  margin-top: 100px;
+  margin-left: 100px;
+  line-height: 20px;
+  padding: 10px;
+}
+h3>mat-icon{
+  padding-top: 4px;
 }
 
 video{
-    position: absolute;
-    top: 160px;
-    left: 1050px;
-    width: 700px;
-    background: transparent;
-    border-radius: 10px;
+  float: right;
+  margin-right: 10%;
+  margin-top: -15%;
+  width: 700px;
+  background: transparent;
+  border-radius: 10px;
 }
 
 
@@ -81,8 +107,8 @@ video{
   .c-formContainer {
     position: relative;
     font-weight: 700;
-    margin-left: 250px;
-    margin-top: 50px;
+    margin-left: 100px;
+    margin-top: 30px;
   }
   
   .c-form,
@@ -201,13 +227,7 @@ video{
     font-size: 30px;
   }
 
-  #ft_btn{
-    background-color: transparent;
-    margin-left: 40px;
-    border: none;
-     height: 100%;
-     width: 100px;
-  }
+  
 
   #logo{
     background-color: transparent;
