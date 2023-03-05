@@ -1,0 +1,35 @@
+
+#ft_btn{
+    background-color: transparent;
+    border: none;
+     height: 100%;
+     width: 50px;
+     color: white; 
+  }
+  
+  footer{
+    position: sticky;
+    bottom: 0px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #212a37;
+   height: 120px;
+   width: 100%;
+   padding-left:3%;
+   padding-right: 3%;
+  }
+  #logo{
+    background-color: transparent;
+    border: 0px;
+  }
+
+  img{
+    width: 150px;
+  }
+
+  h3{
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+  }

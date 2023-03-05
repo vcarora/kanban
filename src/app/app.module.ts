@@ -48,6 +48,7 @@ import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-s
 import {GoogleLoginProvider, FacebookLoginProvider} from '@abacritt/angularx-social-login';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SupportComponent } from './support/support.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -71,7 +72,8 @@ import { SupportComponent } from './support/support.component';
     ContactUsComponent,
     LoginComponent,
     RegisterComponent,
-    SupportComponent
+    SupportComponent,
+    FooterComponent
 
 
   ],

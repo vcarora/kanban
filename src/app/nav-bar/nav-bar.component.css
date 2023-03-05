@@ -1,6 +1,7 @@
 .sidenav-container {
-  background-image: url('../../assets/bg1.jpg');
-  height: 100%;
+  background-image: url('../../assets/bg1.png');
+  background-size: cover;
+  height: 100vh;
   background-repeat: no-repeat;
 }
 
@@ -20,8 +21,15 @@
   background-color: transparent;
 }
 
-.navbar{
-  background-color: rgb(14, 12, 12);
+#navbar{
+  /* background-color: rgb(14, 12, 12); */
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+}
+#nav-btns{
+  width: 30%;
+  
 }
 
 span{
@@ -31,21 +39,86 @@ span{
 #logo{
   border: none;
   background-color: transparent;
+  margin-left: -13rem;
 }
 
-#btn{
+mat-toolbar>div .btn_original{
+  background-color: transparent;
+  color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 1rem;
+  padding: 25px 32px 25px 25px;
+  border-radius: 15px;
+}
+
+mat-toolbar>div .btn_login{
   background-color: transparent;
   margin-left: auto;
-  margin-top: 30p;
   color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 1.2rem;
+  padding: 25px 32px 25px 25px;
+  /* border-radius: 15px; */
+}
+mat-toolbar>div .btn_signup{
+  background-color: transparent;
+  color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 1.2rem;
+  padding: 25px 32px 25px 25px;
+  /* border-radius: 15px; */
 }
 
-#btn1{
-  background-color: transparent;
-  margin-left: 50px;
-  margin-right: 50px;
+mat-toolbar>div .btn_login:hover{
+  background-color: white;
+  color: black;
 }
 
 #btn2:hover{
-  background-color: #d979db;
+  background-color: #FF6600;
+  color: white;
 }
+
+.toolbar_change{
+  border-bottom: 1px solid lightgray;
+  background-color: white;
+  height: 100px;
+  position: sticky;
+  transition: all 0.2s linear;
+  top: 0px;
+  z-index: 1;
+  box-shadow: 0px 15px 10px -15px #111;
+}
+mat-toolbar .btn_change{
+  background: transparent;
+  color: #FF6600;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 1rem;
+}
+
+mat-toolbar .btn_login_change{
+  background-color: #FF6600;
+  box-shadow: 0 0 5px #FF6600;
+  color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 1.2rem;
+  padding: 25px 32px 25px 25px;
+  border-radius: 15px;
+}
+
+mat-toolbar .btn_signup_change{
+  background-color: white;
+  color: black;
+  margin-left: 5%;
+  margin-right: 5%;
+  font-size: 1.2rem;
+  padding: 25px 32px 25px 25px;
+  border-radius: 15px;
+}
+
+
