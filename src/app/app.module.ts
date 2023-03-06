@@ -48,11 +48,16 @@ import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-s
 import {GoogleLoginProvider, FacebookLoginProvider} from '@abacritt/angularx-social-login';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SupportComponent } from './support/support.component';
+import { ForgetPassComponent } from './forget-pass/forget-pass.component';
+import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { FooterComponent } from './footer/footer.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PricingsComponent } from './pricings/pricings.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+
 
 
 
@@ -77,10 +82,16 @@ import { AboutUsComponent } from './about-us/about-us.component';
     LoginComponent,
     RegisterComponent,
     SupportComponent,
+
     FooterComponent,
     PricingsComponent,
     AboutUsComponent
 
+
+
+    ForgetPassComponent,
+    ResetPassComponent,
+    FooterComponent,
 
   ],
   imports: [
@@ -112,6 +123,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatCardModule,
     SocialLoginModule,
     FlexLayoutModule,
+    MatAutocompleteModule,
+    MatProgressBarModule,
     DragDropModule,
     MatProgressSpinnerModule
 

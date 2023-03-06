@@ -4,6 +4,7 @@
     <div id="login-form" [class.mat-elevation-z2]="true">
         <a href=""></a>
             <h2>Login</h2>
+
             <form [formGroup]="loginForm" (submit)="onLogin()">
                 <mat-form-field appearance="outline">
                     <mat-label>Email Id</mat-label>
@@ -11,16 +12,13 @@
                     <mat-error *ngIf="email?.errors?.['required']">
                         Email is required.
                     </mat-error>
-        
                 </mat-form-field>
-        
                 <mat-form-field appearance="outline">
                     <mat-label>Password</mat-label>
                     <input matInput type="password" formControlName="password">
                     <mat-error *ngIf="password?.invalid">
                         Password required
                     </mat-error>
-                 
                 </mat-form-field>
         
                 <button mat-mini-fab  color="warn" type="submit" [disabled]="!loginForm.valid"><mat-icon>arrow_forward_ios</mat-icon></button>
@@ -30,13 +28,7 @@
                 <button routerLink="/home" id="btn"><mat-icon id="back">arrow_back_ios</mat-icon></button>
     
             </form>
-        
-            
         </div>
-       
-       
-       
-
 </div>
 
     

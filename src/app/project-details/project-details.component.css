@@ -4,8 +4,8 @@
 
 
 @font-face {
-    font-family: 'kanyon';
-    src: url('../../assets/fonts/Fontspring-DEMO-kanyon-boldit.otf');
+    font-family: 'kanyonj';
+    src: url('../../assets/fonts/Fontspring-DEMO-kanyon-black.otf');
 }
 
 
@@ -17,6 +17,9 @@ button{
     display: flex;
     justify-content: space-between;
     padding: 2rem;
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 
 span{
@@ -25,8 +28,21 @@ span{
 }
 
 mat-card{
-    background-color: transparent;
+    background-color: white;
 }
+
+mat-tab-group{
+    background-color: #f6deb8;
+   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+}
+/* ::ng-deep .mat-tab-label
+{
+  height: 27px !important;
+  min-height: 5px!important;
+  margin: 3px!important;
+  width: 90px!important;
+  min-width: 5px!important;
+} */
 
 .btn{
     display: flex;
@@ -64,15 +80,6 @@ h1, h2{
     height: 5.5rem;
     border-radius: 30px;
     background-color: transparent;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: rgba(50, 50, 93, 0.116) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.0) 0px 18px 36px -18px inset;
 }
 
-/* ::ng-deep .mat-tab-list .mat-tab-labels { */
-    /* color:blue; */
-    /* background-color: yellow; */
-/* } */
-    /* ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active { */
-        /* color:red; */
-        /* background-color: green; */
-        /* }     */
-/*  */
