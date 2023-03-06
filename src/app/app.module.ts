@@ -85,7 +85,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 
     FooterComponent,
     PricingsComponent,
-    AboutUsComponent
+    AboutUsComponent,
 
 
 

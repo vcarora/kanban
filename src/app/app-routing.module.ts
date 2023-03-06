@@ -25,7 +25,6 @@ const routes: Routes = [
   {path: "support",component: SupportComponent},
   {path: "forgetPassword",component:ForgetPassComponent},
   {path: "reset_password/forget",pathMatch : 'full',component:ResetPassComponent},
-  {path:"pricing",component:PricingComponent},
   {path : "**",component: NotFoundComponent}
   
 ];
