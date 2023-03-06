@@ -77,3 +77,8 @@ mat-icon{
 .text{
     margin-top: 150px;
 }
+
+#non-responsive{
+    pointer-events: none;
+}
+
