@@ -19,7 +19,9 @@
         [value]="value">
           </mat-progress-spinner>
         </div>
-        <h1 id="value">{{value}}<mat-icon id="percentages">percentage</mat-icon></h1>
+        
+        <h1 *ngIf="projectDetails.name" id="value">{{value}}<mat-icon id="percentages">percentage</mat-icon></h1>
+        <h1 *ngIf="!projectDetails.name" id="value">0<mat-icon id="percentages">percentage</mat-icon></h1>
         <mat-card id="card">
           <mat-card-content class="btn">
               

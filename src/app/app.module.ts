@@ -55,6 +55,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PricingsComponent } from './pricings/pricings.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -80,9 +82,17 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     LoginComponent,
     RegisterComponent,
     SupportComponent,
+
+    FooterComponent,
+    PricingsComponent,
+    AboutUsComponent
+
+
+
     ForgetPassComponent,
     ResetPassComponent,
     FooterComponent,
+
   ],
   imports: [
     BrowserModule,
