@@ -13,8 +13,10 @@ export type task = {
     "description"? : string;
     "status"? : string;
     "priority"? : string;
+    "email"?: string
 }
 
-export type user ={
+export type user = {
     "email"? : string;
+    "username"?: string;
 }

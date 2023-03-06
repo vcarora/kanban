@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:wght@600&family=Phudu:wght@600&family=Raleway:wght@900&family=Roboto+Mono:ital,wght@1,600&display=swap');
+
+
+
 @font-face {
     font-family: 'kanyon';
     src: url('../../assets/fonts/Fontspring-DEMO-kanyon-boldit.otf');
@@ -14,6 +19,11 @@ button{
     padding: 2rem;
 }
 
+span{
+    color: red;
+    font-size: 30px;
+}
+
 mat-card{
     background-color: transparent;
 }
@@ -24,9 +34,29 @@ mat-card{
     justify-content: space-between;
 }
 
-h1{
-    font-family: 'kanyon';
+h1, h2{
+    font-family: "Phudu", cursive;
     font-weight: 900px;
+}
+
+#progress{
+   position: absolute;
+   right: 450px;
+}
+
+#bar{
+    position: absolute;
+    top: 150px;
+    right: 560px;
+}
+#percentage{
+    padding-top: 3px;
+}
+
+#value{
+    position: absolute;
+    right: 470px;
+    top: 150px;
 }
 
 #card{

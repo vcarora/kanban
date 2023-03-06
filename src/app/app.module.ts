@@ -51,6 +51,8 @@ import { SupportComponent } from './support/support.component';
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { FooterComponent } from './footer/footer.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -108,7 +110,9 @@ import { FooterComponent } from './footer/footer.component';
     MatToolbarModule,
     MatCardModule,
     SocialLoginModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    DragDropModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
