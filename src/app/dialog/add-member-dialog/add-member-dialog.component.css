@@ -1,0 +1,12 @@
+p{
+    width: 90%;
+    margin: 4%;
+    line-height: 20px;
+}
+
+mat-form-field{
+    width: 100%;
+}
+h1{
+    font-weight: bolder;
+}

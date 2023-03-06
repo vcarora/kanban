@@ -15,7 +15,7 @@ export class LoginComponent {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  role = null;
+  name :any = '';
 
 
   constructor(private fb: FormBuilder, private loginService : LoginService, 
@@ -48,9 +48,9 @@ export class LoginComponent {
         this.token.saveUser(data);
         this.token.saveEmail(data.email);
 
-        this.isLoginFailed = false;
+        // this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.role = this.token.getUser().role;
+        this.name = this.token.getUser().username;
        
         this.route.toDashboard()
         this.snackBar.open('Logged in Successfully', 'OK', {

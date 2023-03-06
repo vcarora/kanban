@@ -20,10 +20,10 @@
                         Password required
                     </mat-error>
                 </mat-form-field>
-                <button mat-mini-fab color="primary" type="submit" [disabled]="!loginForm.valid"><mat-icon>arrow_forward_ios</mat-icon></button>
+                <button mat-mini-fab color="warn" type="submit" [disabled]="!loginForm.valid"><mat-icon>arrow_forward_ios</mat-icon></button>
                 <div id="register" routerLink="/forgetPassword">
-                    <p>forgot Password?</p>
-                    <button mat-mini-fab  color="warn" type="submit" [disabled]="!loginForm.valid"><mat-icon>arrow_forward_ios</mat-icon></button>
+                    <p>Forgot Password?</p>
+                    <!-- <button mat-mini-fab  color="warn" type="submit" [disabled]="!loginForm.valid"><mat-icon>arrow_forward_ios</mat-icon></button> -->
                 </div>
                 <button mat-mini-fab color="warn" routerLink="/home" id="btn"><mat-icon id="back">arrow_back_ios</mat-icon></button>
             </form>

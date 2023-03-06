@@ -3,7 +3,7 @@
         <div >
             <h1>{{projectDetails.name}}</h1>
            
-            <p>{{projectDetails.duration}} </p>
+            <p>{{projectDetails.duration }} </p>
         </div>
         <mat-card id="card">
           <mat-card-content class="btn">
@@ -22,11 +22,11 @@
         </mat-card>
     </div>
         
-        <mat-tab-group color="warn" fitInkBarToContent> 
-            <mat-tab>
-              <ng-template mat-tab-label>
+        <mat-tab-group color="warn" > 
+            <mat-tab label="Task" >
+              <!-- <ng-template mat-tab-label>
                 <h1>TASK</h1>
-              </ng-template>
+              </ng-template> -->
               <mat-card class="scrollable-content">
                
                 <mat-card-content>
@@ -35,9 +35,9 @@
               </mat-card>
             </mat-tab>
             <mat-tab label="Description">
-              <ng-template mat-tab-label>
+              <!-- <ng-template mat-tab-label>
                 <h1>Description</h1>
-              </ng-template>
+              </ng-template> -->
                 <mat-card  class="scrollable-content">
                  
                   <mat-card-content>
@@ -46,9 +46,9 @@
                 </mat-card>
               </mat-tab>
             <mat-tab label="Members">
-              <ng-template mat-tab-label>
+              <!-- <ng-template mat-tab-label>
                 <h1>Members</h1>
-              </ng-template>
+              </ng-template> -->
               <mat-card  class="scrollable-content">
                
                 <mat-card-content>
@@ -58,6 +58,9 @@
                 </mat-card-content>
               </mat-card>
             </mat-tab>
+            <mat-tab disabled></mat-tab>
+            <mat-tab disabled></mat-tab>
+            <mat-tab disabled></mat-tab>
           </mat-tab-group>
 
 </div>
