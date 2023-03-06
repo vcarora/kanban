@@ -53,7 +53,6 @@ import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { PricingComponent } from './pricing/pricing.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
@@ -84,7 +83,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ForgetPassComponent,
     ResetPassComponent,
     FooterComponent,
-    PricingComponent
   ],
   imports: [
     BrowserModule,
