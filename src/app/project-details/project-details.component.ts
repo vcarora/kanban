@@ -49,11 +49,13 @@ export class ProjectDetailsComponent {
       console.log('The dialog was closed');
       this.email = result;
       console.log("tl :: "+this.email)
-      this.project.assignMember(this.projectDetails?.project_id,this.email).subscribe({
-        next: data=>{
-          console.log(data)
-        }
-      })
+      if(this.email != null && this.email.length > 3){
+        this.project.assignMember(this.projectDetails?.project_id,this.email).subscribe({
+          next: data=>{
+            console.log(data)
+          }
+        })
+      }
     });
 
 

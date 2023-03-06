@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Add a New Task</h1>
-<p>kk {{data?.project_id}}</p>
+<p>{{data?.project_id}}</p>
 <div mat-dialog-content>
   <form #task="ngForm" (ngSubmit)="addTask(task)">
     <div>
@@ -11,7 +11,6 @@
         <mat-label>task Description</mat-label>
         <input matInput type="text" name="description" [(ngModel)]="formData.description" #description="ngModel" required>
       </mat-form-field>
-
     </div>
     <label id="example-radio-group-label">Task Priority :</label>
       <mat-radio-group name="priority" #priority="ngModel" [(ngModel)]="formData.priority" required>
@@ -19,21 +18,14 @@
             {{priority}}
           </mat-radio-button>
       </mat-radio-group>
-
       <mat-form-field appearance="outline">
         <mat-label>Select Status</mat-label>
         <mat-select  name="status" [(ngModel)]="formData.status" #status="ngModel" required >
         <mat-option *ngFor= "let status of statuses" [value]="status">{{status}}</mat-option>
-    </mat-select>
-
+        </mat-select>
     </mat-form-field>
-    
-
     <button mat-button type="submit" [disabled]="task.form.invalid">Save</button>
-   
-
   </form>
-  
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
