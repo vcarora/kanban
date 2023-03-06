@@ -13,6 +13,7 @@ export type task = {
     "description"? : string;
     "status"? : string;
     "priority"? : string;
+    "email"? : string; 
 }
 
 export type user ={
