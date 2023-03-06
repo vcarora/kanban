@@ -63,6 +63,13 @@ export class ProjectDetailsComponent {
           });
         }
       })
+      if(this.email != null && this.email.length > 3){
+        this.project.assignMember(this.projectDetails?.project_id,this.email).subscribe({
+          next: data=>{
+            console.log(data)
+          }
+        })
+      }
     });
 
 

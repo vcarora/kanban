@@ -52,8 +52,8 @@ import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { DatePipe } from '@angular/common';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { PricingComponent } from './pricing/pricing.component';
 
 
 
@@ -80,7 +80,8 @@ import { DatePipe } from '@angular/common';
     SupportComponent,
     ForgetPassComponent,
     ResetPassComponent,
-    FooterComponent
+    FooterComponent,
+    PricingComponent
   ],
   imports: [
     BrowserModule,
@@ -111,8 +112,8 @@ import { DatePipe } from '@angular/common';
     MatCardModule,
     SocialLoginModule,
     FlexLayoutModule,
+    MatAutocompleteModule,
     MatProgressBarModule
-
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
     provide: 'SocialAuthServiceConfig',
