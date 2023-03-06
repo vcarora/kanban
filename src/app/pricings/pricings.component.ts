@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class PricingsComponent {
 
+
+  name: any;
+
+  ngOnInit(): void{
+    this.name = window.localStorage.getItem('username');
+  }
 }

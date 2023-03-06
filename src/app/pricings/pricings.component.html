@@ -1,47 +1,49 @@
+
+<div>
+    <img src="../../assets/chat.gif" alt="">
+</div>
+
 <div class="demo">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-6" id="standard">
-                <div class="pricingTable orange">
+                <div class="pricingTable">
                     <div class="pricingTable-header">
-                        <h3 class="title">Standard</h3>
-                        <div class="price-value">
-                            <span class="price-currency">$</span>
-                            <span class="amount">10.00</span>
-                            <span class="duraton">per month</span>
-                        </div>
+                        <h3 class="title">STANDARD</h3>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">₹0</span>
+                        <span class="duration">/month</span>
                     </div>
                     <ul class="pricing-content">
-                        <li>50GB Disk Space</li>
-                        <li>50 Email Accounts</li>
-                        <li>50GB Bandwidth</li>
-                        <li class="disable">Maintenance</li>
-                        <li class="disable">15 Subdomains</li>
+                        <li class="disable"><i class="fa fa-cloud"></i> Limited Projects</li>
+                        <li><i class="fa fa-envelope"></i> Limited Users On Projects</li>
+                        <!-- <li><i class="fa fa-hdd"></i> 50GB Bandwidth</li> -->
                     </ul>
                     <div class="pricingTable-signup">
-                        <a href="#">Sign Up</a>
+                        <button mat-raised-button disabled>FREE</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6" id="premium">
-                <div class="pricingTable gold">
+                <div class="pricingTable green">
                     <div class="pricingTable-header">
-                        <h3 class="title">Business</h3>
-                        <div class="price-value">
-                            <span class="price-currency">$</span>
-                            <span class="amount">20.00</span>
-                            <span class="duraton">per month</span>
-                        </div>
+                        <h3 class="title">PREMIUM</h3>
+                    </div>
+                    <div class="price-value">
+                        <span class="amount">₹199</span>
+                        <span class="duration">/month</span>
                     </div>
                     <ul class="pricing-content">
-                        <li>50GB Disk Space</li>
-                        <li>50 Email Accounts</li>
-                        <li>50GB Bandwidth</li>
-                        <li>Maintenance</li>
-                        <li class="disable">15 Subdomains</li>
+                        <li><i class="fa fa-cloud"></i> Unlimited Projects</li>
+                        <li><i class="fa fa-envelope"></i> Unlimited Users On Projects</li>
+                        <!-- <li><i class="fa fa-hdd"></i> 50GB Bandwidth</li> -->
+                        <li class="disable"><i class="fa fa-cog"></i> Maintenance</li>
+                        <li class="disable"><i class="fa fa-share-alt"></i> Chat Support</li>
                     </ul>
                     <div class="pricingTable-signup">
-                        <a href="#">Sign Up</a>
+                        <button mat-raised-button id="btn" *ngIf="!name" routerLink="/register">Sign Up</button>
+                        <button mat-raised-button id="btn" *ngIf="name">Pay Now</button>
                     </div>
                 </div>
             </div>
