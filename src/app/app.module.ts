@@ -82,13 +82,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     LoginComponent,
     RegisterComponent,
     SupportComponent,
-
     FooterComponent,
     PricingsComponent,
-    AboutUsComponent
-
-
-
+    AboutUsComponent,
     ForgetPassComponent,
     ResetPassComponent,
     FooterComponent,

@@ -24,8 +24,7 @@ const routes: Routes = [
   {path: "pricing", component: PricingsComponent},
   {path: "support",component: SupportComponent},
   {path: "forgetPassword",component:ForgetPassComponent},
-  {path: "reset_password/forget",pathMatch : 'full',component:ResetPassComponent},
-  {path:"pricing",component:PricingComponent},
+  {path: "reset_password/forget",pathMatch : 'full',component: ResetPassComponent},
   {path : "**",component: NotFoundComponent}
   
 ];
