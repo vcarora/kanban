@@ -51,6 +51,8 @@ import { SupportComponent } from './support/support.component';
 import { FooterComponent } from './footer/footer.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PricingsComponent } from './pricings/pricings.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -75,7 +77,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     LoginComponent,
     RegisterComponent,
     SupportComponent,
-    FooterComponent
+    FooterComponent,
+    PricingsComponent,
+    AboutUsComponent
 
 
   ],
