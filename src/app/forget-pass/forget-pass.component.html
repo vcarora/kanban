@@ -2,16 +2,16 @@
     <img src="../../assets/kanban.png" alt="background" id="img1">
     <div id="login-form">
         <a href=""></a>
-            <h2>Forget Password</h2>
+            <h2>Enter registered email id</h2>
             <p *ngIf="!sent">
-                We will be sending a reset password link to your email.
+                We will send a reset password link to your email.
             </p>
             <p *ngIf="sent">
                 The email has been seccussfully sent
                 plese check your email
             </p>
             <p *ngIf="error">
-                Check yuor Email_Id
+                Check your Email Id
             </p>
             <img src="../../assets/git/mail-send.gif" alt="" srcset="" *ngIf="sent">
             <form *ngIf="!sent">
