@@ -1,3 +1,6 @@
+
+<div>
+
 <mat-card class="task-card">
     <div>
         
@@ -25,9 +28,12 @@
     <mat-card-actions>
         <mat-form-field appearance="outline">
             <mat-label>Change Status</mat-label>
-            <mat-select  name="status" [(ngModel)]="task.status" #status="ngModel" (selectionChange)="changeStatus(task)" >
+            <mat-select  name="status" [(ngModel)]="task.status" #status="ngModel" (selectionChange)="changeStatus(task)">
             <mat-option *ngFor= "let status of statuses" [value]="status">{{status}}</mat-option>
         </mat-select>
     </mat-form-field>
     </mat-card-actions>
   </mat-card>
+
+</div>
+

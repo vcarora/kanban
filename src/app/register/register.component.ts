@@ -52,6 +52,8 @@ export class RegisterComponent {
      let name : any;
      let email : any
      let password : any
+
+     
      if(this.registerForm.value.name){
        name = this.registerForm.value.name;
        email = this.registerForm.value.email
@@ -75,7 +77,8 @@ export class RegisterComponent {
             this.token.saveToken(data.token);
             this.token.saveUser(data);
             this.token.saveEmail(data.email);
-            this.route.toDashboard()
+            window.localStorage.setItem("username", data.username);
+            this.route.toDashboard();
           }
         })
         

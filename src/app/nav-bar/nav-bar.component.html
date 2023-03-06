@@ -24,16 +24,18 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
    
-      <span><button id="logo"><img src="../../assets/FOKUS-01.png" alt="" routerLink="/home"></button></span>
+      <span><button id="logo"><img src="../../assets/fokus_1.png" alt="" routerLink="/home" ></button></span>
 
     </div>
       
     <div id="nav-btns">
-      <button  mat-flat-button [ngClass]="toolbar_variable?'btn_change':'btn_original'"  routerLink="/contact" [hidden]="isAdmin">Contact Us</button>
-      <button  mat-flat-button [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/support" [hidden]="!isAdmin" >Support</button>
-      <button mat-raised-button color="primary" [ngClass]="toolbar_variable?'btn_login_change': 'btn_login'" (click)="logout()" [hidden]="!isLoggedIn">Log Out</button>
-      <button mat-raised-button color="primary" [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" [hidden]="isLoggedIn">Log in</button>
-      <button mat-raised-button id="btn2" [ngClass]="toolbar_variable?'btn_signup_change':'btn_signup'" routerLink="/register" [hidden]="isLoggedIn">Sign Up</button>
+      <button id="btn2" [ngClass]="toolbar_variable?'btn_change':'btn_original'"  routerLink="/contact" [hidden]="isAdmin">Contact</button>
+      <button id="btn2"  [ngClass]="toolbar_variable?'btn_change':'btn_original'"> Pricing</button>
+      <button id="btn2" [ngClass]="toolbar_variable?'btn_change':'btn_original'">About Us</button>
+      <button  id="btn2" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/support" [hidden]="!isAdmin" >Support</button>
+      <button id="btn2" color="primary" [ngClass]="toolbar_variable?'btn_login_change': 'btn_login'" (click)="logout()" [hidden]="!isLoggedIn">Log Out</button>
+      <button id="btn2" color="primary" [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" [hidden]="isLoggedIn">Log in</button>
+      <button id="btn2" [ngClass]="toolbar_variable?'btn_signup_change':'btn_signup'" routerLink="/register" [hidden]="isLoggedIn">Sign Up</button>
     </div>
    
       

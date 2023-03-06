@@ -13,6 +13,8 @@ export class TaskDialogComponent {
 
   formData : task = {}
 
+  emails = [];
+
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private project : ProjectService) {}
 
@@ -22,6 +24,7 @@ export class TaskDialogComponent {
     ngOnInit() {
       // will log the entire data object
       console.log(this.data.project_id)
+      this.emails=this.data.emailList;
     }
 
   addTask(task : NgForm){

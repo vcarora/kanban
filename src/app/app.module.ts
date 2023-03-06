@@ -49,6 +49,8 @@ import {GoogleLoginProvider, FacebookLoginProvider} from '@abacritt/angularx-soc
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SupportComponent } from './support/support.component';
 import { FooterComponent } from './footer/footer.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -105,7 +107,9 @@ import { FooterComponent } from './footer/footer.component';
     MatToolbarModule,
     MatCardModule,
     SocialLoginModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    DragDropModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {

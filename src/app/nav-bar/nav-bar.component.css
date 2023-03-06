@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+
 .sidenav-container {
   background-image: url('../../assets/bg1.png');
   background-size: cover;
@@ -29,6 +31,7 @@
 }
 #nav-btns{
   width: 30%;
+  margin-right: 400px;
   
 }
 
@@ -36,6 +39,10 @@ span{
   margin-left: 200px;
 }
 
+
+img{
+  width: 200px;
+}
 #logo{
   border: none;
   background-color: transparent;
@@ -44,12 +51,12 @@ span{
 
 mat-toolbar>div .btn_original{
   background-color: transparent;
-  color: white;
-  margin-left: 5%;
-  margin-right: 5%;
+  color: black;
+  margin-left: 100px;
+  letter-spacing: 0.2rem;
   font-size: 1rem;
-  padding: 25px 32px 25px 25px;
-  border-radius: 15px;
+  padding-bottom: 5px;
+  border: none;
 }
 
 mat-toolbar>div .btn_login{
@@ -77,14 +84,22 @@ mat-toolbar>div .btn_login:hover{
   color: black;
 }
 
+#btn2{
+  background-color: transparent;
+  font-family: 'Tilt Warp', cursive;
+  font-size: 20px;
+  color: #312f30;
+  border: 0;
+}
+
 #btn2:hover{
-  background-color: #FF6600;
-  color: white;
+  border-bottom: 2px solid wheat;
+  color: black;
 }
 
 .toolbar_change{
   border-bottom: 1px solid lightgray;
-  background-color: white;
+  background-color: wheat;
   height: 100px;
   position: sticky;
   transition: all 0.2s linear;

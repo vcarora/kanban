@@ -6,9 +6,9 @@
             <mat-list-item routerLink="/home">
                 <mat-icon>home</mat-icon><span>Home</span>
             </mat-list-item>
-            <mat-list-item routerLink="/dashboard">
-                <mat-icon>dashboard</mat-icon><span>Dashboard</span>
-            </mat-list-item>
+            <!-- <mat-list-item routerLink="/dashboard"> -->
+                <!-- <mat-icon>dashboard</mat-icon><span>Dashboard</span> -->
+            <!-- </mat-list-item> -->
             <mat-list-item (click)="openDialog()">
                 <mat-icon>create_new_folder</mat-icon><span>New Project</span>
             </mat-list-item>
@@ -35,13 +35,12 @@
       <div id="main-container">
     
         <div id="top-bar">
-            <button mat-icon-button  (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
-            <h1>Projects <button id="i" (click)="reload()"><mat-icon id="refresh">refresh</mat-icon></button></h1>            
+            <h1 (click)="sidenav.toggle()">Projects <button id="i" (click)="reload()"><mat-icon id="refresh">refresh</mat-icon></button></h1>            
         </div>
 
         <div id="project-container">           
             <div id="project-details">
-                <app-project-details [projectDetails] = "selectedProject"></app-project-details>            
+                <app-project-details [projectDetails] = "selectedProject" [value]="value"></app-project-details>            
             </div>    
         </div>     
     </div>  
