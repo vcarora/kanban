@@ -19,6 +19,8 @@ export class TaskCardComponent {
 
   statuses : string[] =['TO DO','In Progress','Submitted','Completed']
 
+
+
   changeStatus(task :task){
     const project_id : number = this.token.getProjectId()
 
@@ -41,5 +43,10 @@ export class TaskCardComponent {
        })
       }
   }
+
+ 
+ 
+ 
+ 
 
 }

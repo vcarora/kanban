@@ -4,17 +4,18 @@
     border: none;
      height: 100%;
      width: 50px;
-     color: white; 
+     color: black; 
+     margin-right: 20px;
   }
   
   footer{
-    position: sticky;
-    bottom: 0px;
+    position: absolute;
+    top: auto;
    display: flex;
    justify-content: space-between;
    align-items: center;
-   background-color: #212a37;
-   height: 120px;
+   background-color: wheat;
+   height: 80px;
    width: 100%;
    padding-left:3%;
    padding-right: 3%;
@@ -29,7 +30,7 @@
   }
 
   h3{
-    color: white;
+    color: black;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    
   }

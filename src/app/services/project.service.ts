@@ -24,6 +24,7 @@ export class ProjectService {
    );   
   }
 
+
   getProjects(): Observable<any>{
     return this.http.get(PROJECT_API+'getProjects')
   }

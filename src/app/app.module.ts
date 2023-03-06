@@ -54,6 +54,9 @@ import { FooterComponent } from './footer/footer.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PricingComponent } from './pricing/pricing.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 
@@ -113,7 +116,10 @@ import { PricingComponent } from './pricing/pricing.component';
     SocialLoginModule,
     FlexLayoutModule,
     MatAutocompleteModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    DragDropModule,
+    MatProgressSpinnerModule
+
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
     provide: 'SocialAuthServiceConfig',

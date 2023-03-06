@@ -1,10 +1,25 @@
 <div id="main-container">
     <div id="top-bar">
-        <div >
+        <div *ngIf="projectDetails.name">
             <h1>{{projectDetails.name}}</h1>
-           
-            <p>{{projectDetails.duration }} </p>
+            <p>{{projectDetails.duration}} </p>
         </div>
+        <div *ngIf="!projectDetails.name">
+            <h1>WELCOME ABOARD - {{userName}}</h1>
+            <h2>Click On the <span>Projects</span> and Get Started</h2>
+
+        </div>
+
+        <h2 id="bar"> TASK COMPLETED In <mat-icon id="percentage">percentage</mat-icon> :</h2>
+        <div id="progress">
+          <mat-progress-spinner
+        class="example-margin"
+        color="primary"
+        mode="determinate"
+        [value]="value">
+          </mat-progress-spinner>
+        </div>
+        <h1 id="value">{{value}}<mat-icon id="percentages">percentage</mat-icon></h1>
         <mat-card id="card">
           <mat-card-content class="btn">
               
@@ -22,9 +37,9 @@
         </mat-card>
     </div>
         
-        <mat-tab-group color="warn" > 
-            <mat-tab label="Task" >
-              <!-- <ng-template mat-tab-label>
+        <mat-tab-group color="warn"> 
+            <mat-tab>
+              <ng-template mat-tab-label>
                 <h1>TASK</h1>
               </ng-template> -->
               <mat-card class="scrollable-content">
