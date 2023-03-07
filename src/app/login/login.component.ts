@@ -48,6 +48,7 @@ export class LoginComponent {
         this.token.saveUser(data);
         this.token.saveEmail(data.email);
         window.localStorage.setItem("username", data.username);
+        window.localStorage.setItem("title", data.title);
 
         // this.isLoginFailed = false;
         this.isLoggedIn = true;
