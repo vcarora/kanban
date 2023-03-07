@@ -21,7 +21,8 @@
                         <!-- <li><i class="fa fa-hdd"></i> 50GB Bandwidth</li> -->
                     </ul>
                     <div class="pricingTable-signup">
-                        <button mat-raised-button disabled>FREE</button>
+                        <button mat-raised-button id="btn" *ngIf="!name" routerLink="/login">Sign Up</button>
+                        <button mat-raised-button *ngIf="name" disabled>FREE</button>
                     </div>
                 </div>
             </div>
@@ -42,8 +43,8 @@
                         <li class="disable"><i class="fa fa-share-alt"></i> Chat Support</li>
                     </ul>
                     <div class="pricingTable-signup">
-                        <button mat-raised-button id="btn" *ngIf="!name" routerLink="/register">Sign Up</button>
-                        <button mat-raised-button id="btn" *ngIf="name">Pay Now</button>
+                        <button mat-raised-button id="btn" *ngIf="!name" routerLink="/login">Sign Up</button>
+                        <button mat-raised-button id="btn" *ngIf="name" (click)="pay()">Pay Now</button>
                     </div>
                 </div>
             </div>

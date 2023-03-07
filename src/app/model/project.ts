@@ -19,4 +19,5 @@ export type task = {
 export type user = {
     "email"? : string;
     "username"?: string;
+    "title"?: string;
 }

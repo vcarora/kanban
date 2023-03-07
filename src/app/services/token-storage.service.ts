@@ -5,6 +5,7 @@ const USER_KEY = 'auth-user';
 const EMAIL_KEY = 'user-email';
 const PROJECT_KEY = 'project-id';
 const USER_EMAIL = 'user';
+const USER_TITLE = 'title';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +18,12 @@ export class TokenStorageService {
 
   }
 
-  
-
   public saveToken(token : string) : void{
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.setItem(TOKEN_KEY, token);
   }
+
+  
 
   public getToken(): any {
     return window.localStorage.getItem(TOKEN_KEY);

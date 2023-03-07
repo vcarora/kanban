@@ -2,6 +2,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: "home",component: HomeComponent},
   {path: "contact", component: ContactUsComponent},
   {path: "pricing", component: PricingsComponent},
+  {path: "aboutUs", component: AboutUsComponent},
   {path: "support",component: SupportComponent},
   {path: "forgetPassword",component:ForgetPassComponent},
   {path: "reset_password/forget",pathMatch : 'full',component: ResetPassComponent},
