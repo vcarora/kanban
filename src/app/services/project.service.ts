@@ -16,6 +16,7 @@ export class ProjectService {
     return this.refreshData
   }
 
+ 
   createProject(project : any): Observable<any>{
    return this.http.post(PROJECT_API+'newProject',project).pipe(
     tap(()=>{
@@ -23,6 +24,7 @@ export class ProjectService {
     })
    );   
   }
+
 
   getProjects(): Observable<any>{
     return this.http.get(PROJECT_API+'getProjects')
@@ -71,6 +73,10 @@ export class ProjectService {
 
   getAssignedProjects(): Observable<any>{
     return this.http.get(PROJECT_API+'getAssigned')
+  }
+
+  getEmailsStartWith(startWith:string):Observable<any>{
+    return this.http.get("http://localhost:9500/employee/requiredMail?StartWith="+startWith)
   }
 
 }

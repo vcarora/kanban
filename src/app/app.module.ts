@@ -53,6 +53,12 @@ import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PricingsComponent } from './pricings/pricings.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 
 
 
@@ -77,9 +83,12 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     LoginComponent,
     RegisterComponent,
     SupportComponent,
+    FooterComponent,
+    PricingsComponent,
+    AboutUsComponent,
     ForgetPassComponent,
-    ResetPassComponent,
-    FooterComponent
+    ResetPassComponent
+
   ],
   imports: [
     BrowserModule,
@@ -110,7 +119,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatCardModule,
     SocialLoginModule,
     FlexLayoutModule,
-    MatProgressBarModule
+    MatAutocompleteModule,
+    MatProgressBarModule,
+    DragDropModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {

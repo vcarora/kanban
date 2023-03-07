@@ -1,4 +1,7 @@
-<mat-card class="task-card" >
+
+<div>
+
+<mat-card class="task-card">
     <div>
         
         <mat-card-header>
@@ -21,15 +24,15 @@
       <p  id='{{task.priority}}' >{{task.priority}}</p>
     </mat-card-content>
     <mat-card-actions>
-      
-            <!-- <mat-label>Change Status</mat-label> -->
-            <mat-select  name="status" [(ngModel)]="task.status" #status="ngModel" (selectionChange)="changeStatus(task)" >
+       
+            <mat-select  name="status" [(ngModel)]="task.status" #status="ngModel" (selectionChange)="changeStatus(task)">
             <mat-option *ngFor= "let status of statuses" [value]="status">{{status}}</mat-option>
         </mat-select>
- 
-    
     </mat-card-actions>
     <mat-card-footer>
-      <mat-progress-bar mode="buffer"></mat-progress-bar>
+      <mat-progress-bar mode="determinate"></mat-progress-bar>
     </mat-card-footer>
   </mat-card>
+
+</div>
+

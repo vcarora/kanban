@@ -24,15 +24,25 @@ export class ProjectDetailsComponent {
 
   task : task ={}
 
+  userName: string | any ='';
+
+  @Input()
+  value: any;
 
   ngOnInit(){
-   
+   this.userName = window.localStorage.getItem("username");
+   console.log(this.userName);
+   this.userName = this.userName.toUpperCase();
+    
+   console.log(this.projectDetails.taskList);   
+  
   }
+  
   
 
   taskDialog():  void {
     const dialogRef = this.dialog.open(TaskDialogComponent, {
-      data: {project_id: this.projectDetails?.project_id},
+      data: {project_id: this.projectDetails?.project_id, emailList: this.projectDetails.assigned_emp},
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -63,6 +73,13 @@ export class ProjectDetailsComponent {
           });
         }
       })
+      if(this.email != null && this.email.length > 3){
+        this.project.assignMember(this.projectDetails?.project_id,this.email).subscribe({
+          next: data=>{
+            console.log(data)
+          }
+        })
+      }
     });
 
 

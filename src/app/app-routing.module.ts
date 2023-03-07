@@ -8,6 +8,7 @@ import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PricingsComponent } from './pricings/pricings.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { AuthGuard } from './services/auth.guard';
@@ -20,9 +21,11 @@ const routes: Routes = [
   {path: "dashboard", component: DashboardComponent},
   {path: "home",component: HomeComponent},
   {path: "contact", component: ContactUsComponent},
+  {path: "pricing", component: PricingsComponent},
   {path: "support",component: SupportComponent},
   {path: "forgetPassword",component:ForgetPassComponent},
   {path: "reset_password/forget",pathMatch : 'full',component:ResetPassComponent},
+  {path:"pricing",component:PricingsComponent},
   {path : "**",component: NotFoundComponent}
   
 ];

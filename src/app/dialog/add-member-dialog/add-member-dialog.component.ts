@@ -13,19 +13,27 @@ export class AddMemberDialogComponent {
     public dialogRef: MatDialogRef<AddMemberDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, 
     private project : ProjectService) {}
+    filteredOptions:any =[];
 
-    // addMember(){
-    //   //  
-    //   console.log(task)
-    //   console.log(task.value)
-    //   this.project.addTask(this.data.project_id,task.value).subscribe({
-    //     next : data=>{
-    //       console.log(data)
-    //     }
-    //   })
-  
-    // }
+    getListOfEmails(){
+      if(this.data.email.length >= 3){
+        console.log(this.data.email)
+        this.project.getEmailsStartWith(this.data.email).subscribe({
+          next:list=>{
+            if(list != null){
+              this.filteredOptions = list
+            }else{
+              this.filteredOptions = ["no data"]
+            }
+          }
+        })
+      }else{
+        this.filteredOptions=[]
+      }
+    }
     onNoClick(): void {
+
+      console.log("close")
       this.dialogRef.close();
     }
 
