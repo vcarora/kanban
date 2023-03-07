@@ -12,6 +12,10 @@ button{
     display: flex;
     justify-content: space-between;
     padding: 2rem;
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
     
 }
 
@@ -19,9 +23,14 @@ span{
     color: red;
     font-size: 30px;
 }
+mat-tab-group{
+    background-color: #f6deb8;
+   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+}
+
 
 mat-card{
-    background-color: transparent;
+    background-color: white;
 }
 
 .btn{
@@ -79,11 +88,3 @@ h1{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
-::ng-deep .mat-tab-list .mat-tab-labels {
-    color:blue;
-    background-color: yellow;
-}
-    ::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
-        color:red;
-        background-color: green;
-        }    
