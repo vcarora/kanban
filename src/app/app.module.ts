@@ -87,7 +87,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AboutUsComponent,
     ForgetPassComponent,
     ResetPassComponent,
-    FooterComponent,
 
   ],
   imports: [
