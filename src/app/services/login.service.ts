@@ -58,4 +58,8 @@ export class LoginService {
     return this.http.post(Content_API+'employee/reset_password/forget?key='+token,{email,password},{responseType: 'text'})
   }
  
+  updateTitle(status:string,email:string){
+    return this.http.put(Content_API+'kanban/employee/account/upgrade?status='+status+'&email='+email,
+                          null,{responseType: 'text'})
+  }
 }

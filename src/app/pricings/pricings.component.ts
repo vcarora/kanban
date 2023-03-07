@@ -1,6 +1,8 @@
 import { Component, NgZone } from '@angular/core';
+import { LoginService } from '../services/login.service';
 import { ProjectService } from '../services/project.service';
 
+const STATUS = "PREMIUM"
 @Component({
   selector: 'app-pricings',
   templateUrl: './pricings.component.html',
@@ -14,11 +16,11 @@ export class PricingsComponent {
 
   rzp: any;
 
-  constructor(private projectService: ProjectService, private zone: NgZone){}
+  constructor(private projectService: ProjectService, private zone: NgZone,private loginServ:LoginService){}
 
   ngOnInit(): void{
     this.name = window.localStorage.getItem('username');
-    this.email = window.localStorage.getItem('email');
+    this.email = window.localStorage.getItem('user-email');
     console.log(this.email);
   }
 
@@ -53,8 +55,18 @@ export class PricingsComponent {
   }
 
   paymentHandler(result: any){
+    console.log(result)
+    this.updateTitle()
       this.zone.run(() =>{
          window.location.href = "http://localhost:9000/dashboard";
       })
+  }
+  updateTitle(){
+    console.log("inpaymentHandler")
+        this.loginServ.updateTitle(STATUS,this.email).subscribe({
+          next: data=>{
+            console.log(data)
+          }
+        })
   }
 }

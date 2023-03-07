@@ -23,13 +23,16 @@ export class ProjectDetailsComponent {
     private snackBar : MatSnackBar){}
 
   task : task ={}
-
+  title:boolean=false;
   userName: string | any ='';
 
   @Input()
   value: any;
 
   ngOnInit(){
+    if(window.localStorage.getItem("title") === "PREMIUM"){
+      this.title= true;
+    }
    this.userName = window.localStorage.getItem("username");
    console.log(this.userName);
    this.userName = this.userName.toUpperCase()  
