@@ -13,6 +13,9 @@ export class AddMemberDialogComponent {
     public dialogRef: MatDialogRef<AddMemberDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, 
     private project : ProjectService) {}
+    ogOnInit(){
+      this.data.email = null
+    }
     filteredOptions:any =[];
 
     getListOfEmails(){
