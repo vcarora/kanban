@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject,tap } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
 const CHAT_API = 'http://localhost:9500/support/'
@@ -15,24 +15,45 @@ const httpOptions = {
 export class ChatService {
 
   constructor(private http : HttpClient, private token : TokenStorageService) { }
+  private refreshData = new Subject<void>()
+
+  get RefreshRequired(){
+    return this.refreshData
+  }
 
   newChat() : Observable<any>{
-    return this.http.post(CHAT_API+'newChat',httpOptions)
+    return this.http.post(CHAT_API+'newChat',httpOptions).pipe(
+      tap(()=>{
+        this.RefreshRequired.next()
+      })
+     );   
   }
 
   newMessage(message : any) : Observable<any>{
     let email : any = this.token.getEmail()
-    return this.http.post(CHAT_API+'newMessage/support'+email,message,httpOptions)
+    return this.http.post(CHAT_API+'newMessage/support'+email,message,httpOptions).pipe(
+      tap(()=>{
+        this.RefreshRequired.next()
+      })
+     );   
   }
 
   newSuportMessage(message : any) : Observable<any>{
     let email : any = this.token.getUserEmail()
-    return this.http.post(CHAT_API+'newMessage/support'+email,message,httpOptions)
+    return this.http.post(CHAT_API+'newMessage/support'+email,message,httpOptions).pipe(
+      tap(()=>{
+        this.RefreshRequired.next()
+      })
+     );   
   }
 
   getMessages(): Observable<any>{
     let email : any = this.token.getEmail()
-    return this.http.get(CHAT_API+'get-messages/support'+email) 
+    return this.http.get(CHAT_API+'get-messages/support'+email).pipe(
+      tap(()=>{
+        this.RefreshRequired.next()
+      })
+     );   
   }
   getMessage(chat_id: any): Observable<any>{
     let email : any = this.token.getEmail()

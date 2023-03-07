@@ -52,6 +52,7 @@ import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';

@@ -24,7 +24,7 @@ export class DashboardComponent {
   assignedProjects : project[] =[];
 
 
-  selectedProject : project = {}
+  selectedProject$ : project = {}
 
   showFiller = false;
 
@@ -66,7 +66,7 @@ export class DashboardComponent {
   showProjectDetails(project : project){
     console.log(this.completedTask);
     this.completedTask = 0;
-    this.selectedProject = project;
+    this.selectedProject$ = project;
     this.token.saveProjectId(project?.project_id)
     console.log(this.selectedProject)
     this.totalTask = this.selectedProject.taskList?.length ?? 0;

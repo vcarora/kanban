@@ -17,7 +17,7 @@
     <h2>Fokus Chat Support</h2>
   </div>
   <div id="chat-history">
-    <mat-card-content  *ngFor="let message of messages">
+    <mat-card-content  *ngFor="let message of messages$">
 
       <div id="sender" *ngIf="message?.email === email">
         <p>{{message.message}}</p>
