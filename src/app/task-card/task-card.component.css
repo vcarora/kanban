@@ -68,4 +68,53 @@ div{
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
+
+  mat-card-title{
+    font-weight: bold;
+}
+mat-card-subtitle{
+    color: gray;
+    
+}
+
+mat-progress-bar{
+    background-color: #FF6600;
+}
+
+mat-select{
+  /* background-color: #f9f9f9; */
+  margin: 5%;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+}
+
+#Low{
+    color: green;
+    border: 2px solid green;
+    padding: 3px 5px 3px 5px;
+    border-radius: 8px;
+    width: min-content;
+    margin : 4px;
+}
+
+#Moderate{
+color: #FFBF00;
+border: 2px solid #FFBF00;
+    padding: 3px 5px 3px 5px;
+    border-radius: 8px;
+    width: min-content;
+    margin : 4px;
+}
+#High{
+    color: red;
+    border: 2px solid red;
+    padding: 3px 5px 3px 5px;
+    border-radius: 8px;
+    width: min-content;
+    margin : 4px;
+    
+}
+
   
