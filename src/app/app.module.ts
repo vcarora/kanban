@@ -87,7 +87,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     PricingsComponent,
     AboutUsComponent,
     ForgetPassComponent,
-    ResetPassComponent
+    ResetPassComponent,
 
   ],
   imports: [

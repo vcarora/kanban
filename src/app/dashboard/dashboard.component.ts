@@ -28,7 +28,7 @@ export class DashboardComponent {
 
   showFiller = false;
 
-  totalTask?: number;
+  totalTask?: number =0
 
   completedTask: number = 0;
 
@@ -68,24 +68,23 @@ export class DashboardComponent {
     this.completedTask = 0;
     this.selectedProject$ = project;
     this.token.saveProjectId(project?.project_id)
-    console.log(this.selectedProject$)
-    this.totalTask = this.selectedProject$.taskList?.length;
-    console.log(this.totalTask);
+    console.log(this.selectedProject)
+    this.totalTask = this.selectedProject.taskList?.length ?? 0;
 
-    
-    for(let task of this.selectedProject$.taskList!){
-      console.log(task.status);
-        if(task.status === "Completed"){
-          console.log("Inside Log");
-          this.completedTask=this.completedTask+1;
-        }
+    if(this.totalTask !=0){
+      for(let task of this.selectedProject.taskList!){
+        console.log(task.status);
+          if(task.status === "Completed"){
+            console.log("Inside Log");
+            this.completedTask=this.completedTask+1;
+          }
+      }
+      console.log(this.completedTask);
+       this.temp = 100/this.totalTask!;
+       this.value = this.completedTask!*this.temp;
+       this.value = this.value.toFixed(0);
     }
-
-    console.log(this.completedTask);
     
-     this.temp = 100/this.totalTask!;
-     this.value = this.completedTask!*this.temp;
-     this.value = this.value.toFixed(0);
   }
   
 

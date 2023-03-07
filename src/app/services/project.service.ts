@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 import { project, task, user } from '../model/project';
 
+
+function _global_window(): any{
+  return window;
+}
+
 const PROJECT_API = 'http://localhost:9500/kan/project/';
 @Injectable({
   providedIn: 'root'
@@ -16,7 +21,11 @@ export class ProjectService {
     return this.refreshData
   }
 
- 
+  get nativeWindow(): any{
+    return _global_window();
+  }
+
+
   createProject(project : any): Observable<any>{
    return this.http.post(PROJECT_API+'newProject',project).pipe(
     tap(()=>{

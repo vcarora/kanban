@@ -32,29 +32,36 @@ export class ProjectDetailsComponent {
   ngOnInit(){
    this.userName = window.localStorage.getItem("username");
    console.log(this.userName);
-   this.userName = this.userName.toUpperCase();
-    
-   console.log(this.projectDetails.taskList);   
-  
+   this.userName = this.userName.toUpperCase()  
   }
   
   
 
   taskDialog():  void {
-    const dialogRef = this.dialog.open(TaskDialogComponent, {
-      data: {project_id: this.projectDetails?.project_id, emailList: this.projectDetails.assigned_emp},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.task = result;
-      console.log("tl :: "+this.task)
-    });
+    if(this.projectDetails.project_id??0 !=0){
+      const dialogRef = this.dialog.open(TaskDialogComponent, {
+        data: {project_id: this.projectDetails?.project_id, emailList: this.projectDetails.assigned_emp},
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.task = result;
+        console.log("tl :: "+this.task)
+      });
+    }else{
+      this.snackBar.open('Please select project before adding task !!','', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      });
+    }
+    
   }
 
   email : string = ''
   addMember(): void{
-    const dialogRef = this.dialog.open(AddMemberDialogComponent, {
+    if(this.projectDetails.project_id??0 !=0){
+      const dialogRef = this.dialog.open(AddMemberDialogComponent, {
       data: {project_id: this.projectDetails?.project_id,email : this.email},
     });
 
@@ -62,43 +69,48 @@ export class ProjectDetailsComponent {
       console.log('The dialog was closed');
       this.email = result;
       console.log("tl :: "+this.email)
-      this.project.assignMember(this.projectDetails?.project_id,this.email).subscribe({
-        next: data=>{
-          console.log(data)
-        },error: err=>{
-          this.snackBar.open('Failed to Invite Member. Please enter only registered member email !!', 'Ok', {
-            duration: 3000,
-            horizontalPosition: 'right',
-            verticalPosition: 'top',
-          });
-        }
-      })
-      if(this.email != null && this.email.length > 3){
-        this.project.assignMember(this.projectDetails?.project_id,this.email).subscribe({
+      if(this.email != null && this.email.length>10){
+        this.project.assignMember(this.projectDetails.project_id,this.email).subscribe({
           next: data=>{
             console.log(data)
+          },error: err=>{
+            this.snackBar.open('Failed to Invite Member. Please enter only registered member email !!', 'Ok', {
+              duration: 3000,
+              horizontalPosition: 'right',
+              verticalPosition: 'top',
+            });
           }
         })
       }
     });
-
-
+    }else{
+      this.snackBar.open('Please select project before adding members !!','', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      });
+    }
   }
 
   deleteProject(){
-    let userSelection =  confirm('The Project will get deleted.\n It cannot be restored again')
-    let project_id : number = this.token.getProjectId()
-    if(userSelection){
-     this.project.deleteProject(project_id).subscribe(
-       response =>{
-         console.log("deleted")
+    let project_id : number = this.projectDetails.project_id ?? 0;
+    console.log(project_id)
+    if(project_id == 0){
+      this.snackBar.open('Please select project before deleting !!','', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      });
+    }else{
+      let userSelection =  confirm(this.projectDetails.name+' Project will get deleted'+'.\n It cannot be restored again')
+      if(userSelection){
+        this.project.deleteProject(project_id).subscribe(
+          response =>{
+            console.log("deleted")
         // window.location.reload()
        })
       }
-      
+    } 
   }
 
-  
-
-  
 }
