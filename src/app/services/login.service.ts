@@ -16,6 +16,7 @@ export class LoginService {
 
   isLoggedIn : boolean = false;
   isAdmin : boolean = false;
+  isPurchaseClick:boolean = false;
   
 
   constructor(private http : HttpClient) {}
@@ -30,12 +31,14 @@ export class LoginService {
     return this.http.post(Content_API + 'kanban/register', {
       username,
       email,
-      password
+      password,
+      title:"UN-VERIFIED"
     }, httpOptions);
   }
 
   login(email : string, password : string): Observable<any>{
     let logginIn : any =  this.http.post(AUTH_API+'employee/login',{email,password},httpOptions);
+    console.log(logginIn)
     console.log("login service : "+logginIn)
     if(email === 'care.fokus@gmail.com'){
       this.isAdmin = true;

@@ -1,6 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { ProjectService } from '../services/project.service';
+import { RouterService } from '../services/router.service';
 
 const STATUS = "PREMIUM"
 @Component({
@@ -16,12 +17,12 @@ export class PricingsComponent {
 
   rzp: any;
 
-  constructor(private projectService: ProjectService, private zone: NgZone,private loginServ:LoginService){}
+  constructor(private projectService: ProjectService, private zone: NgZone,private loginServ:LoginService, private router: RouterService){}
 
   ngOnInit(): void{
     this.name = window.localStorage.getItem('username');
     this.email = window.localStorage.getItem('user-email');
-    console.log(this.email);
+    console.log(this.email??"NO_USER");
   }
 
 
@@ -68,5 +69,9 @@ export class PricingsComponent {
             console.log(data)
           }
         })
+  }
+  toSignUp(){
+    this.loginServ.isPurchaseClick = true;
+    this.router.toRegister()
   }
 }
