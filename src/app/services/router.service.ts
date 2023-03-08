@@ -27,4 +27,7 @@ export class RouterService {
   toContact(){
     this.router.navigate(['contact'])
   }
+  toPricing(){
+    this.router.navigate(['pricing'])
+  }
 }

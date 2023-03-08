@@ -60,6 +60,7 @@ export class LoginComponent {
         });
             
       },error : err=>{
+        console.error(err.message)
         alert("Login Failed, Please try after sometime")
       }
     })

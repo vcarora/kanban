@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { LoginService } from './services/login.service';
 import { RouterService } from './services/router.service';
 import { TokenStorageService } from './services/token-storage.service';
@@ -9,8 +9,12 @@ import { TokenStorageService } from './services/token-storage.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Kanban_App';
+  title = 'Fokus';
 
+//   @HostListener('window:beforeunload', ['$event'])
+//   beforeunloadHandler(e: Event) {
+//   localStorage.clear();
+// }
   isLoggedIn = false;
    constructor(private token : TokenStorageService, private route : RouterService,private loginService : LoginService){}
 

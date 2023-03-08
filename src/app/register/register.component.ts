@@ -29,6 +29,7 @@ export class RegisterComponent {
     @ViewChild(RegisterComponent) swiper?: RegisterComponent;
 
     ngOnInit():void {
+      console.log(this.loginService.isPurchaseClick)
         this.socialServie.authState.subscribe( (user) =>{
           this.user = user;
           console.log(this.user);
