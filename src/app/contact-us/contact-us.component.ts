@@ -21,53 +21,58 @@ export class ContactUsComponent {
 
   formData : any ={}
 
-  messages : message[] = []
+  messages$ : message[] = []
 
   email : any =''
 
   isLoggedIn : boolean = false;
 
-  async ngOnInit() { 
-    while (true) { 
-    await this.getMessage() 
-    this.chat.newChat().subscribe({
-          next: data=>{
-            console.log(data)
-          }
-        })
-    
-        //this.getMessage()
-        this.email = this.token.getEmail()
-    
-        this.login.loginStatus.subscribe((status)=>{
-          this.isLoggedIn = status
-          console.log(this.isLoggedIn)
-        })
-    
-      await this.delay(1000); 
-    } 
-  } 
-  delay(milliseconds: number) { 
-    return new Promise(resolve => setTimeout(resolve, milliseconds)); 
-  }
-  // ngOnInit(){
-
+  // async ngOnInit() { 
+  //   while (true) { 
+  //   await this.getMessage() 
   //   this.chat.newChat().subscribe({
-  //     next: data=>{
-  //       console.log(data)
-  //     }
-  //   })
-
-  //   //this.getMessage()
-  //   this.email = this.token.getEmail()
-
-  //   this.login.loginStatus.subscribe((status)=>{
-  //     this.isLoggedIn = status
-  //     console.log(this.isLoggedIn)
-  //   })
-
+  //         next: data=>{
+  //           console.log(data)
+  //         }
+  //       })
     
+  //       //this.getMessage()
+  //       this.email = this.token.getEmail()
+    
+  //       this.login.loginStatus.subscribe((status)=>{
+  //         this.isLoggedIn = status
+  //         console.log(this.isLoggedIn)
+  //       })
+    
+  //     await this.delay(1000); 
+  //   } 
+  // } 
+  // delay(milliseconds: number) { 
+  //   return new Promise(resolve => setTimeout(resolve, milliseconds)); 
   // }
+
+
+  ngOnInit(){
+
+    this.chat.newChat().subscribe({
+      next: data=>{
+        console.log(data)
+      }
+    })
+
+    //this.getMessage()
+    this.email = this.token.getEmail()
+
+    this.login.loginStatus.subscribe((status)=>{
+      this.isLoggedIn = status
+      console.log(this.isLoggedIn)
+    })
+
+    this.chat.RefreshRequired.subscribe(respose=>{
+      this.getMessage()
+    })
+    
+  }
 
   sendMessage(chat : NgForm){
     this.chat.newMessage(chat.value).subscribe({
@@ -81,7 +86,7 @@ export class ContactUsComponent {
   getMessage(){
     this.chat.getMessages().subscribe({
       next : data =>{
-        this.messages = data
+        this.messages$ = data
       }
     })
   }

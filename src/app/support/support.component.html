@@ -10,12 +10,12 @@
             <h2>Fokus Chat Support</h2>
           </div>
           <div id="chat-history" >
-          <mat-card-content *ngFor="let message of messages">
+          <mat-card-content *ngFor="let message of messages$">
       
             <div id="sender" *ngIf="message?.email === 'care.fokus@gmail.com'">
               <p>{{message.message}}</p>
             </div>
-            <div id="receiver" *ngIf="message?.email === email">
+            <div id="receiver" *ngIf="message?.email === email$">
               <p>{{message.message}}</p>
             </div>
       
