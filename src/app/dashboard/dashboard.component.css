@@ -1,6 +1,7 @@
 
 #dashboard{
     background-color: #fff;
+    overflow: hidden;
 }
 .app-container{
     width: 100vw;
@@ -19,6 +20,12 @@
 }
 
 
+
+#badge{
+    position: absolute;
+    top: 15px;
+    padding-left: 20px;
+}
 
 #main-container{
     background-color: rgba(247,246,245);
@@ -57,6 +64,7 @@ button{
     margin-bottom: 40px;
     width: 100%;
     border-radius: 10px;
+
 }
 
 #main-container{
