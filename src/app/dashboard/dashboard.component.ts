@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { project } from '../model/project';
+import { project, user } from '../model/project';
 import { ProjectDialogComponent } from '../dialog/project-dialog/project-dialog.component';
 import { ProjectService } from '../services/project.service';
 import { ToggleService } from '../services/toggle.service';
@@ -10,7 +10,12 @@ import { RouterService } from '../services/router.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { DatePipe } from '@angular/common';
+import { LoginService } from '../services/login.service';
 
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +27,7 @@ export class DashboardComponent {
   constructor(private dialog : MatDialog, private project: ProjectService,
 
     private toggle : ToggleService, private token : TokenStorageService, private router: RouterService,
-    private snackBar : MatSnackBar){}
+    private snackBar : MatSnackBar, private serv: LoginService){}
 
 
   projectsList$ : project[] = []
@@ -52,9 +57,16 @@ export class DashboardComponent {
 
   assignValue: boolean = false;
 
+  isActive: boolean = false;
+
+  userDetails: user = {}
+
+
   ngOnInit(){
     this.assignValue = false;
     this.valueData = false;
+    
+    
     this.getCreatedProjects()
     this.project.RefreshRequired.subscribe(respose=>{
       this.getCreatedProjects()
@@ -63,7 +75,12 @@ export class DashboardComponent {
     this.project.RefreshRequired.subscribe(respose=>{
       this.getAssignedProjects()
     })
-
+    
+    
+    
+    
+    
+    
 
   }
 
@@ -88,7 +105,8 @@ export class DashboardComponent {
   
   showCreatedProjects(project : project){
     this.getCreatedProjects()
-  this.showProjectDetails(project)
+    this.showProjectDetails(project)
+    this.isActive = true;
   }
   
   showAssignedProjects(project : project){
@@ -103,7 +121,6 @@ export class DashboardComponent {
     this.selectedProject = project;
     console.log(typeof project.duration);
     this.token.saveProjectId(project?.project_id)
-    console.log(this.selectedProject)
     this.totalTask = this.selectedProject.taskList?.length ?? 0;
 
     if(this.totalTask !=0){

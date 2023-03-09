@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ForgetPassComponent } from './forget-pass/forget-pass.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: "contact", component: ContactUsComponent},
   {path: "pricing", component: PricingsComponent},
   {path: "aboutUs", component: AboutUsComponent},
+  {path: "edit", component: EditProfileComponent},
   {path: "support",component: SupportComponent},
   {path: "forgetPassword",component:ForgetPassComponent},
   {path: "reset_password/forget",pathMatch : 'full',component:ResetPassComponent},

@@ -4,7 +4,7 @@
 </div>
 
     <h1>Get Started <br> 
-        <h3>Create Your Account Now</h3></h1>
+        <h3 id="h3">Create Your Account Now</h3></h1>
 
 
 <!-- <div id="register-form" [class.mat-elevation-z2]="true"> -->
@@ -61,16 +61,14 @@
       <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
         <div class="card">
           <div class="card-body">
-            <div class="form-icon">
-              <div class="icon-holder">
-                <label for="input-file" id="file">
-                    <i class="fa-2x fa-solid fa-user-plus text-light" style="margin-top: 5px;"></i>
-                </label>
-               <input id="input-file" type="file" formControlName="photo">
-              </div>
-            </div>
             <h3 class="text-center">SIGN UP</h3>
             <form id="registerForm" [formGroup]="registerForm" (submit)="onRegister()">
+              <div class="profile-picture-upload">
+                <img *ngIf="!registerForm.value.profile_pic" src="https://www.drupal.org/files/profile_default.png" alt="Profile picture preview" class="imagePreview">
+                <img *ngIf="registerForm.value.profile_pic" src="{{registerForm.value.profile_pic}}" alt="Profile picture preview" class="imagePreview">
+                <label for="file" id="upload"><mat-icon id="icon">camera_alt</mat-icon></label>
+                <input id="file" accept="image/*" type="file" class="hidden" name="fileInput" formControlName="profile_pic" (change)="selectChange($event)"/>
+              </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nameInput" placeholder="Input your Name" autocomplete="off" name="name" required formControlName="name">
                     <label for="nameInput">Name</label>

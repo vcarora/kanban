@@ -20,5 +20,5 @@ export type user = {
     "email"? : string;
     "username"?: string;
     "title"?: string;
-    "photo"?: string;
+    "profile_pic"?: string;
 }
