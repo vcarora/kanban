@@ -65,7 +65,7 @@ export class PricingsComponent {
     console.log("inpaymentHandler")
         this.loginServ.updateTitle(STATUS,this.email).subscribe({
           next: data=>{
-            console.log(data)
+            window.localStorage.setItem('title', 'PREMIUM');
           }
         })
   }

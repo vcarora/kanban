@@ -27,11 +27,12 @@ export class LoginService {
   // get isLoggedIn(){
   //   return this.loginStatus.asObservable()
   // }
-  register(username: string, email: string, password: string): Observable<any> {
+  register(username: string, email: string, password: string, profile_pic: string): Observable<any> {
     return this.http.post(Content_API + 'kanban/register', {
       username,
       email,
       password,
+      profile_pic,
       title:"UN-VERIFIED"
     }, httpOptions);
   }
@@ -64,5 +65,14 @@ export class LoginService {
   updateTitle(status:string,email:string){
     return this.http.put(Content_API+'kanban/employee/account/upgrade?status='+status+'&email='+email,
                           null,{responseType: 'text'})
+  }
+
+
+  getUserDetails(){
+    return this.http.get(Content_API+'kanban/employee/getEmployee?email='+window.localStorage.getItem('user-email'));
+  }
+
+  getUserFrom(email: any){
+    return this.http.get(Content_API+'kanban/employee/getEmployee?email='+email);
   }
 }

@@ -69,6 +69,7 @@ export class ContactUsComponent {
     })
 
     this.chat.RefreshRequired.subscribe(respose=>{
+      console.log("hello")
       this.getMessage()
     })
     
