@@ -24,8 +24,6 @@ export class DashboardComponent {
     private toggle : ToggleService, private token : TokenStorageService, private router: RouterService,
     private snackBar : MatSnackBar){}
 
-    private toggle : ToggleService, private token : TokenStorageService, private router: RouterService, private date: DatePipe){}
-
 
   projectsList$ : project[] = []
 
@@ -157,6 +155,8 @@ export class DashboardComponent {
     if(title !="FREE")
       return true
     return false
+
+  }
 
   valueChange(){
     this.valueData = !this.valueData;
