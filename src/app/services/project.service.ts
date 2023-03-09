@@ -25,6 +25,7 @@ export class ProjectService {
     return _global_window();
   }
 
+
   createProject(project : any): Observable<any>{
    return this.http.post(PROJECT_API+'newProject',project).pipe(
     tap(()=>{
@@ -71,7 +72,7 @@ export class ProjectService {
   deleteTask(project_id : number,task : task) : Observable<any>{
     const httpOptions = {headers : new HttpHeaders({'Content-Type': 'application/json'}),
      body:task}
-    return this.http.delete<any>(PROJECT_API+'delete/'+project_id,httpOptions).pipe(
+    return this.http.delete<any>(PROJECT_API+'deleteTask/'+project_id,httpOptions).pipe(
       tap(()=>{
         this.RefreshRequired.next()
       })

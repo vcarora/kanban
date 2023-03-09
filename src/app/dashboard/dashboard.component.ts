@@ -6,7 +6,11 @@ import { ProjectService } from '../services/project.service';
 import { ToggleService } from '../services/toggle.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { RouterService } from '../services/router.service';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +20,12 @@ import { DatePipe } from '@angular/common';
 export class DashboardComponent {
 
   constructor(private dialog : MatDialog, private project: ProjectService,
+
+    private toggle : ToggleService, private token : TokenStorageService, private router: RouterService,
+    private snackBar : MatSnackBar){}
+
     private toggle : ToggleService, private token : TokenStorageService, private router: RouterService, private date: DatePipe){}
+
 
   projectsList$ : project[] = []
 
@@ -65,11 +74,28 @@ export class DashboardComponent {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(ProjectDialogComponent);
-
+    if(this.checktitleCondition()){
+      const dialogRef = this.dialog.open(ProjectDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+    }else{
+      this.snackBar.open('Free user limiter to 3 project Only', 'Ok', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      });
+    }
+  }
+  
+  showCreatedProjects(project : project){
+    this.getCreatedProjects()
+  this.showProjectDetails(project)
+  }
+  
+  showAssignedProjects(project : project){
+    this.getAssignedProjects()
+    this.showProjectDetails(project)
   }
 
   showProjectDetails(project : project){
@@ -109,8 +135,6 @@ export class DashboardComponent {
         
       }     
     })
-
-
   }
 
   getAssignedProjects(){
@@ -122,11 +146,24 @@ export class DashboardComponent {
     })
   }
 
+
+  checktitleCondition(){
+    let title = window.localStorage.getItem("title")
+    let projectLength = this.projectsList$.length
+    if(title=== "FREE" && projectLength<3)
+      return true
+    if(title=== "FREE" && projectLength>=3)
+      return false
+    if(title !="FREE")
+      return true
+    return false
+
   valueChange(){
     this.valueData = !this.valueData;
   }
 
   anotherChange(){
     this.assignValue = !this.assignValue;
+
   }
 }

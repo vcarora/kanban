@@ -67,11 +67,11 @@ export class TokenStorageService {
   }
 
   public saveUserEmail(email : string){
-    window.localStorage.removeItem(USER_EMAIL);
-    window.localStorage.setItem(USER_EMAIL, email);    
+    window.localStorage.removeItem(EMAIL_KEY);
+    window.localStorage.setItem(EMAIL_KEY, email);    
   }
 
   public getUserEmail(): string | null {
-    return window.localStorage.getItem(USER_EMAIL);
+    return window.localStorage.getItem(EMAIL_KEY);
   }
 }

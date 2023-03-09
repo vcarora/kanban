@@ -13,9 +13,9 @@ export class SupportComponent {
 
   formData : any ={}
 
-  messages : message[] = []
+  messages$ : message[] = []
 
-  email : any =''
+  email$ : any =''
 
   chatsList : chatsList[] =[] 
 
@@ -23,12 +23,17 @@ export class SupportComponent {
 
    ngOnInit(){
     this.getChats()
-   
-     
+    this.chat.RefreshRequired.subscribe(respose=>{
+      this.getChats()
+    })  
+    
+    this.chat.RefreshRequired.subscribe(respose=>{
+      this.getRunningMessages()
+    })
   }
-  delay(milliseconds: number) { 
-    return new Promise(resolve => setTimeout(resolve, milliseconds)); 
-  }
+  // delay(milliseconds: number) { 
+  //   return new Promise(resolve => setTimeout(resolve, milliseconds)); 
+  // }
 
   sendMessage(chat : NgForm){
     this.chat.newSuportMessage(chat.value).subscribe({
@@ -38,21 +43,18 @@ export class SupportComponent {
     })
   }
 
-  async getMessages(chat_id : any){
+  getMessages(chat_id : any){
 
-    await  this.token.saveUserEmail(chat_id.substring(7))
+   this.token.saveUserEmail(chat_id.substring(7))
 
-    setTimeout(()=>{
+
       this.chat.getMessage(chat_id).subscribe({
         next : data =>{
-          this.messages = data
+          this.messages$ = data
         }
       })
-      this.email = this.token.getUserEmail()
+      this.email$ = this.token.getUserEmail()
 
-    },1000)
-
-    await this.delay(10000)
   }
 
   getChats(){
@@ -60,6 +62,14 @@ export class SupportComponent {
       next:data=>{
         this.chatsList = data
         console.log(this.chatsList[0]?.chat_id.substring(7))
+      }
+    })
+  }
+
+  getRunningMessages(){
+    this.chat.getMessages().subscribe({
+      next : data =>{
+        this.messages$ = data
       }
     })
   }

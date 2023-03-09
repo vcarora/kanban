@@ -5,7 +5,10 @@
             <p>{{projectDetails.duration}} </p>
         </div>
         <div *ngIf="!projectDetails.name">
+          <div class="d-flex">
             <h1>Welcome - {{userName}}</h1>
+            <img *ngIf="title" src="../../assets/crown.png" alt="" srcset="">
+          </div>
             <h2>Select the <span>Project</span> to work On</h2>
 
         </div>
@@ -85,7 +88,7 @@
             </mat-tab>
             <mat-tab disabled></mat-tab>
             <mat-tab disabled></mat-tab>
-            <mat-tab disabled></mat-tab> 
+            <mat-tab disabled></mat-tab>
           </mat-tab-group>
 
 </div>
