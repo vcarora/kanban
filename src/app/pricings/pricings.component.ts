@@ -14,7 +14,6 @@ export class PricingsComponent {
 
   name: any = "";
   email: any = '';
-
   rzp: any;
 
   constructor(private projectService: ProjectService, private zone: NgZone,private loginServ:LoginService, private router: RouterService){}
@@ -66,7 +65,7 @@ export class PricingsComponent {
     console.log("inpaymentHandler")
         this.loginServ.updateTitle(STATUS,this.email).subscribe({
           next: data=>{
-            console.log(data)
+            window.localStorage.setItem('title', 'PREMIUM');
           }
         })
   }

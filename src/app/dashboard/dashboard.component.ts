@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { project } from '../model/project';
+import { project, user } from '../model/project';
 import { ProjectDialogComponent } from '../dialog/project-dialog/project-dialog.component';
 import { ProjectService } from '../services/project.service';
 import { ToggleService } from '../services/toggle.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { RouterService } from '../services/router.service';
+
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { DatePipe } from '@angular/common';
+import { LoginService } from '../services/login.service';
+
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-dashboard',
@@ -16,8 +25,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class DashboardComponent {
 
   constructor(private dialog : MatDialog, private project: ProjectService,
+
     private toggle : ToggleService, private token : TokenStorageService, private router: RouterService,
-    private snackBar : MatSnackBar){}
+    private snackBar : MatSnackBar, private serv: LoginService){}
+
 
   projectsList$ : project[] = []
 
@@ -38,9 +49,24 @@ export class DashboardComponent {
 
   sidenav : boolean = false
 
+  badgeValue: any;
+
+  assignedValue: any;
+
+  valueData: boolean = false;
+
+  assignValue: boolean = false;
+
+  isActive: boolean = false;
+
+  userDetails: user = {}
+
 
   ngOnInit(){
-
+    this.assignValue = false;
+    this.valueData = false;
+    
+    
     this.getCreatedProjects()
     this.project.RefreshRequired.subscribe(respose=>{
       this.getCreatedProjects()
@@ -49,7 +75,12 @@ export class DashboardComponent {
     this.project.RefreshRequired.subscribe(respose=>{
       this.getAssignedProjects()
     })
-
+    
+    
+    
+    
+    
+    
 
   }
 
@@ -74,7 +105,8 @@ export class DashboardComponent {
   
   showCreatedProjects(project : project){
     this.getCreatedProjects()
-  this.showProjectDetails(project)
+    this.showProjectDetails(project)
+    this.isActive = true;
   }
   
   showAssignedProjects(project : project){
@@ -83,11 +115,12 @@ export class DashboardComponent {
   }
 
   showProjectDetails(project : project){
+    
     console.log(this.completedTask);
     this.completedTask = 0;
     this.selectedProject = project;
+    console.log(typeof project.duration);
     this.token.saveProjectId(project?.project_id)
-    console.log(this.selectedProject)
     this.totalTask = this.selectedProject.taskList?.length ?? 0;
 
     if(this.totalTask !=0){
@@ -112,6 +145,9 @@ export class DashboardComponent {
       next: data =>{
         console.log(data)
         this.projectsList$ = data
+        this.badgeValue = this.projectsList$.length;
+        console.log(this.projectsList$.length);
+        
       }     
     })
   }
@@ -120,9 +156,11 @@ export class DashboardComponent {
     this.project.getAssignedProjects().subscribe({
       next : data=>{
         this.assignedProjects = data
+        this.assignedValue = this.assignedProjects.length;
       }
     })
   }
+
 
   checktitleCondition(){
     let title = window.localStorage.getItem("title")
@@ -134,5 +172,15 @@ export class DashboardComponent {
     if(title !="FREE")
       return true
     return false
+
+  }
+
+  valueChange(){
+    this.valueData = !this.valueData;
+  }
+
+  anotherChange(){
+    this.assignValue = !this.assignValue;
+
   }
 }

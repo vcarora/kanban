@@ -12,17 +12,21 @@
             <mat-list-item (click)="openDialog()">
                 <mat-icon>create_new_folder</mat-icon><span>New Project</span>
             </mat-list-item>
-            <mat-expansion-panel [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header>
-                    My Projects
+            <mat-expansion-panel  [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header (click)="valueChange()">
+                    <div id="active">
+                        My Projects <span id="badge" *ngIf="!valueData && badgeValue!=0" matBadge="{{badgeValue}}" matBadgeColor="warn"></span>
+                    </div>
                 </mat-expansion-panel-header>
-                <mat-nav-list *ngFor="let project of projectsList$">
+                <mat-nav-list id="list" *ngFor="let project of projectsList$">
                     <a mat-list-item (click)="showCreatedProjects(project)">{{project?.name}}</a>
                 </mat-nav-list>
             </mat-expansion-panel>
-            <mat-expansion-panel [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header>
-                    Assigned Projects
+            <mat-expansion-panel  [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header  (click)="anotherChange()">
+                    <div>
+                        Assigned Projects <span id="badge" *ngIf="!assignValue && assignedValue!=0" matBadge="{{assignedValue}}" matBadgeColor="warn"></span>
+                    </div>
                 </mat-expansion-panel-header>
                 <mat-nav-list *ngFor="let project of assignedProjects">
                     <a mat-list-item (click)="showAssignedProjects(project)">{{project?.name}}</a>
@@ -36,7 +40,7 @@
     
         <div id="top-bar">
             <button mat-icon-button  (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
-            <h1>Projects <button id="i" (click)="reload()"><mat-icon id="refresh">refresh</mat-icon></button></h1>             
+            <h1>Projects <button id="i" (click)="reload()"><mat-icon id="refresh">refresh</mat-icon></button></h1> 
         </div>
 
         <div id="project-container">           

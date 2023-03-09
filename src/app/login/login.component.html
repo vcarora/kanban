@@ -23,10 +23,16 @@
         
                 <button mat-mini-fab  color="warn" type="submit" [disabled]="!loginForm.valid"><mat-icon>arrow_forward_ios</mat-icon></button>
                 <div id="register" >
-                    <h3 routerLink="/forgetPassword">Forgot Password?</h3>
+                    <h3 id="forgot" routerLink="/forgetPassword">Forgot Password?</h3>
                 </div>
-                <button routerLink="/home" id="btn"><mat-icon id="back">arrow_back_ios</mat-icon></button>
-    
+                <button routerLink="/home" id="btn"><mat-icon >arrow_back_ios</mat-icon></button>
+
+                <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with"></asl-google-signin-button>
+                <div>
+                    <h3>
+                        Dont have an account? <span routerLink="/register"> &nbsp; Sign Up</span>
+                    </h3>
+                </div>
             </form>
         </div>
 </div>

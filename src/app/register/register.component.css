@@ -29,9 +29,6 @@ form{
     box-shadow: 1px 2px 8px 2px black;
 }
 
-#google{
-    margin-top: 20px;
-}
 
 button{
     width: min-content;
@@ -49,7 +46,7 @@ mat-card{
 
 mat-error{
     font-size: 15px;
-    color: black;
+    color: red;
 }
 
 mat-form-field{
@@ -65,7 +62,7 @@ h2{
 }
 
 h1{
-    margin-top: -480px;
+    margin-top: -500px;
     margin-left: 66%;
     font-size: 60px;
     font-weight: 900px;
@@ -73,14 +70,174 @@ h1{
     color: #2a2a2a;
 }
 
+#h3{
+    font-weight: 900px;
+    font-family: 'kanyon';
+    font-size: 20px;
+    margin-top: 10px;
+}
+
 h3{
     font-weight: 900px;
     font-family: 'kanyon';
     font-size: 20px;
-    margin-top: 20px;
+    margin-top: 120px;
 }
 
 #gif{
     width: 700px;
     margin-top: 180px;
+}
+
+
+  
+#container{
+    margin-left: 1050px;
+    width: auto;
+    height: 700px;
+    overflow: hidden;
+}
+
+#user{
+    background-color: transparent;
+    border: 0;
+}
+
+#file{
+    cursor: pointer;
+}
+
+#google{
+    margin-top: -30px;
+}
+
+.icon-holder > input[type='file'] {
+    display: none;
+}
+
+  .radius {
+    border-radius: 20px !important;
+  }
+  
+  .card {
+    border-radius: 20px !important;
+    width: 450px;
+    height: 550px;
+    margin-top: -400px;
+    margin-left: -100px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+  .card-body .form-icon {
+    text-align: center;
+    width: 100%;
+    line-height: 0;
+    margin-top: calc(-42px - 35px);
+    margin-bottom: 28px;
+  }
+  .form-icon .icon-holder {
+    position: relative;
+    display: inline-block;
+    width: 85px;
+    height: 85px;
+    border-radius: 85px;
+    background-color: #292828;
+    padding: 20px;
+    margin-top: 15px;
+  }
+
+  img{
+    position: relative;
+    width: auto;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+  .icon-holder img {
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    margin-top: -23%;
+    margin-left: -25%;
+  }
+  input:hover {
+    border-bottom: 1px solid #292828;
+  }
+  #imageAsBackground {
+    z-index: -1;
+    position: fixed;
+    top: 50%;
+    right: -1%;
+    transform: translateY(-50%);
+    max-height: 600px;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .form-control:focus {
+    border-color: #292828;
+    box-shadow: none;
+  }
+  
+  .form-control.is-invalid {
+    background-image: none;
+  }
+  .form-control.is-invalid:focus {
+    box-shadow: 0 3px 2px -2px red;
+  }
+  .pass {
+    float: right;
+    margin-right: 15px;
+    margin-top: -35px;
+    position: relative;
+    z-index: 5;
+    font-size: 18px;
+  }
+  
+  .masked {
+    -webkit-text-security: disc;
+  }
+  
+  .tablepass {
+    margin-left: 5px;
+  }
+
+/*==========================================================================*/
+
+
+
+.profile-picture-upload {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+  display: inline;
+}
+
+.imagePreview {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-right: 8px;
+  -webkit-box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.35);
+  -moz-box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.35);
+  box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.35);
+}
+
+.hidden {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  left: -999999px;
+}
+
+#icon {
+  position: absolute;
+  width: 50px;
+  height: 100px;
+  top: 35px;
+  right: -40px;
+  background: none;
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+  outline: 0;
 }

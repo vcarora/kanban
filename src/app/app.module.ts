@@ -58,6 +58,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { PricingsComponent } from './pricings/pricings.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { DatePipe } from '@angular/common';
+import {MatBadgeModule} from '@angular/material/badge';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 
@@ -88,6 +91,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AboutUsComponent,
     ForgetPassComponent,
     ResetPassComponent,
+    EditProfileComponent,
+    
 
   ],
   imports: [
@@ -122,10 +127,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatAutocompleteModule,
     MatProgressBarModule,
     DragDropModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatBadgeModule
 
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
+  providers: [ DatePipe, {provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,
@@ -139,7 +145,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
         {
           id: FacebookLoginProvider.PROVIDER_ID,
           provider: new FacebookLoginProvider('clientId')
-        }
+        },
       ],
       onError: (err) => {
         console.error(err);
