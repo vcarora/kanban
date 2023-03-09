@@ -6,6 +6,7 @@ import { TokenStorageService } from '../services/token-storage.service';
 import { LoginService } from '../services/login.service';
 import { RouterService } from '../services/router.service';
 import { ToggleService } from '../services/toggle.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-nav-bar',
@@ -20,7 +21,7 @@ export class NavBarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private token : TokenStorageService, private route : RouterService,private loginService : LoginService, private toggle :ToggleService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private token : TokenStorageService, private route : RouterService,private loginService : LoginService, private toggle :ToggleService, private snackBar: MatSnackBar) {}
 
   isLoggedIn = false;
 
@@ -66,6 +67,9 @@ export class NavBarComponent {
  logout(): void{
    this.token.logOut()
    this.isLoggedIn = false
+   this.snackBar.open('Log Out in Successfully', 'OK', {
+    duration: 3000
+  });
    this.route.toHome();
 
  }

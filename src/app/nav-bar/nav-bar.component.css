@@ -31,7 +31,7 @@
 }
 #nav-btns{
   width: 30%;
-  margin-right: 400px;
+  margin-right: 600px;
   
 }
 
@@ -54,53 +54,65 @@ mat-toolbar>div .btn_original{
   background-color: transparent;
   color: black;
   margin-left: 100px;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
   font-size: 1rem;
   padding-bottom: 5px;
   border: none;
 }
 
 mat-toolbar>div .btn_login{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: transparent;
-  margin-left: auto;
-  color: white;
-  margin-left: 5%;
-  margin-right: 5%;
+  color: black;
+  letter-spacing: 0.1rem;
+  margin-left: 80px;
   font-size: 1.2rem;
-  padding: 25px 32px 25px 25px;
-  /* border-radius: 15px; */
+  padding-bottom: 5px;
+  border: none;
 }
+
 mat-toolbar>div .btn_signup{
   background-color: transparent;
   color: white;
   margin-left: 5%;
   margin-right: 5%;
   font-size: 1.2rem;
-  padding: 25px 32px 25px 25px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: 0;
   /* border-radius: 15px; */
 }
 
 mat-toolbar>div .btn_login:hover{
-  background-color: white;
+  border-bottom: 2px solid #d1c4bd;
   color: black;
+  transition: all 1s ease;
+  font-size: 25px;
 }
 
 #btn2{
-  background-color: transparent;
-  font-family: 'Tilt Warp', cursive;
-  font-size: 20px;
-  color: #312f30;
-  border: 0;
+    margin-left: 450px;
+    background-color: red;
 }
 
-#btn2:hover{
-  border-bottom: 2px solid wheat;
+#btn3{
+  background-color: transparent;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  color: #312f30;
+  border-bottom: 2px solid #741364;
+}
+
+#btn3:hover{
+  border-bottom: 2px solid #d1c4bd;
   color: black;
+  transition: all 1s ease;
+  font-size: 25px;
 }
 
 .toolbar_change{
-  border-bottom: 1px solid lightgray;
-  background-color: wheat;
+
+  background-color: transparent;
   height: 100px;
   position: sticky;
   transition: all 0.2s linear;
@@ -111,20 +123,20 @@ mat-toolbar>div .btn_login:hover{
 mat-toolbar .btn_change{
   background: transparent;
   color: #FF6600;
-  margin-left: 5%;
+  margin-left: 100px;
   margin-right: 5%;
   font-size: 1rem;
+  border: 0;
+  border-bottom: 0px;
+  padding-bottom: 5px;
 }
 
 mat-toolbar .btn_login_change{
-  background-color: #FF6600;
-  box-shadow: 0 0 5px #FF6600;
-  color: white;
-  margin-left: 5%;
-  margin-right: 5%;
-  font-size: 1.2rem;
-  padding: 25px 32px 25px 25px;
-  border-radius: 15px;
+
+ 
+  padding: 10px;
+  margin-left: 100px;
+  border: 0;
 }
 
 mat-toolbar .btn_signup_change{

@@ -7,46 +7,93 @@
         <h3>Create Your Account Now</h3></h1>
 
 
-<div id="register-form" [class.mat-elevation-z2]="true">
-    <h2>SignUP</h2>
-    <form [formGroup]="registerForm" (submit)="onRegister()">
+<!-- <div id="register-form" [class.mat-elevation-z2]="true"> -->
+    <!-- <h2>SignUP</h2> -->
+    <!-- <form [formGroup]="registerForm" (submit)="onRegister()"> -->
+<!--  -->
+        <!-- <mat-form-field appearance="outline"> -->
+            <!-- <mat-label>Name</mat-label> -->
+            <!-- <input matInput type="text" formControlName="name"> -->
+            <!-- <mat-error *ngIf="name?.errors?.['required']"> -->
+                <!-- Name is required. -->
+            <!-- </mat-error> -->
+            <!-- <mat-error *ngIf="name?.errors?.['minlength']"> -->
+                <!-- Name should have minimum of 3 characters. -->
+            <!-- </mat-error> -->
+<!--  -->
+<!--  -->
+        <!-- </mat-form-field> -->
+        <!-- <mat-form-field appearance ="outline"> -->
+            <!-- <mat-label>Email Id</mat-label> -->
+            <!-- <input matInput type="email" formControlName="email"> -->
+            <!-- <mat-error *ngIf="email?.errors?.['required']"> -->
+                <!-- Email is required. -->
+            <!-- </mat-error> -->
+            <!-- <mat-error *ngIf="email?.errors?.['pattern']"> -->
+                <!-- Please enter email with correct pattern ( @, .com etc..) -->
+            <!-- </mat-error> -->
+        <!-- </mat-form-field> -->
+<!--  -->
+        <!-- <mat-form-field appearance="outline"> -->
+            <!-- <mat-label>Password</mat-label> -->
+            <!-- <input matInput type="password" formControlName="password"> -->
+            <!-- <mat-error *ngIf="password?.invalid"> -->
+                <!-- Password required -->
+            <!-- </mat-error> -->
+<!--           -->
+        <!-- </mat-form-field> -->
+<!--  -->
+        <!-- <button mat-raised-button color="warn" type="submit" [disabled]="!registerForm.valid">Register</button> -->
+        <!-- <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with" *ngIf="!user"></asl-google-signin-button> -->
+<!--  -->
+    <!-- </form> -->
+<!--  -->
+<!--      -->
+<!-- </div> -->
+<!--  -->
 
-        <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input matInput type="text" formControlName="name">
-            <mat-error *ngIf="name?.errors?.['required']">
-                Name is required.
-            </mat-error>
-            <mat-error *ngIf="name?.errors?.['minlength']">
-                Name should have minimum of 3 characters.
-            </mat-error>
 
 
-        </mat-form-field>
-        <mat-form-field appearance ="outline">
-            <mat-label>Email Id</mat-label>
-            <input matInput type="email" formControlName="email">
-            <mat-error *ngIf="email?.errors?.['required']">
-                Email is required.
-            </mat-error>
-            <mat-error *ngIf="email?.errors?.['pattern']">
-                Please enter email with correct pattern ( @, .com etc..)
-            </mat-error>
-        </mat-form-field>
 
-        <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password">
-            <mat-error *ngIf="password?.invalid">
-                Password required
-            </mat-error>
-         
-        </mat-form-field>
-
-        <button mat-raised-button color="warn" type="submit" [disabled]="!registerForm.valid">Register</button>
-        <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with" *ngIf="!user"></asl-google-signin-button>
-
-    </form>
-
-    
-</div>
+<div id="container">
+    <div class="row"></div>
+    <div class="row align-items-center justify-content-center" style="height:100vh;">
+      <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-icon">
+              <div class="icon-holder">
+                <label for="input-file" id="file">
+                    <i class="fa-2x fa-solid fa-user-plus text-light" style="margin-top: 5px;"></i>
+                </label>
+               <input id="input-file" type="file" formControlName="photo">
+              </div>
+            </div>
+            <h3 class="text-center">SIGN UP</h3>
+            <form id="registerForm" [formGroup]="registerForm" (submit)="onRegister()">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Input your Name" autocomplete="off" name="name" required formControlName="name">
+                    <label for="nameInput">Name</label>
+                  </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="emailInput" placeholder="Input your email" autocomplete="off" name="email" required formControlName="email">
+                <label for="emailInput">Email address</label>
+                <mat-error *ngIf="email?.errors?.['pattern']">
+                    Please enter email with correct pattern ( @, .com etc..)
+                </mat-error>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Input your password" required formControlName="password">
+                <label for="passwordInput">Password</label>
+            </div>
+  
+              <div class="text-center mb-5">
+                <button mat-raised-button type="submit" color="primary" [disabled]="registerForm.invalid">REGISTER</button><br>
+              </div>
+              <asl-google-signin-button type='standard' size='large' id="google" shape="pill" theme="outline" text="continue_with"></asl-google-signin-button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 

@@ -7,4 +7,9 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HomeComponent {
   
+  name: any;
+
+  ngOnInit(): void{
+    this.name = window.localStorage.getItem('username');
+  }
 }

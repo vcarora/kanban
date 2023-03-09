@@ -21,7 +21,8 @@
     <label class="c-form__buttonLabel" for="checkbox">
       <button class="c-form__button" type="button">Send</button>
     </label>
-    <label class="c-form__toggle" for="checkbox" data-title="Get Started" routerLink="/dashboard"></label>
+    <label class="c-form__toggle" for="checkbox" data-title="Get Started" *ngIf="name" routerLink="/dashboard"></label>
+    <label class="c-form__toggle" for="checkbox" data-title="Get Started" *ngIf="!name" routerLink="/register"></label>
   </form>
 </div>
 
