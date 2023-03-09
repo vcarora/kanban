@@ -36,11 +36,21 @@ export class RegisterComponent {
         })
     }
 
+    selectChange(event: any){
+      if(event.target.files){
+        let reader= new FileReader();
+        reader.readAsDataURL(event.target.files[0]);
+        reader.onload = (e: any) =>{
+          this.registerForm.value.profile_pic = e.target.result;
+        }
+       }
+    }
+
   registerForm = this.fb.group({
     email : ['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
     password : ['',[Validators.required,Validators.minLength(8)]],
     name : ['',[Validators.required,Validators.minLength(3)]],
-    photo : ['']
+    profile_pic : ['']
   })
 
   get email(){return this.registerForm.get("email");}
@@ -54,23 +64,26 @@ export class RegisterComponent {
      let name : any;
      let email : any
      let password : any
+     let profile_pic: any
 
      
      if(this.registerForm.value.name){
        name = this.registerForm.value.name;
        email = this.registerForm.value.email
        password = this.registerForm.value.password
+       profile_pic = this.registerForm.value.profile_pic
      }
      else{
       name = this.user.name;
-      email = this.user.email
+      email = this.user.email;
+      profile_pic = this.user.photo;
       password = null;
       console.log("Else con")
 
      }
     //  let email : any;
     //  let password : any = this.registerForm.value.password
-     this.loginService.register(name,email,password).subscribe({
+     this.loginService.register(name,email,password,profile_pic).subscribe({
       next : data =>{   
         console.log(data)
   

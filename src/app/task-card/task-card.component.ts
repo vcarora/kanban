@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { task } from '../model/project';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { task, user } from '../model/project';
+import { LoginService } from '../services/login.service';
 import { ProjectService } from '../services/project.service';
 import { TokenStorageService } from '../services/token-storage.service';
 
@@ -10,7 +12,7 @@ import { TokenStorageService } from '../services/token-storage.service';
 })
 export class TaskCardComponent {
 
-  constructor(private project :ProjectService, private token : TokenStorageService ){}
+  constructor(private project :ProjectService, private token : TokenStorageService, private loginService: LoginService, private emails: DashboardComponent){}
 
   @Input()
   task : task ={}
@@ -19,6 +21,12 @@ export class TaskCardComponent {
 
   statuses : string[] =['TO DO','In Progress','Submitted','Completed']
 
+  members: any = [];
+
+
+  ngOnInit(){
+
+  }
 
 
   changeStatus(task :task){

@@ -60,6 +60,7 @@ import { PricingsComponent } from './pricings/pricings.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DatePipe } from '@angular/common';
 import {MatBadgeModule} from '@angular/material/badge';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 
@@ -90,6 +91,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     AboutUsComponent,
     ForgetPassComponent,
     ResetPassComponent,
+    EditProfileComponent,
     
 
   ],
