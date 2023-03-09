@@ -38,7 +38,8 @@ export class RegisterComponent {
   registerForm = this.fb.group({
     email : ['',[Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
     password : ['',[Validators.required,Validators.minLength(8)]],
-    name : ['',[Validators.required,Validators.minLength(3)]]
+    name : ['',[Validators.required,Validators.minLength(3)]],
+    photo : ['']
   })
 
   get email(){return this.registerForm.get("email");}

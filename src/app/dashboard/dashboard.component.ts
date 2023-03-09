@@ -6,6 +6,7 @@ import { ProjectService } from '../services/project.service';
 import { ToggleService } from '../services/toggle.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { RouterService } from '../services/router.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ import { RouterService } from '../services/router.service';
 export class DashboardComponent {
 
   constructor(private dialog : MatDialog, private project: ProjectService,
-    private toggle : ToggleService, private token : TokenStorageService, private router: RouterService){}
+    private toggle : ToggleService, private token : TokenStorageService, private router: RouterService, private date: DatePipe){}
 
   projectsList$ : project[] = []
 
@@ -36,9 +37,17 @@ export class DashboardComponent {
 
   sidenav : boolean = false
 
+  badgeValue: any;
+
+  assignedValue: any;
+
+  valueData: boolean = false;
+
+  assignValue: boolean = false;
 
   ngOnInit(){
-
+    this.assignValue = false;
+    this.valueData = false;
     this.getCreatedProjects()
     this.project.RefreshRequired.subscribe(respose=>{
       this.getCreatedProjects()
@@ -64,9 +73,11 @@ export class DashboardComponent {
   }
 
   showProjectDetails(project : project){
+    
     console.log(this.completedTask);
     this.completedTask = 0;
     this.selectedProject = project;
+    console.log(typeof project.duration);
     this.token.saveProjectId(project?.project_id)
     console.log(this.selectedProject)
     this.totalTask = this.selectedProject.taskList?.length ?? 0;
@@ -93,6 +104,9 @@ export class DashboardComponent {
       next: data =>{
         console.log(data)
         this.projectsList$ = data
+        this.badgeValue = this.projectsList$.length;
+        console.log(this.projectsList$.length);
+        
       }     
     })
 
@@ -103,7 +117,16 @@ export class DashboardComponent {
     this.project.getAssignedProjects().subscribe({
       next : data=>{
         this.assignedProjects = data
+        this.assignedValue = this.assignedProjects.length;
       }
     })
+  }
+
+  valueChange(){
+    this.valueData = !this.valueData;
+  }
+
+  anotherChange(){
+    this.assignValue = !this.assignValue;
   }
 }

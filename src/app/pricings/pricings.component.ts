@@ -11,7 +11,6 @@ export class PricingsComponent {
 
   name: any = "";
   email: any = '';
-
   rzp: any;
 
   constructor(private projectService: ProjectService, private zone: NgZone){}

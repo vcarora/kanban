@@ -12,17 +12,21 @@
             <mat-list-item (click)="openDialog()">
                 <mat-icon>create_new_folder</mat-icon><span>New Project</span>
             </mat-list-item>
-            <mat-expansion-panel [class.mat-elevation-z0]="true">
+            <mat-expansion-panel (click)="valueChange()" [class.mat-elevation-z0]="true">
                 <mat-expansion-panel-header>
-                    My Projects
+                    <div >
+                        My Projects <span id="badge" *ngIf="!valueData" matBadge="{{badgeValue}}" matBadgeColor="warn"></span>
+                    </div>
                 </mat-expansion-panel-header>
                 <mat-nav-list *ngFor="let project of projectsList$">
                     <a mat-list-item (click)="showProjectDetails(project)">{{project?.name}}</a>
                 </mat-nav-list>
             </mat-expansion-panel>
-            <mat-expansion-panel [class.mat-elevation-z0]="true">
+            <mat-expansion-panel  (click)="anotherChange()" [class.mat-elevation-z0]="true">
                 <mat-expansion-panel-header>
-                    Assigned Projects
+                    <div>
+                        Assigned Projects <span id="badge" *ngIf="!assignValue" matBadge="{{assignedValue}}" matBadgeColor="warn"></span>
+                    </div>
                 </mat-expansion-panel-header>
                 <mat-nav-list *ngFor="let project of assignedProjects">
                     <a mat-list-item (click)="showProjectDetails(project)">{{project?.name}}</a>

@@ -8,6 +8,10 @@ button{
     background-color: #f6deb8;
 }
 
+#main-container{
+    overflow: hidden;
+}
+
 #top-bar{
     display: flex;
     justify-content: space-between;
@@ -70,6 +74,7 @@ h1{
     margin-right: 4rem;
 
 }
+
 
 #card{
     width: 20rem;

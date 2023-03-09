@@ -7,6 +7,7 @@ import { ProjectService } from '../services/project.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { TaskDialogComponent } from '../dialog/task-dialog/task-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class ProjectDetailsComponent {
   value: any;
 
   ngOnInit(){
+    
    this.userName = window.localStorage.getItem("username");
    console.log(this.userName);
    this.userName = this.userName.toUpperCase()  

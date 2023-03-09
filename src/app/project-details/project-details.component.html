@@ -10,7 +10,7 @@
 
         </div>
 
-        <div id="progress-bar"> 
+        <div id="progress-bar" *ngIf="projectDetails.name"> 
           <h2 id="bar"> Task Completed In <mat-icon id="percentage">percentage</mat-icon> :</h2>
           <div>
             <h2 *ngIf="projectDetails.name" id="value">{{value}}<mat-icon id="percentages">percentage</mat-icon></h2>
@@ -50,7 +50,7 @@
         <mat-tab-group color="warn"> 
             <mat-tab>
               <ng-template mat-tab-label>
-                <h1>TASK</h1>
+                <h2>TASK</h2>
               </ng-template>
               <mat-card class="scrollable-content">
                
@@ -61,7 +61,7 @@
             </mat-tab>
             <mat-tab label="Description">
               <ng-template mat-tab-label>
-                <h2>Description</h2>
+                <h2>DESCRIPTION</h2>
               </ng-template>
                 <mat-card  class="scrollable-content">
                  
@@ -72,7 +72,7 @@
               </mat-tab>
             <mat-tab label="Members">
               <ng-template mat-tab-label>
-                <h2>Members</h2>
+                <h2>MEMBERS</h2>
               </ng-template>
               <mat-card  class="scrollable-content">
                
@@ -83,9 +83,9 @@
                 </mat-card-content>
               </mat-card>
             </mat-tab>
-            <!-- <mat-tab disabled></mat-tab>
             <mat-tab disabled></mat-tab>
-            <mat-tab disabled></mat-tab> -->
+            <mat-tab disabled></mat-tab>
+            <mat-tab disabled></mat-tab> 
           </mat-tab-group>
 
 </div>
