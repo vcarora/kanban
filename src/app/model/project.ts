@@ -6,6 +6,7 @@ export type project = {
     "taskList"? : task[];
     "assigned_emp"? :string[];
     "email"? : string; 
+    "assigned_empl"?:user[]
 }
 
 export type task = {
@@ -14,6 +15,7 @@ export type task = {
     "status"? : string;
     "priority"? : string;
     "email"?: string
+    "memberList"?:user[]
 }
 
 export type user = {

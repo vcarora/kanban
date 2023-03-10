@@ -24,6 +24,14 @@ main {
     border-radius: 20px;
 }
 
+#file{
+  display: none;
+}
+
+#change-avatar{
+  cursor: pointer;
+}
+
 .title{
     position: absolute;
     top: 150px;
