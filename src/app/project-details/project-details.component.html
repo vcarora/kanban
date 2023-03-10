@@ -36,13 +36,13 @@
         <mat-card id="card">
           <mat-card-content class="btn">
               
-                <button mat-fab (click)="taskDialog()">
+                <button mat-fab matTooltip="Add New Task's to Project" (click)="taskDialog()">
                   <mat-icon>add</mat-icon>
                 </button><br><br><br><br>
-                <button mat-fab (click)="addMember()">
+                <button mat-fab matTooltip="Add New Member to Project" (click)="addMember()">
                   <mat-icon>group_add</mat-icon>
                 </button><br><br><br><br>
-                <button mat-fab (click)="deleteProject()">
+                <button matTooltip="Delete the Project" mat-fab (click)="deleteProject()">
                   <mat-icon>delete</mat-icon>
                 </button>
       
@@ -69,7 +69,10 @@
                 <mat-card  class="scrollable-content">
                  
                   <mat-card-content>
-                    <p>{{projectDetails.description}} </p>
+
+                    <div id="cards" class="container card">
+                      <h3 id="contents">{{projectDetails.description}} </h3>
+                    </div>
                   </mat-card-content>
                 </mat-card>
               </mat-tab>
@@ -80,9 +83,11 @@
               <mat-card  class="scrollable-content">
                
                 <mat-card-content>
+                  <div id="cards" class="container">
                     <ul *ngFor="let member of projectDetails?.assigned_emp">
-                        <li>{{member}}</li>
-                    </ul>
+                      <li><img src="" alt=""><h3 id="contents">{{member}} &nbsp;&nbsp;&nbsp;<button matTooltip="Remove Member from Project" id="delete" mat-mini-fab color="accent"><mat-icon>delete</mat-icon></button></h3></li>
+                  </ul>
+                  </div>
                 </mat-card-content>
               </mat-card>
             </mat-tab>

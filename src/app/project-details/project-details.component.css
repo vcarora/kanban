@@ -8,6 +8,26 @@ button{
     background-color: #f6deb8;
 }
 
+#cards{
+    margin-top: 20px;
+    height: 450px;
+    background-color: antiquewhite;
+    border: 0;
+    border-radius: 20px;
+}
+
+#contents{
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+    
+}
+
+ul{
+    list-style-type: none;
+}
+
 #main-container{
     overflow: hidden;
 }

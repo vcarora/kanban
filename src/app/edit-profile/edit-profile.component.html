@@ -15,7 +15,8 @@
               <h1 class="pic-label">Profile picture</h1>
               <div class="pic bs-md">
                 <img src="{{userDetails.profile_pic}}" alt="Profile picture" width="4024" height="6048">
-                <a id="change-avatar" class="lx-btn"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Change your profile picture.</a>
+                <label for="file" id="change-avatar" class="lx-btn"><i class="fas fa-camera-retro"></i>&nbsp;&nbsp;Change your profile picture.</label>
+                <input type="file" id="file" (change)="selectChange($event)">
               </div>
               <div class="pic-info">
                 <p><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;This photo will appear on the platform, in your contributions or where it is mentioned.</p>
