@@ -2,7 +2,7 @@
     <div id="top-bar">
         <div *ngIf="projectDetails.name">
             <h1>{{projectDetails.name}}</h1>
-            <p>{{projectDetails.duration}} </p>
+            <p>Project End date :  {{projectDetails.duration | date : "dd/MM/yyyy"}} </p>
         </div>
         <div *ngIf="!projectDetails.name">
           <div class="d-flex">

@@ -62,8 +62,8 @@ export class ProjectDetailsComponent {
   
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
-        this.task = result;
-        console.log("tl :: "+this.task)
+        this.projectDetails = result;
+        console.log("tl :: "+this.projectDetails)
       });
     }else{
       this.snackBar.open('Please select project before adding task !!','', {
