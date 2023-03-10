@@ -62,8 +62,8 @@ export class ProjectDetailsComponent {
   
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
-        this.task = result;
-        console.log("tl :: "+this.task)
+        this.projectDetails = result;
+        console.log("tl :: "+this.projectDetails)
       });
     }else{
       this.snackBar.open('Please select project before adding task !!','', {
@@ -129,6 +129,16 @@ export class ProjectDetailsComponent {
        })
       }
     } 
+  }
+
+  // remove member from project
+  removeMember(data:user){
+    this.project.removeMember(this.projectDetails.project_id??0,data.email??"").subscribe({
+      next: reply=>{
+        console.log(reply)
+      }
+    })
+    console.log(data.email)
   }
 
 }

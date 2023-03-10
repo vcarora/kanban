@@ -15,6 +15,7 @@ export type task = {
     "status"? : string;
     "priority"? : string;
     "email"?: string
+    "memberList"?:user[]
 }
 
 export type user = {

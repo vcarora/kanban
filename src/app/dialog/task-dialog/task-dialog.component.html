@@ -28,8 +28,8 @@
 
       <mat-form-field appearance="outline" id="input4">
         <mat-label>Members</mat-label>
-        <mat-select [(ngModel)]="formData.email" name="email">
-          <mat-option *ngFor="let email of emails" [value]="email.email">
+        <mat-select [(ngModel)]="formData.memberList" name="memberList" multiple>
+          <mat-option [matTooltip]="email.email!" matTooltipPosition="left" *ngFor="let email of emails" [value]="email">
             {{email.email}}
           </mat-option>
         </mat-select>
@@ -45,7 +45,7 @@
 
     <div mat-dialog-actions id="btns">
       <button id="btn1" mat-flat-button (click)="onNoClick()" color="warn">Cancel</button>
-      <button mat-raised-button [mat-dialog-close]="formData.description" [disabled]="task.form.invalid" type="submit" color="primary" cdkFocusInitial>Ok</button>
+      <button mat-raised-button [mat-dialog-close]="formData.name" [disabled]="task.form.invalid" type="submit" color="primary" cdkFocusInitial>Ok</button>
     </div>
 
   </form>
