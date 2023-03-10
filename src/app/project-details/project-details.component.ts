@@ -131,4 +131,14 @@ export class ProjectDetailsComponent {
     } 
   }
 
+  // remove member from project
+  removeMember(data:user){
+    this.project.removeMember(this.projectDetails.project_id??0,data.email??"").subscribe({
+      next: reply=>{
+        console.log(reply)
+      }
+    })
+    console.log(data.email)
+  }
+
 }

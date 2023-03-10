@@ -21,11 +21,13 @@ export class AddMemberDialogComponent {
     ngOnInit(){
       this.data.email = null
       console.log(this.data.member)
-      for( let emailget of this.data.member){
-        console.log(emailget.email)
-        this.memberPre.push(emailget.email)
+      if(this.data.member!=null){
+        for( let emailget of this.data.member){
+          console.log(emailget.email)
+          this.memberPre.push(emailget.email)
+        }
+        console.log(this.memberPre)
       }
-      console.log(this.memberPre)
       this.memberPre.push(this.data.adminMail)
     }
 
@@ -52,7 +54,7 @@ export class AddMemberDialogComponent {
       }
     }
 
-    
+
     onNoClick(): void {
       console.log("close")
       this.dialogRef.close();

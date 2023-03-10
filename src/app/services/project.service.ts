@@ -88,4 +88,8 @@ export class ProjectService {
     return this.http.get("http://localhost:9500/kanban/requiredMail?StartWith="+startWith)
   }
 
+  //remove member form the project
+  removeMember(projectId:number,email:string){
+      return this.http.delete(PROJECT_API+'removeMember/'+projectId+'?email='+email)
+  }
 }
