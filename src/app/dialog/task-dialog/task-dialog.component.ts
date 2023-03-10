@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { task } from '../../model/project';
+import { task, user } from '../../model/project';
 import { ProjectService } from '../../services/project.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class TaskDialogComponent {
 
   formData : task = {}
 
-  emails = [];
+  emails:user[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private project : ProjectService) {}
@@ -24,6 +24,7 @@ export class TaskDialogComponent {
     ngOnInit() {
       // will log the entire data object
       console.log(this.data.project_id)
+      console.log(this.data.emailList)
       this.emails=this.data.emailList;
     }
 

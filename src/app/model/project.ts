@@ -6,6 +6,7 @@ export type project = {
     "taskList"? : task[];
     "assigned_emp"? :string[];
     "email"? : string; 
+    "assigned_empl"?:user[]
 }
 
 export type task = {

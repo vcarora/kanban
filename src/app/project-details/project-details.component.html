@@ -84,8 +84,8 @@
                
                 <mat-card-content>
                   <div id="cards" class="container">
-                    <ul *ngFor="let member of projectDetails?.assigned_emp">
-                      <li><img src="" alt=""><h3 id="contents">{{member}} &nbsp;&nbsp;&nbsp;<button matTooltip="Remove Member from Project" id="delete" mat-mini-fab color="accent"><mat-icon>delete</mat-icon></button></h3></li>
+                    <ul *ngFor="let member of projectDetails?.assigned_empl">
+                      <li><img src="" alt=""><h3 id="contents">{{member.email}} &nbsp;&nbsp;&nbsp;<button matTooltip="Remove Member from Project" id="delete" mat-mini-fab color="accent"><mat-icon>delete</mat-icon></button></h3></li>
                   </ul>
                   </div>
                 </mat-card-content>
