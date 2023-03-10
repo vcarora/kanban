@@ -80,8 +80,8 @@
               <mat-card  class="scrollable-content">
                
                 <mat-card-content>
-                    <ul *ngFor="let member of projectDetails?.assigned_emp">
-                        <li>{{member}}</li>
+                    <ul *ngFor="let member of projectDetails?.assigned_empl">
+                        <li>{{member.email}}  {{member.username}}</li>
                     </ul>
                 </mat-card-content>
               </mat-card>

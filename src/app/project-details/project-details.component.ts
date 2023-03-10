@@ -2,7 +2,7 @@ import { JsonpInterceptor } from '@angular/common/http';
 import { Component, Inject, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddMemberDialogComponent } from '../dialog/add-member-dialog/add-member-dialog.component';
-import { project, task } from '../model/project';
+import { project, task, user } from '../model/project';
 import { ProjectService } from '../services/project.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { TaskDialogComponent } from '../dialog/task-dialog/task-dialog.component';
@@ -46,7 +46,7 @@ export class ProjectDetailsComponent {
   taskDialog():  void {
     if(this.projectDetails.project_id??0 !=0){
       const dialogRef = this.dialog.open(TaskDialogComponent, {
-        data: {project_id: this.projectDetails?.project_id, emailList: this.projectDetails.assigned_emp},
+        data: {project_id: this.projectDetails?.project_id, emailList: this.projectDetails.assigned_empl},
       });
   
       dialogRef.afterClosed().subscribe(result => {
@@ -66,9 +66,10 @@ export class ProjectDetailsComponent {
 
   email : string = ''
   addMember(): void{
+    console.log(this.projectDetails)
     if(this.projectDetails.project_id??0 !=0){
       const dialogRef = this.dialog.open(AddMemberDialogComponent, {
-      data: {project_id: this.projectDetails?.project_id,email : this.email},
+      data: {project_id: this.projectDetails?.project_id,email : this.email,member: this.projectDetails?.assigned_empl,adminMail:this.projectDetails.email},
     });
 
     dialogRef.afterClosed().subscribe(result => {
