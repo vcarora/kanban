@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { DatePipe } from '@angular/common';
 import { LoginService } from '../services/login.service';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 
 @Injectable({
@@ -27,7 +28,7 @@ export class DashboardComponent {
   constructor(private dialog : MatDialog, private project: ProjectService,
 
     private toggle : ToggleService, private token : TokenStorageService, private router: RouterService,
-    private snackBar : MatSnackBar, private serv: LoginService){}
+    private snackBar : MatSnackBar, private serv: LoginService, private navbar: NavBarComponent){}
 
 
   projectsList$ : project[] = []
@@ -65,8 +66,7 @@ export class DashboardComponent {
   ngOnInit(){
     this.assignValue = false;
     this.valueData = false;
-    
-    
+     this.navbar.ngOnInit();
     this.getCreatedProjects()
     this.project.RefreshRequired.subscribe(respose=>{
       this.getCreatedProjects()
