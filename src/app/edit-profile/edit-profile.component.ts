@@ -27,4 +27,15 @@ export class EditProfileComponent {
       })
     }
   }
+
+
+  selectChange(event: any){
+    if(event.target.files){
+      let reader= new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload = (e: any) =>{
+        this.userDetails.profile_pic = e.target.result;
+      }
+     }
+  }
 }

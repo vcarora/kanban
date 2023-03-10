@@ -31,13 +31,14 @@
     <div id="nav-btns">
       <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'"  routerLink="/contact" [hidden]="isAdmin">Contact</button>
       <button id="btn3"  [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/pricing"> Pricing</button>
-      <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/edit">About Us</button>
+      <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/about">About Us</button>
       <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/support" [hidden]="!isAdmin" >Support</button>
         <img  [hidden]="!isLoggedIn" [matMenuTriggerFor]="menu" id="user" src="{{userDetails.profile_pic}}" alt="">
         <button *ngIf="!userDetails.profile_pic" [hidden]="!isLoggedIn" [matMenuTriggerFor]="menu" id="user"><i class="fa-solid fa-{{firstLetter}}"></i></button>
         <mat-menu #menu="matMenu" xPosition="before">
           <button id="btn2"  color="warn" [ngClass]="toolbar_variable?'btn_login_change': 'btn_login'" (click)="logout()">Log Out <i class="fa-solid 
-            fa-right-from-bracket"></i></button>
+            fa-right-from-bracket"></i></button><br>
+            <button id="btn4" routerLink="/edit">Edit Profile <i class="fa-sharp fa-solid fa-user-pen"></i></button>
         </mat-menu>       
      
       <button id="btn3" color="primary" [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" [hidden]="isLoggedIn">Log in</button>

@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: "home",component: HomeComponent},
   {path: "contact", component: ContactUsComponent},
   {path: "pricing", component: PricingsComponent},
-  {path: "aboutUs", component: AboutUsComponent},
+  {path: "about", component: AboutUsComponent},
   {path: "edit", component: EditProfileComponent},
   {path: "support",component: SupportComponent},
   {path: "forgetPassword",component:ForgetPassComponent},

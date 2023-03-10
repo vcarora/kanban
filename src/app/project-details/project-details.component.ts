@@ -8,6 +8,7 @@ import { TokenStorageService } from '../services/token-storage.service';
 import { TaskDialogComponent } from '../dialog/task-dialog/task-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
+import { LoginService } from '../services/login.service';
 
 
 @Component({
@@ -21,11 +22,13 @@ export class ProjectDetailsComponent {
   projectDetails : project = {}
 
   constructor(public dialog : MatDialog, private project : ProjectService, private token : TokenStorageService,
-    private snackBar : MatSnackBar){}
+    private snackBar : MatSnackBar, private loginServ: LoginService){}
 
   task : task ={}
   title:boolean=false;
   userName: string | any ='';
+
+  userDetails: user ={}
 
   @Input()
   value: any;
@@ -38,7 +41,15 @@ export class ProjectDetailsComponent {
 
    this.userName = window.localStorage.getItem("username");
    console.log(this.userName);
-   this.userName = this.userName.toUpperCase()  
+   this.userName = this.userName.toUpperCase();
+
+   this.loginServ.getUserFrom(this.projectDetails.assigned_emp).subscribe({
+    next: data =>{
+      this.userDetails = data;
+      console.log(this.userDetails);
+      
+    }
+   })
   }
   
   

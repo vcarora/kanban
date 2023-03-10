@@ -1,4 +1,4 @@
-import { Component, Host, HostListener } from '@angular/core';
+import { Component, Host, HostListener, Injectable } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -8,6 +8,10 @@ import { RouterService } from '../services/router.service';
 import { ToggleService } from '../services/toggle.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { user } from '../model/project';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-nav-bar',
@@ -41,7 +45,6 @@ export class NavBarComponent {
      console.log(user)
      this.isLoggedIn = true;
 
-
      this.loginService.getUserDetails().subscribe({
       next: data =>{
         this.userDetails = data;
@@ -65,6 +68,7 @@ export class NavBarComponent {
  } 
 
  toolbar_variable : boolean = false
+ 
  @HostListener('window:scroll',['$event']) scrollFunc(e : Event){
  
     let scrollValue = (e.target as Element).scrollTop  
