@@ -29,8 +29,8 @@
       <mat-form-field appearance="outline" id="input4">
         <mat-label>Members</mat-label>
         <mat-select [(ngModel)]="formData.email" name="email">
-          <mat-option *ngFor="let email of emails" [value]="email">
-            {{email}}
+          <mat-option *ngFor="let email of emails" [value]="email.email">
+            {{email.email}}
           </mat-option>
         </mat-select>
       </mat-form-field>
