@@ -39,8 +39,11 @@ export class NavBarComponent {
 
   firstLetter: any;
 
+  tokenExist: any;
+
   ngOnInit() : void{
    let user = this.token.getToken();
+   this.tokenExist = user;
    if(user){
      console.log(user)
      this.isLoggedIn = true;
@@ -48,7 +51,11 @@ export class NavBarComponent {
      this.loginService.getUserDetails().subscribe({
       next: data =>{
         this.userDetails = data;
-        this.firstLetter = this.userDetails.username?.charAt(0);
+        this.firstLetter = this.userDetails?.username?.charAt(0);
+      },
+      error: err =>{
+        console.log(err);
+        this.isLoggedIn =false;
       }
     })
 
@@ -88,6 +95,7 @@ export class NavBarComponent {
    this.token.logOut()
    this.isLoggedIn = false;
    this.userDetails = {};
+   this.tokenExist="";
    this.snackBar.open('Log Out in Successfully', 'OK', {
     duration: 3000
   });

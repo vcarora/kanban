@@ -7,7 +7,7 @@
         <mat-card-header>
           <mat-card-title>{{task.name}} 
             <div>
-              <img src="../../assets/pp1.jpg" alt="profile pictures">
+              <img src="{{userDetails?.profile_pic}}" matTooltip="{{userDetails?.email}}" alt="profile pictures">
             </div>
           </mat-card-title>
           <mat-card-subtitle>{{task.description}}</mat-card-subtitle>

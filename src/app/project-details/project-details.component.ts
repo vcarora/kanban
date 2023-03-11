@@ -29,6 +29,9 @@ export class ProjectDetailsComponent {
   userName: string | any ='';
 
   userDetails: user ={}
+  firstLetter: any;
+
+  isNotNull: boolean = false;
 
   @Input()
   value: any;
@@ -39,19 +42,29 @@ export class ProjectDetailsComponent {
       this.title= true;
     }
 
+    
+    
+    
+
    this.userName = window.localStorage.getItem("username");
    console.log(this.userName);
    this.userName = this.userName.toUpperCase();
 
-   this.loginServ.getUserFrom(this.projectDetails.assigned_emp).subscribe({
+   this.loginServ.getUserFrom(this.projectDetails.assigned_empl).subscribe({
     next: data =>{
       this.userDetails = data;
       console.log(this.userDetails);
-      
     }
    })
+
   }
   
+
+  ngOnChange(){
+    if(this.projectDetails){
+      this.isNotNull = true;
+    }
+  }
   
 
   taskDialog():  void {
