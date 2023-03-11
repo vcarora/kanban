@@ -12,6 +12,9 @@ export class EditProfileComponent {
 
 
   userDetails: user = {};
+  tempUser: any={}
+  verified?:boolean
+  passChange?:boolean
 
   constructor(private token: TokenStorageService, private loginService : LoginService){}
 
@@ -37,5 +40,28 @@ export class EditProfileComponent {
         this.userDetails.profile_pic = e.target.result;
       }
      }
+  }
+
+  verfiyPass(){
+    this.tempUser.email = this.userDetails.email
+    console.log(this.userDetails.email)
+    console.log(this.tempUser)
+    if(this.tempUser.password!=null){
+      this.loginService.verfyPass(this.tempUser).subscribe({
+        next:result=>{
+          console.log(result)
+          if(result === 'user-verified')
+          {
+            this.tempUser.password = ''
+            this.verified=true
+            this.passChange=false
+          }
+        }
+      })
+    }
+  }
+  changeprofile(){
+    console.log(this.tempUser)
+    console.log(this.userDetails)
   }
 }
