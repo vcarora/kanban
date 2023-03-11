@@ -27,6 +27,7 @@ export class TaskCardComponent {
   formData : task = {}
 
   userDetails: any;
+  isOpen = false;
 
   statuses : string[] =['TO DO','In Progress','Submitted','Completed']
 
@@ -42,8 +43,19 @@ export class TaskCardComponent {
     })
     
   }
-
-
+  changepriority(data:any){
+    const project_id : number = this.token.getProjectId()
+    this.isOpen = !this.isOpen
+    console.log(data);
+    this.task.priority=data;
+    console.log(this.task)
+    console.log(project_id)
+    this.project.updateTaskStatus(project_id,this.task).subscribe({
+      next : data=>{
+        console.log(data)
+      }
+    })
+  }
   changeStatus(task :task){
     const project_id : number = this.token.getProjectId()
 

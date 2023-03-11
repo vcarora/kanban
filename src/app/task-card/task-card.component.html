@@ -1,37 +1,49 @@
-
 <div>
 
-<mat-card class="task-card">
+  <mat-card class="task-card">
     <div>
-        
-        <mat-card-header>
-          <mat-card-title>{{task.name}} 
-            <div>
-              <img src="{{userDetails?.profile_pic}}" matTooltip="{{userDetails?.email}}" alt="profile pictures">
-            </div>
-          </mat-card-title>
-          <mat-card-subtitle>{{task.description}}</mat-card-subtitle>
-        </mat-card-header>
-        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-           
-            <button mat-menu-item (click)="deleteTask(task)">
-              <mat-icon>delete</mat-icon>
-              <span>Delete Task</span>
-            </button>
-          </mat-menu>
-    
+
+      <mat-card-header>
+        <mat-card-title>{{task.name}}
+          <div>
+            <img src="{{userDetails?.profile_pic}}" matTooltip="{{userDetails?.email}}" alt="profile pictures">
+          </div>
+        </mat-card-title><mat-icon>short_text</mat-icon>
+        <mat-card-subtitle>{{task.description}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="deleteTask(task)">
+          <mat-icon>delete</mat-icon>
+          <span>Delete Task</span>
+        </button>
+      </mat-menu>
     </div>
-        <mat-card-content>
-      <button mat-icon-button type="button" [matTooltip]="task.priority!"><mat-icon id='{{task.priority}}'>flag</mat-icon></button>
+
+    <mat-card-content>
+      <button mat-icon-button type="button" (click)="isOpen = !isOpen" matTooltip="{{task.priority}}" cdkOverlayOrigin
+        #trigger="cdkOverlayOrigin"><mat-icon id='{{task.priority}}'>flag</mat-icon></button>
+      <!-- This template displays the overlay content and is connected to the button -->
+      <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
+        <ul type="none" class="priority-list">
+          <li type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="changepriority('Low')"><mat-icon
+              id='Low'>flag</mat-icon><p>LOW</p><mat-icon *ngIf="task.priority == 'Low'">check</mat-icon></li>
+          <li type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="changepriority('Moderate')"><mat-icon
+              id='Moderate'>flag</mat-icon>MODERATE<mat-icon *ngIf="task.priority == 'Moderate'">check</mat-icon></li>
+          <li type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" (click)="changepriority('High')"><mat-icon
+              id='High'>flag</mat-icon>HIGH<mat-icon *ngIf="task.priority == 'High'">check</mat-icon></li>
+        </ul>
+      </ng-template>
     </mat-card-content>
     <mat-card-actions>
-       
-            <mat-select  name="status" [(ngModel)]="task.status" #status="ngModel" (selectionChange)="changeStatus(task)">
-            <mat-option *ngFor= "let status of statuses" [value]="status">{{status}}</mat-option>
-        </mat-select>
+
+      <!-- <mat-select name="status" [(ngModel)]="task.status" #status="ngModel" (selectionChange)="changeStatus(task)">
+        <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
+      </mat-select> -->
     </mat-card-actions>
     <mat-card-footer>
       <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
@@ -39,4 +51,3 @@
   </mat-card>
 
 </div>
-
