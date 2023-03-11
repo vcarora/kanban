@@ -61,6 +61,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { DatePipe } from '@angular/common';
 import {MatBadgeModule} from '@angular/material/badge';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { OverlayModule } from "@angular/cdk/overlay";
 
 
 
@@ -128,7 +129,8 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     MatProgressBarModule,
     DragDropModule,
     MatProgressSpinnerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    OverlayModule
 
   ],
   providers: [ DatePipe, {provide:HTTP_INTERCEPTORS,useClass: InterceptorService,multi:true},MatDatepickerModule, {
