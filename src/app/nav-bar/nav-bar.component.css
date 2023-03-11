@@ -104,7 +104,7 @@ mat-toolbar>div .btn_login:hover{
 }
 
 #btn4{
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: transparent;
   border: 0;
   width: 150px;
@@ -112,10 +112,15 @@ mat-toolbar>div .btn_login:hover{
 
 #btn4:hover{
   border-radius: 30px;
-width: 150px;
-margin-left: 10px;
-margin-right: 10px;
-background-color: #d1c4bd;
+  width: 150px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #d1c4bd;
+}
+
+h2{
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 
