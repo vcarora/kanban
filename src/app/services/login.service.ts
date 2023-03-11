@@ -75,4 +75,12 @@ export class LoginService {
   getUserFrom(email: any){
     return this.http.get(Content_API+'kanban/employee/getEmployee?email='+email);
   }
+
+  verfyPass(data:any){
+    return this.http.post(AUTH_API+'employee/account/verify/password',data,{responseType: 'text'})
+  }
+
+  updateProfile(data:any){
+    return this.http.put(Content_API+'kanban/employee/update/profile',data)
+  }
 }

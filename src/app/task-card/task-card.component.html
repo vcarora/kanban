@@ -25,7 +25,7 @@
     
     </div>
         <mat-card-content>
-      <p  id='{{task.priority}}' >{{task.priority}}</p>
+      <button mat-icon-button type="button" [matTooltip]="task.priority!"><mat-icon id='{{task.priority}}'>flag</mat-icon></button>
     </mat-card-content>
     <mat-card-actions>
        

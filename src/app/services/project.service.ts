@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, tap } from 'rxjs';
 import { project, task, user } from '../model/project';
+import { TokenStorageService } from './token-storage.service';
 
 
 function _global_window(): any{
@@ -15,7 +16,7 @@ const PROJECT_API = 'http://localhost:9500/kan/project/';
 export class ProjectService {
 
   private refreshData = new Subject<void>()
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient,private token : TokenStorageService) { }
 
   get RefreshRequired(){
     return this.refreshData
@@ -86,6 +87,16 @@ export class ProjectService {
 
   getEmailsStartWith(startWith:string):Observable<any>{
     return this.http.get("http://localhost:9500/kanban/requiredMail?StartWith="+startWith)
+  }
+
+  //remove member form the project
+  removeMember(projectId:number,email:string){
+      return this.http.delete(PROJECT_API+'removeMember/'+projectId+'?email='+email)
+  }
+
+  getProjectById(): Observable<any>{
+    let pId : any = this.token.getProjectId()
+    return this.http.get(PROJECT_API+'getProject/'+pId) 
   }
 
 }
