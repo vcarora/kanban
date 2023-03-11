@@ -18,18 +18,18 @@ export class SupportComponent {
   email$ : any =''
 
   chatsList : chatsList[] =[] 
+  chatUpdate : any
 
   constructor(private chat : ChatService, private token : TokenStorageService){}
 
    ngOnInit(){
-    this.getChats()
-    this.chat.RefreshRequired.subscribe(respose=>{
-      this.getChats()
-    })  
     
-    this.chat.RefreshRequired.subscribe(respose=>{
+    this.chatUpdate = setInterval(() => {
       this.getRunningMessages()
-    })
+      this.getChats()
+      //console.log("interval")
+       
+     }, 1000);
   }
   // delay(milliseconds: number) { 
   //   return new Promise(resolve => setTimeout(resolve, milliseconds)); 
@@ -39,6 +39,7 @@ export class SupportComponent {
     this.chat.newSuportMessage(chat.value).subscribe({
       next: data=>{
         console.log(data)
+        chat.reset()
       }
     })
   }
@@ -72,5 +73,11 @@ export class SupportComponent {
         this.messages$ = data
       }
     })
+  }
+
+  ngOnDestroy() {
+    if (this.chatUpdate) {
+      clearInterval(this.chatUpdate);
+    }
   }
 }

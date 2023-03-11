@@ -27,6 +27,8 @@ export class ContactUsComponent {
 
   isLoggedIn : boolean = false;
 
+  chatUpdate : any 
+
   // async ngOnInit() { 
   //   while (true) { 
   //   await this.getMessage() 
@@ -68,16 +70,18 @@ export class ContactUsComponent {
       console.log(this.isLoggedIn)
     })
 
-    this.chat.RefreshRequired.subscribe(respose=>{
-      console.log("hello")
+    this.chatUpdate = setInterval(() => {
       this.getMessage()
-    })
+      console.log("interval")
+       
+     }, 1000);
     
   }
 
   sendMessage(chat : NgForm){
     this.chat.newMessage(chat.value).subscribe({
       next: data=>{
+        chat.reset()
        
       }
     })
@@ -90,6 +94,12 @@ export class ContactUsComponent {
         this.messages$ = data
       }
     })
+  }
+
+  ngOnDestroy() {
+    if (this.chatUpdate) {
+      clearInterval(this.chatUpdate);
+    }
   }
 
 

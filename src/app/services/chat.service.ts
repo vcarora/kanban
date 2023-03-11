@@ -49,11 +49,8 @@ export class ChatService {
 
   getMessages(): Observable<any>{
     let email : any = this.token.getEmail()
-    return this.http.get(CHAT_API+'get-messages/support'+email).pipe(
-      tap(()=>{
-        this.RefreshRequired.next()
-      })
-     );   
+    return this.http.get(CHAT_API+'get-messages/support'+email)
+   
   }
   getMessage(chat_id: any): Observable<any>{
     let email : any = this.token.getEmail()

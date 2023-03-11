@@ -16,6 +16,7 @@ export class TaskDialogComponent {
   }
 
   emails:user[] = [];
+  projectDetail : any ={}
 
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private project : ProjectService) {}
@@ -36,11 +37,22 @@ export class TaskDialogComponent {
     this.project.addTask(this.data.project_id,task.value).subscribe({
       next : data=>{
         console.log(data)
+      //  this.getUpdatedProjectDetails()
+
       }
     })
 
   }
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  getUpdatedProjectDetails(){
+    this.project.getProjectById().subscribe({
+      next: data =>{
+        console.log(data)
+        this.projectDetail = data
+      }
+    })
   }
 }
