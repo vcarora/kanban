@@ -99,4 +99,8 @@ export class ProjectService {
     return this.http.get(PROJECT_API+'getProject/'+pId) 
   }
 
+  archivedProjects(project_id: any, status: any){
+    return this.http.post(PROJECT_API+'archive/'+project_id+'?archiveStatus='+status, null)
+  }
+
 }
