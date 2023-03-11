@@ -1,9 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { task, user } from '../model/project';
+import { ProjectDetailsComponent } from '../project-details/project-details.component';
 import { LoginService } from '../services/login.service';
 import { ProjectService } from '../services/project.service';
 import { TokenStorageService } from '../services/token-storage.service';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+
 
 @Component({
   selector: 'app-task-card',
@@ -12,12 +19,14 @@ import { TokenStorageService } from '../services/token-storage.service';
 })
 export class TaskCardComponent {
 
-  constructor(private project :ProjectService, private token : TokenStorageService, private loginService: LoginService, private emails: DashboardComponent){}
+  constructor(private project :ProjectService, private token : TokenStorageService, private loginService: LoginService, private emails: DashboardComponent, private projectService: ProjectDetailsComponent){}
 
   @Input()
   task : task ={}
 
   formData : task = {}
+
+  userDetails: any;
 
   statuses : string[] =['TO DO','In Progress','Submitted','Completed']
 
@@ -25,7 +34,13 @@ export class TaskCardComponent {
 
 
   ngOnInit(){
-
+    this.loginService.getUserFrom(this.task.email).subscribe({
+      next: data =>{
+        this.userDetails=data;
+        console.log(this.userDetails);
+      }
+    })
+    
   }
 
 
