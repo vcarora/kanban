@@ -2,6 +2,7 @@ import { Component, NgZone } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { ProjectService } from '../services/project.service';
 import { RouterService } from '../services/router.service';
+import { TokenStorageService } from '../services/token-storage.service';
 
 const STATUS = "PREMIUM"
 @Component({
@@ -15,13 +16,14 @@ export class PricingsComponent {
   name: any = "";
   email: any = '';
   rzp: any;
+  redirect?: boolean;
 
-  constructor(private projectService: ProjectService, private zone: NgZone,private loginServ:LoginService, private router: RouterService){}
+  constructor(private projectService: ProjectService, private zone: NgZone, private loginServ: LoginService, private router: RouterService,private token:TokenStorageService) { }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.name = window.localStorage.getItem('username');
     this.email = window.localStorage.getItem('user-email');
-    console.log(this.email??"NO_USER");
+    console.log(this.email ?? "NO_USER");
   }
 
 
@@ -40,36 +42,41 @@ export class PricingsComponent {
     },
     "theme": {
       "color": "#f54803"
-  },
-  "handler": this.paymentHandler.bind(this),
-  "modal": {
-    ondismiss: (() =>{
-      window.location.href = "http://localhost:9000/pricing";
-    })
-  }
+    },
+    "handler": this.paymentHandler.bind(this),
+    "modal": {
+      ondismiss: (() => {
+        window.location.href = "http://localhost:9000/pricing";
+      })
+    }
   };
 
-  pay(){
+  pay() {
     this.rzp = new this.projectService.nativeWindow.Razorpay(this.razorPayOptions);
     this.rzp.open();
   }
 
-  paymentHandler(result: any){
+  paymentHandler(result: any) {
     console.log(result)
     this.updateTitle()
-      this.zone.run(() =>{
-         window.location.href = "http://localhost:9000/dashboard";
-      })
   }
-  updateTitle(){
+  updateTitle() {
     console.log("inpaymentHandler")
-        this.loginServ.updateTitle(STATUS,this.email).subscribe({
-          next: data=>{
-            window.localStorage.setItem('title', 'PREMIUM');
-          }
-        })
+    this.loginServ.updateTitle(STATUS, this.email).subscribe({
+      next: data => {
+        console.log(data.title)
+        console.log(data.token)
+        this.token.saveToken(data.token);
+        this.token.saveUser(data);
+        this.token.saveEmail(data.email);
+        window.localStorage.setItem("username", data.username);
+        window.localStorage.setItem("title", data.title);
+        window.location.href = "http://localhost:9000/dashboard";
+
+      }
+    })
   }
-  toSignUp(){
+  toSignUp() {
     this.loginServ.isPurchaseClick = true;
     this.router.toRegister()
   }
