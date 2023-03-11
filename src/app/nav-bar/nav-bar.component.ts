@@ -30,6 +30,8 @@ export class NavBarComponent {
 
   isLoggedIn = false;
 
+  isOpen = false;
+
   isAdmin = false;
 
   loginStatus : boolean = false
@@ -95,6 +97,7 @@ export class NavBarComponent {
    this.token.logOut()
    this.isLoggedIn = false;
    this.userDetails = {};
+   this.isOpen = false;
    this.tokenExist="";
    this.snackBar.open('Log Out in Successfully', 'OK', {
     duration: 3000

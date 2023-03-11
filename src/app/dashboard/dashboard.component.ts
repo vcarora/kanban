@@ -75,13 +75,6 @@ export class DashboardComponent {
     this.project.RefreshRequired.subscribe(respose=>{
       this.getAssignedProjects()
     })
-    
-    
-    
-    
-    
-    
-
   }
 
   reload(){

@@ -5,7 +5,8 @@ export type project = {
     "duration"? : Date;
     "taskList"? : task[];
     "assigned_emp"? :string[];
-    "email"? : string; 
+    "email"? : string;
+    "archive"?: string; 
     "assigned_empl"?:user[]
 }
 

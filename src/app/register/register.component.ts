@@ -17,6 +17,7 @@ import { TokenStorageService } from '../services/token-storage.service';
 export class RegisterComponent {
 
  
+  hide = true;
 
   result : any;
   errorMessage : any 
