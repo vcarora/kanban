@@ -1,3 +1,4 @@
+@import '~@angular/cdk/overlay-prebuilt.css';
 .task-card {
   margin: 0rem 0rem .3rem;
   width: 90%;
@@ -125,4 +126,47 @@ img {
   border-radius: 50%;
   width: 20px;
   height: 20px;
+}
+
+.priority-list {
+  width: 170px;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+}
+
+.priority-list > li {
+  display:flex;
+  justify-content: space-between;
+  list-style-type: none;
+  border-bottom: solid 1px #8b8b8b9c;
+  padding: 5px 0;
+}
+
+.priority-list > li:last-child {
+  border-bottom: none;
+}
+.priority-list > li:nth-child(1) {
+  padding: 0px 3px;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 5px;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
 }
