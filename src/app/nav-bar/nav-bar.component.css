@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
 
 .sidenav-container {
-  background-image: url('../../assets/bg1.png');
+  background-image: url('../../assets/furbg1.jpg');
   background-size: cover;
   height: 100vh;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@
 }
 #nav-btns{
   width: 30%;
-  margin-right: 600px;
+  margin-right: 800px;
   
 }
 
@@ -43,10 +43,12 @@ span{
 img{
   width: 200px;
 }
+
+
 #logo{
   border: none;
   background-color: transparent;
-  margin-left: -8rem;
+  margin-left: -9.5rem;
   width: 17rem;
 }
 
@@ -64,17 +66,19 @@ mat-toolbar>div .btn_login{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: transparent;
   color: black;
+  height: 40px;
   letter-spacing: 0.1rem;
-  margin-left: 80px;
+  margin-left: 340px;
   font-size: 1.2rem;
   padding-bottom: 5px;
   border: none;
 }
 
 mat-toolbar>div .btn_signup{
-  background-color: transparent;
+  background-color: black;
   color: white;
   margin-left: 5%;
+  height: 40px;
   margin-right: 5%;
   font-size: 1.2rem;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -83,10 +87,10 @@ mat-toolbar>div .btn_signup{
 }
 
 mat-toolbar>div .btn_login:hover{
-  border-bottom: 2px solid #d1c4bd;
-  color: black;
-  transition: all 1s ease;
-  font-size: 25px;
+  background-color: black;
+  color: white;
+  transition: all 0.5s ease;
+  border-radius: 10px;
 }
 
 #btn2{
@@ -119,6 +123,9 @@ mat-toolbar>div .btn_login:hover{
 }
 
 h2{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  
   margin-top: 10px;
   margin-left: 20px;
 }
@@ -129,20 +136,21 @@ h2{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
   font-size: 22px;
-  color: #312f30;
-  border-bottom: 2px solid #741364;
+  color: black;
+  width: 150px;
+  border-radius: 10px;
 }
 
 #btn3:hover{
-  border-bottom: 2px solid #d1c4bd;
-  color: black;
-  transition: all 1s ease;
-  font-size: 25px;
+  background-color: black;
+  color: white;
+  transition: all 0.5s ease;
+  width: 150px;
+  border-radius: 10px;
 }
 
 .toolbar_change{
-
-  background-color: transparent;
+  background-color: #cdd8e0;
   height: 100px;
   position: sticky;
   transition: all 0.2s linear;
@@ -151,9 +159,8 @@ h2{
   box-shadow: 0px 15px 10px -15px #111;
 }
 mat-toolbar .btn_change{
-  background: transparent;
-  color: #FF6600;
   margin-left: 100px;
+  height: 40px;
   margin-right: 5%;
   font-size: 1rem;
   border: 0;
@@ -162,21 +169,27 @@ mat-toolbar .btn_change{
 }
 
 mat-toolbar .btn_login_change{
-
- 
-  padding: 10px;
-  margin-left: 100px;
-  border: 0;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  height: 40px;
+  letter-spacing: 0.1rem;
+  margin-left: 50px;
+  font-size: 1.2rem;
+  padding-bottom: 5px;
+  border: none;
 }
 
 mat-toolbar .btn_signup_change{
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   margin-left: 5%;
+  height: 40px;
   margin-right: 5%;
   font-size: 1.2rem;
-  padding: 25px 32px 25px 25px;
-  border-radius: 15px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border: 0;
 }
 
 #user{
@@ -191,4 +204,20 @@ mat-toolbar .btn_signup_change{
   -webkit-box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.35);
   -moz-box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.35);
   box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.35);
+}
+
+#user_img{
+  position: relative;
+  top: -1px;
+  right: 6px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 0;
+}
+
+#list{
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 10px;
 }

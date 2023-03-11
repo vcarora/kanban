@@ -19,16 +19,16 @@ import { LoginService } from '../services/login.service';
 export class ProjectDetailsComponent {
 
   @Input()
-  projectDetails : project = {}
+  projectDetails: project = {}
 
-  constructor(public dialog : MatDialog, private project : ProjectService, private token : TokenStorageService,
-    private snackBar : MatSnackBar, private loginServ: LoginService){}
+  constructor(public dialog: MatDialog, private project: ProjectService, private token: TokenStorageService,
+    private snackBar: MatSnackBar, private loginServ: LoginService) { }
 
-  task : task ={}
-  title:boolean=false;
-  userName: string | any ='';
+  task: task = {}
+  title: boolean = false;
+  userName: string | any = '';
 
-  userDetails: user ={}
+  userDetails: user = {}
   firstLetter: any;
 
   isNotNull: boolean = false;
@@ -36,86 +36,81 @@ export class ProjectDetailsComponent {
   @Input()
   value: any;
 
-  ngOnInit(){
+  ngOnInit() {
 
-    if(window.localStorage.getItem("title") === "PREMIUM"){
-      this.title= true;
+    if (window.localStorage.getItem("title") === "PREMIUM") {
+      this.title = true;
     }
+    this.userName = window.localStorage.getItem("username");
+    console.log(this.userName);
+    this.userName = this.userName.toUpperCase();
 
-    
-    
-    
-
-   this.userName = window.localStorage.getItem("username");
-   console.log(this.userName);
-   this.userName = this.userName.toUpperCase();
-
-   this.loginServ.getUserFrom(this.projectDetails.assigned_empl).subscribe({
-    next: data =>{
-      this.userDetails = data;
-      console.log(this.userDetails);
-    }
-   })
+    this.loginServ.getUserFrom(this.projectDetails.assigned_empl).subscribe({
+      next: data => {
+        this.userDetails = data;
+        console.log(this.userDetails);
+      }
+    })
 
   }
-  
 
-  ngOnChange(){
-    if(this.projectDetails){
+
+  ngOnChange() {
+    if (this.projectDetails) {
       this.isNotNull = true;
     }
   }
-  
 
-  taskDialog():  void {
-    if(this.projectDetails.project_id??0 !=0){
+
+  taskDialog(): void {
+    if (this.projectDetails.project_id ?? 0 != 0) {
       const dialogRef = this.dialog.open(TaskDialogComponent, {
-        data: {project_id: this.projectDetails?.project_id, emailList: this.projectDetails.assigned_empl},
+        data: { project_id: this.projectDetails?.project_id, emailList: this.projectDetails.assigned_empl },
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
         this.projectDetails = result;
-        console.log("tl :: "+this.projectDetails)
+        console.log("tl :: " + this.projectDetails)
       });
-    }else{
-      this.snackBar.open('Please select project before adding task !!','', {
+    } else {
+      this.snackBar.open('Please select project before adding task !!', '', {
         duration: 2000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
       });
     }
-    
+
   }
 
-  email : string = ''
-  addMember(): void{
+  email: string = ''
+  addMember(): void {
     console.log(this.projectDetails)
-    if(this.projectDetails.project_id??0 !=0){
+    if (this.projectDetails.project_id ?? 0 != 0) {
       const dialogRef = this.dialog.open(AddMemberDialogComponent, {
-      data: {project_id: this.projectDetails?.project_id,email : this.email,member: this.projectDetails?.assigned_empl,adminMail:this.projectDetails.email},
-    });
+        data: { project_id: this.projectDetails?.project_id, email: this.email, member: this.projectDetails?.assigned_empl, adminMail: this.projectDetails.email },
+      });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.email = result;
-      console.log("tl :: "+this.email)
-      if(this.email != null && this.email.length>10){
-        this.project.assignMember(this.projectDetails.project_id,this.email).subscribe({
-          next: data=>{
-            console.log(data)
-          },error: err=>{
-            this.snackBar.open('Failed to Invite Member. Please enter only registered member email !!', 'Ok', {
-              duration: 3000,
-              horizontalPosition: 'right',
-              verticalPosition: 'top',
-            });
-          }
-        })
-      }
-    });
-    }else{
-      this.snackBar.open('Please select project before adding members !!','', {
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        this.email = result;
+        console.log("tl :: " + this.email)
+        if (this.email != null && this.email.length > 10) {
+          this.project.assignMember(this.projectDetails.project_id, this.email).subscribe({
+            next: data => {
+              console.log(data)
+            }, error: err => {
+              this.snackBar.open('Failed to Invite Member. Please enter only registered member email !!', 'Ok', {
+                duration: 3000,
+                horizontalPosition: 'right',
+                verticalPosition: 'top',
+              });
+            }
+          })
+        }
+      });
+    } else {
+      this.snackBar.open('Please select project before adding members !!', '', {
         duration: 2000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
@@ -123,31 +118,32 @@ export class ProjectDetailsComponent {
     }
   }
 
-  deleteProject(){
-    let project_id : number = this.projectDetails.project_id ?? 0;
+  deleteProject() {
+    let project_id: number = this.projectDetails.project_id ?? 0;
     console.log(project_id)
-    if(project_id == 0){
-      this.snackBar.open('Please select project before deleting !!','', {
+    if (project_id == 0) {
+      this.snackBar.open('Please select project before deleting !!', '', {
         duration: 2000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
       });
-    }else{
-      let userSelection =  confirm(this.projectDetails.name+' Project will get deleted'+'.\n It cannot be restored again')
-      if(userSelection){
-        this.project.deleteProject(project_id).subscribe(
-          response =>{
-            console.log("deleted")
-        // window.location.reload()
-       })
+    } else {
+      let userSelection = confirm(this.projectDetails.name + ' Project will get deleted' + '.\n It cannot be restored again')
+      if (userSelection) {
+        this.project.archivedProjects(project_id, "LIVE").subscribe(
+          response => {
+            console.log(response);
+            console.log("archived")
+            // window.location.reload()
+          })
       }
-    } 
+    }
   }
 
   // remove member from project
-  removeMember(data:user){
-    this.project.removeMember(this.projectDetails.project_id??0,data.email??"").subscribe({
-      next: reply=>{
+  removeMember(data: user) {
+    this.project.removeMember(this.projectDetails.project_id ?? 0, data.email ?? "").subscribe({
+      next: reply => {
         console.log(reply)
       }
     })

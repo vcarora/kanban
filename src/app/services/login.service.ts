@@ -33,7 +33,7 @@ export class LoginService {
       email,
       password,
       profile_pic,
-      title:"UN-VERIFIED"
+      title:"FREE"
     }, httpOptions);
   }
 

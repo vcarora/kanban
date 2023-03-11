@@ -6,25 +6,19 @@
 <!-- <h2><b>Collaborate With your collegues <br> All of your work in one place: </b> <br><mat-icon id="icon">check_circle</mat-icon> Task Management  <br><mat-icon id="icon">check_circle</mat-icon> Goals <br><mat-icon id="icon">check_circle</mat-icon> Chat Support and many more..</h2> -->
 
 <div>
- <img id="gif" src="../../assets/gif1.gif" alt="GIF">
+  <img id="gifs" src="../../assets/desc.png" alt="GIF">
+</div>
+
+
+<div>
+    <img class="gif" id="gif" src="../../assets/working@home.gif" alt="">
 </div>
 
 <div>
-   <video id="video1" autoplay [muted]="true" loop src="../../assets/pm.mp4"></video>
+  <button id="btn" *ngIf="name" mat-raised-button routerLink="/dashboard">Get Started</button>
+  <button id="btn" *ngIf="!name" mat-raised-button routerLink="/register">Get Started</button>
 </div>
 
-
-<input class="c-checkbox" type="checkbox" id="checkbox">
-<div class="c-formContainer">
-  <form class="c-form" action="">
-    <input class="c-form__input" placeholder="E-mail" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
-    <label class="c-form__buttonLabel" for="checkbox">
-      <button class="c-form__button" type="button">Send</button>
-    </label>
-    <label class="c-form__toggle" for="checkbox" data-title="Get Started" *ngIf="name" routerLink="/dashboard"></label>
-    <label class="c-form__toggle" for="checkbox" data-title="Get Started" *ngIf="!name" routerLink="/register"></label>
-  </form>
-</div>
 
 <!-- <section>
     <h2>Premium Products? <br> Coming Soon...</h2>
@@ -33,6 +27,46 @@
 <!-- <section id="section1"> -->
     <!-- <h3><mat-icon id="star">grade</mat-icon><mat-icon id="star">grade</mat-icon><mat-icon id="star">grade</mat-icon><mat-icon id="star">grade</mat-icon><mat-icon id="star">grade</mat-icon><span id="rating"> Based on 1000 <mat-icon>+</mat-icon> reviews</span></h3> -->
 <!-- </section> -->
+
+
+<div class="container">
+  <mat-card id="cards">
+      <mat-card-content>
+        <h2>“Management is, above all, a practice where art, science, and craft meet.” -Henry Mintzberg. ... <br><br><br><br>
+          “The key to successful leadership today is influence not authority.” - Kenneth Blanchard.  <br><br><br>
+        Let's Join Together and Create a Community <br><br>
+        FOKUS WELCOME's You...</h2>
+        <button id="join" mat-raised-button routerLink="/pricing" >Join Now</button>
+        <img id="card_img" src="../../assets/card_gif.gif" alt="GIF">
+      </mat-card-content>
+  </mat-card>
+</div>
+
+  <div>
+    <h2 id="extra">Start Now and Experience Our Futuristic UI </h2>
+  </div>
+
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="1000">
+        <img src="../../assets/bg1.png" class="d-block" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="1000">
+        <img src="../../assets/alt_cleanup.jpg" class="d-block" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../assets/backgrounds.jpg" class="d-block " alt="...">
+      </div>
+    </div>
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev"> -->
+      <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+      <!-- <span class="visually-hidden">Previous</span> -->
+    <!-- </button> -->
+    <!-- <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next"> -->
+      <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+      <!-- <span class="visually-hidden">Next</span> -->
+    <!-- </button> -->
+  </div>
 
 
 <footer>

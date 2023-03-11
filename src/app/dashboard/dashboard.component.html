@@ -32,6 +32,16 @@
                     <a mat-list-item (click)="showAssignedProjects(project)">{{project?.name}}</a>
                 </mat-nav-list>
             </mat-expansion-panel>
+            <mat-expansion-panel  [class.mat-elevation-z0]="true">
+                <mat-expansion-panel-header  (click)="anotherChange()">
+                    <div>
+                       Archive 
+                    </div>
+                </mat-expansion-panel-header>
+                <mat-nav-list *ngFor="let project of assignedProjects">
+                    <a mat-list-item (click)="showAssignedProjects(project)">{{project?.name}}</a>
+                </mat-nav-list>
+            </mat-expansion-panel>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
