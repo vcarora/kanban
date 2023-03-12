@@ -37,6 +37,9 @@ export class DashboardComponent {
 
   assignedProjects : project[] =[];
 
+  archiveProjects : project[]=[]
+
+  tempProject :project[]=[]
 
   selectedProject : project = {}
 
@@ -53,6 +56,10 @@ export class DashboardComponent {
   badgeValue: any;
 
   assignedValue: any;
+  
+  archiveValue:number| any;
+
+  archiveData:boolean = false;
 
   valueData: boolean = false;
 
@@ -61,6 +68,8 @@ export class DashboardComponent {
   isActive: boolean = false;
 
   userDetails: user = {}
+
+  timeLine:any
 
 
   ngOnInit(){
@@ -81,7 +90,7 @@ export class DashboardComponent {
     this.router.toDashboard();
   }
 
-  openDialog() {
+  createNewProject() {
     if(this.checktitleCondition()){
       const dialogRef = this.dialog.open(ProjectDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
@@ -108,7 +117,6 @@ export class DashboardComponent {
   }
 
   showProjectDetails(project : project){
-    
     console.log(this.completedTask);
     this.completedTask = 0;
     this.selectedProject = project;
@@ -134,11 +142,24 @@ export class DashboardComponent {
   
 
   getCreatedProjects(){
+    this.projectsList$ =[];
+    this.archiveProjects=[];
     this.project.getProjects().subscribe({
       next: data =>{
         console.log(data)
-        this.projectsList$ = data
+        this.tempProject = data;
+        if(this.tempProject.length>0){
+          for(let temp of this.tempProject){
+            if(temp.archive ==='LIVE'){
+              this.projectsList$.push(temp)
+            }else{
+              this.archiveProjects.push(temp)
+            }
+          }
+        }
+        // this.projectsList$ = data
         this.badgeValue = this.projectsList$.length;
+        this.archiveValue = this.archiveProjects.length;
         console.log(this.projectsList$.length);
         
       }     
@@ -168,12 +189,15 @@ export class DashboardComponent {
 
   }
 
-  valueChange(){
-    this.valueData = !this.valueData;
-  }
-
-  anotherChange(){
-    this.assignValue = !this.assignValue;
-
+  matBadgeTogglor(title:string){
+    if(title === 'PROJECT'){
+      this.valueData = !this.valueData;
+    }
+    if(title === 'ASSIGNED'){
+      this.assignValue = !this.assignValue;
+    }
+    if(title === 'ARCHIVE'){
+      this.archiveData = !this.archiveData;
+    }
   }
 }

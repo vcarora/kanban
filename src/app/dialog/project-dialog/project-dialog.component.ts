@@ -21,12 +21,13 @@ export class ProjectDialogComponent {
   projectForm = this.fb.group({
     name : ['',[Validators.required,Validators.minLength(5)]],
     description : ['',[Validators.required]],
-    start: new FormControl<Date | null>(null),
+    startDate: new FormControl<Date | null>(null),
     duration: new FormControl<Date | null>(null),
   })
 
   get name(){return this.projectForm.get("name");}
   get description(){return this.projectForm.get("description");}
+  get startDate(){return this.projectForm.get('startDate')}
   get duration(){return this.projectForm.get('duration')}
 
   time(){

@@ -3,6 +3,7 @@ export type project = {
     "name"? : string;
     "description"? : string;
     "duration"? : Date;
+    "startDate"?: Date;
     "taskList"? : task[];
     "assigned_emp"? :string[];
     "email"? : string;
