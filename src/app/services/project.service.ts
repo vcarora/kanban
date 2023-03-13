@@ -59,7 +59,11 @@ export class ProjectService {
   }
 
   updateTaskStatus(project_id : number ,task : task): Observable<any>{
-    return this.http.put(PROJECT_API+'updateTask/'+project_id,task)
+    return this.http.put(PROJECT_API+'updateTask/'+project_id,task).pipe(
+      tap(()=>{
+        this.RefreshRequired.next()
+      })
+    )    
   }
 
   deleteProject(project_id : number) : Observable<any>{
@@ -94,9 +98,9 @@ export class ProjectService {
       return this.http.delete(PROJECT_API+'removeMember/'+projectId+'?email='+email)
   }
 
-  getProjectById(): Observable<any>{
+  getProjectById(project_id : any): Observable<any>{
     let pId : any = this.token.getProjectId()
-    return this.http.get(PROJECT_API+'getProject/'+pId) 
+    return this.http.get(PROJECT_API+'getProject/'+project_id) 
   }
 
   archivedProjects(project_id: any, status: any){

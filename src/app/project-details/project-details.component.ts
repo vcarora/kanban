@@ -1,5 +1,5 @@
 import { JsonpInterceptor } from '@angular/common/http';
-import { Component, Inject, Input } from '@angular/core';
+import { Component, Inject, Input,OnChanges } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddMemberDialogComponent } from '../dialog/add-member-dialog/add-member-dialog.component';
 import { project, task, user } from '../model/project';
@@ -17,7 +17,7 @@ import { DataStreamService } from '../services/data-stream.service';
   templateUrl: './project-details.component.html',
   styleUrls: ['./project-details.component.css']
 })
-export class ProjectDetailsComponent {
+export class ProjectDetailsComponent implements OnChanges {
 
   @Input()
   projectDetails: project = {}
@@ -63,6 +63,11 @@ export class ProjectDetailsComponent {
       }
     })
     this.emails = window.localStorage.getItem('email');
+  }
+
+  ngOnChanges(changes: { SimpleChange: any}) {
+    let c = changes
+    console.log('sd : '+c.SimpleChange, ',sd :'+ c)
   }
 
   taskDialog(): void {

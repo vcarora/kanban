@@ -49,12 +49,12 @@ export class TaskDialogComponent {
     this.dialogRef.close();
   }
 
-  getUpdatedProjectDetails() {
-    this.project.getProjectById().subscribe({
-      next: data => {
-        console.log(data)
-        this.projectDetail = data
-      }
-    })
-  }
+  // getUpdatedProjectDetails() {
+  //   this.project.getProjectById().subscribe({
+  //     next: data => {
+  //       console.log(data)
+  //       this.projectDetail = data
+  //     }
+  //   })
+  // }
 }
