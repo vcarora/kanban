@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import { project, task } from '../model/project';
+import { project, task, user } from '../model/project';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,8 @@ export class DataStreamService {
   currentTimeLine = this.SorcetimeLine.asObservable()
   private sorceProject = new BehaviorSubject<project>({});
   currentProject = this.sorceProject.asObservable()
+  private sorceMembers = new BehaviorSubject<Array<user>>([])
+  currebtMembers = this.sorceMembers.asObservable()
 
   constructor() { }
 
@@ -24,5 +26,8 @@ export class DataStreamService {
 
   changeTask(task: any){
     this.sorceProject.next(task);
+  }
+  changeMembers(members:user[]){
+    this.sorceMembers.next(members)
   }
 }

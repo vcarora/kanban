@@ -128,6 +128,9 @@ export class DashboardComponent {
     // console.log(this.projectsList$)
     // console.log(project)
     // console.log(tempU)
+    if(project.assigned_empl?.length!>0){
+      this.stream.changeMembers(project.assigned_empl!)
+    }
     this.showProjectDetails(project)
     this.calculateDate(project)
     this.isActive = true;
