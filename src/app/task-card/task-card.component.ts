@@ -1,7 +1,9 @@
 import { Overlay } from '@angular/cdk/overlay';
 import { Component, Injectable, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { EditComponentComponent } from '../dialog/edit-component/edit-component.component';
 import { task, user } from '../model/project';
 import { ProjectDetailsComponent } from '../project-details/project-details.component';
 import { DataStreamService } from '../services/data-stream.service';
@@ -14,7 +16,6 @@ import { TokenStorageService } from '../services/token-storage.service';
   providedIn: 'root'
 })
 
-
 @Component({
   selector: 'app-task-card',
   templateUrl: './task-card.component.html',
@@ -24,12 +25,14 @@ export class TaskCardComponent {
 
   constructor(private project: ProjectService, private token: TokenStorageService, private loginService: LoginService,
               private emails: DashboardComponent, private projectService: ProjectDetailsComponent,private stream:DataStreamService,
-              private overlay:Overlay) { }
+              private overlay:Overlay, private dialog: MatDialog) { }
 
   @Input()
   task: task = {}
 
   formData: task = {}
+
+  firstLetter: any;
 
   userDetails: any;
   isOpen = false;
@@ -44,6 +47,21 @@ export class TaskCardComponent {
   ngOnInit(){
     this.stream.currebtMembers.subscribe(data=> this.members = data)
     console.log(this.members)
+    for(let member of this.members){
+      if(member.profile_pic == '' || null){
+        console.log(member.username);
+        this.firstLetter = member.username?.charAt(0);
+        console.log(this.firstLetter);
+      }
+      
+    }
+  }
+
+  taskDetails(task: any){
+    console.log(task);
+    const dialogRef = this.dialog.open(EditComponentComponent, {
+      data: task
+    });
   }
 
   changeVisibility() {
