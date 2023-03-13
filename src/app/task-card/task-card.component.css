@@ -14,7 +14,6 @@
 
 #top_sec {
   display: flex;
-  justify-content: space-between;
 }
 
 
@@ -127,11 +126,23 @@ mat-progress-bar {
 
 }
 
+#name{
+  color: black;
+  font-size: 12px;
+}
+
 
 img {
   border-radius: 50%;
   width: 24px;
   height: 24px;
+}
+
+#profile{
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: default;
 }
 
 #buttons{
@@ -213,9 +224,10 @@ i{
   top: 110%;
 }
 .memberList{
-  max-width: 75px;
-  display: flex;
-  justify-content: space-evenly;
+  position: relative;
+  left: 70px;
+  margin-left: -8px;
+  padding: 0px !important;
 }
 /* mat-card-actions{
   visibility: hidden;
