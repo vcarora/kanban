@@ -12,6 +12,7 @@ import { DatePipe } from '@angular/common';
 import { LoginService } from '../services/login.service';
 import { DataStreamService } from '../services/data-stream.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { DeleteVerifyDialogComponent } from '../dialog/delete-verify-dialog/delete-verify-dialog.component';
 
 
 
@@ -30,7 +31,8 @@ export class ProjectDetailsComponent {
   projectDetails: project = {}
 
   constructor(public dialog: MatDialog, private project: ProjectService, private token: TokenStorageService,
-    private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService, private dash: DashboardComponent) { }
+              private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService,
+              private dash: DashboardComponent,) { }
 
   task: task[] = []
   title: boolean = false;
@@ -137,10 +139,7 @@ export class ProjectDetailsComponent {
 
       if (this.projectDetails.archive === 'LIVE') {
         statusArc = 'ARCHIVE';
-      } else {
-        statusArc = 'LIVE';
-      }
-      let userSelection = confirm('Project ID    :  ' + this.projectDetails.project_id + '\nProject Title :  ' + this.projectDetails.name +
+        let userSelection = confirm('Project ID    :  ' + this.projectDetails.project_id + '\nProject Title :  ' + this.projectDetails.name +
         '\nThe project will be ARCHIVED')
       if (userSelection) {
         this.project.archivedProjects(project_id, statusArc).subscribe(
@@ -150,6 +149,16 @@ export class ProjectDetailsComponent {
             // window.location.reload()
           })
       }
+      } else {
+          const archiveRef = this.dialog.open(DeleteVerifyDialogComponent,
+                              {data: this.projectDetails});
+          archiveRef.afterClosed().subscribe(data=>{
+            console.log(data)
+            window.location.reload()
+          })
+          
+      }
+      
     }
   }
 
