@@ -63,6 +63,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { QueriesComponent } from './queries/queries.component';
+import { EditComponentComponent } from './dialog/edit-component/edit-component.component';
 
 
 
@@ -95,6 +96,7 @@ import { QueriesComponent } from './queries/queries.component';
     ResetPassComponent,
     EditProfileComponent,
     QueriesComponent,
+    EditComponentComponent,
     
 
   ],

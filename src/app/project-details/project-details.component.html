@@ -3,7 +3,6 @@
         <div *ngIf="projectDetails?.name">
             <h1>{{projectDetails.name}}</h1>
             <p>Project Start date : {{projectDetails.startDate | date : "dd/MM/yyyy"}} End date : {{projectDetails.duration | date : "dd/MM/yyyy"}}</p>
-            <mat-progress-bar mode="determinate" value="10"></mat-progress-bar>
         </div>
         <div *ngIf="!projectDetails?.name">
           <div class="d-flex">
