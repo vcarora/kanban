@@ -1,5 +1,6 @@
 import { JsonpInterceptor } from '@angular/common/http';
-import { Component, Inject, Input,OnChanges } from '@angular/core';
+
+import { Component, Inject, Injectable, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddMemberDialogComponent } from '../dialog/add-member-dialog/add-member-dialog.component';
 import { project, task, user } from '../model/project';
@@ -10,26 +11,30 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
 import { LoginService } from '../services/login.service';
 import { DataStreamService } from '../services/data-stream.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
+
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
   styleUrls: ['./project-details.component.css']
 })
-export class ProjectDetailsComponent implements OnChanges {
+export class ProjectDetailsComponent {
 
   @Input()
   projectDetails: project = {}
 
   constructor(public dialog: MatDialog, private project: ProjectService, private token: TokenStorageService,
-    private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService) { }
+    private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService, private dash: DashboardComponent) { }
 
-  task: task = {}
+  task: task[] = []
   title: boolean = false;
   userName: string | any = '';
-
-  userDetails: user = {}
   firstLetter: any;
 
 
@@ -55,33 +60,23 @@ export class ProjectDetailsComponent implements OnChanges {
     this.userName = window.localStorage.getItem("username");
     console.log(this.userName);
     this.userName = this.userName.toUpperCase();
-
-    this.loginServ.getUserFrom(this.projectDetails.assigned_empl).subscribe({
-      next: data => {
-        this.userDetails = data;
-        console.log(this.userDetails);
-      }
-    })
     this.emails = window.localStorage.getItem('email');
+    
   }
 
-  ngOnChanges(changes: { SimpleChange: any}) {
-    let c = changes
-    console.log('sd : '+c.SimpleChange, ',sd :'+ c)
-  }
+ 
 
   taskDialog(): void {
     if (this.projectDetails.project_id ?? 0 != 0) {
       const dialogRef = this.dialog.open(TaskDialogComponent, {
         data: { project_id: this.projectDetails?.project_id, emailList: this.projectDetails.assigned_empl },
       });
-
+     
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
         // this.projectDetails = result;
         console.log("tl :: " + this.projectDetails)
-        console.log(result);
-        
+        console.log(result); 
       });
     } else {
       this.snackBar.open('Please select project before adding task !!', '', {
@@ -168,4 +163,15 @@ export class ProjectDetailsComponent implements OnChanges {
     console.log(data.email)
   }
 
+  getAllTaskDetails(){
+    console.log(this.projectDetails?.project_id);
+    this.project.getAllTask(this.projectDetails?.project_id).subscribe({
+      next: data =>{
+       this.task.push(data);
+       console.log(this.task);
+       this.projectDetails.taskList = this.task;
+      }
+    });
+    return this.task;
+  }
 }

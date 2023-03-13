@@ -107,4 +107,8 @@ export class ProjectService {
     return this.http.post(PROJECT_API+'archive/'+project_id+'?archiveStatus='+status, null)
   }
 
+  getAllTask(id: any){
+    return this.http.get(PROJECT_API+'getAllTask/'+id)
+  }
+
 }

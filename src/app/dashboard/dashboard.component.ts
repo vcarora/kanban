@@ -78,7 +78,7 @@ export class DashboardComponent {
   ngOnInit() {
     this.stream.currentTimeLine.subscribe(data => this.timeLine =data)
     this.stream.currentProject.subscribe(data =>{
-      let update = this.projectsList$.findIndex(onj => onj.name == data.name);
+    let update = this.projectsList$.findIndex(onj => onj.name == data.name);
       console.log(this.projectsList$[update])
       this.projectsList$[update] =data;
     })
@@ -133,6 +133,10 @@ export class DashboardComponent {
 
   showCreatedProjects(project: project) {
     this.getCreatedProjects()
+    // let tempU  = this.projectsList$.filter(obj=> obj.project_id = project.project_id)
+    // console.log(this.projectsList$)
+    // console.log(project)
+    // console.log(tempU)
     this.showProjectDetails(project)
     this.calculateDate(project)
     this.isActive = true;

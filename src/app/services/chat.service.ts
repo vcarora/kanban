@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject,tap } from 'rxjs';
+import { messageData } from '../model/queries';
 import { TokenStorageService } from './token-storage.service';
 
 const CHAT_API = 'http://localhost:9500/support/'
-
+const CONTACT_US = 'http://localhost:9500//kanban/info/contactUs'
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -59,5 +60,9 @@ export class ChatService {
 
   getChats(): Observable<any>{
     return this.http.get(CHAT_API+'get-chats')
+  }
+
+  sendQuerie(data:messageData){
+    return this.http.post(CONTACT_US,data)
   }
 }
