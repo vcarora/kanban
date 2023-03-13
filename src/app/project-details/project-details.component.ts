@@ -9,6 +9,7 @@ import { TaskDialogComponent } from '../dialog/task-dialog/task-dialog.component
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
 import { LoginService } from '../services/login.service';
+import { DataStreamService } from '../services/data-stream.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ProjectDetailsComponent {
   projectDetails: project = {}
 
   constructor(public dialog: MatDialog, private project: ProjectService, private token: TokenStorageService,
-    private snackBar: MatSnackBar, private loginServ: LoginService) { }
+    private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService) { }
 
   task: task = {}
   title: boolean = false;
@@ -31,13 +32,23 @@ export class ProjectDetailsComponent {
   userDetails: user = {}
   firstLetter: any;
 
+
+  timeLine:number=0;
+
   isNotNull: boolean = false;
 
+  emails: any;
+
+  hidden: boolean = false;
+
+
+  //task complition %
   @Input()
   value: any;
 
   ngOnInit() {
-
+    this.stream.currentTimeLine.subscribe(data => this.timeLine =data)
+    // this.stream.currentProject.subscribe()
     if (window.localStorage.getItem("title") === "PREMIUM") {
       this.title = true;
     }
@@ -51,16 +62,8 @@ export class ProjectDetailsComponent {
         console.log(this.userDetails);
       }
     })
-
+    this.emails = window.localStorage.getItem('email');
   }
-
-
-  ngOnChange() {
-    if (this.projectDetails) {
-      this.isNotNull = true;
-    }
-  }
-
 
   taskDialog(): void {
     if (this.projectDetails.project_id ?? 0 != 0) {
@@ -70,8 +73,10 @@ export class ProjectDetailsComponent {
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
-        this.projectDetails = result;
+        // this.projectDetails = result;
         console.log("tl :: " + this.projectDetails)
+        console.log(result);
+        
       });
     } else {
       this.snackBar.open('Please select project before adding task !!', '', {
@@ -128,12 +133,20 @@ export class ProjectDetailsComponent {
         verticalPosition: 'top',
       });
     } else {
-      let userSelection = confirm(this.projectDetails.name + ' Project will get deleted' + '.\n It cannot be restored again')
+      let statusArc: string;
+
+      if (this.projectDetails.archive === 'LIVE') {
+        statusArc = 'ARCHIVE';
+      } else {
+        statusArc = 'LIVE';
+      }
+      let userSelection = confirm('Project ID    :  ' + this.projectDetails.project_id + '\nProject Title :  ' + this.projectDetails.name +
+        '\nThe project will be ARCHIVED')
       if (userSelection) {
-        this.project.archivedProjects(project_id, "LIVE").subscribe(
+        this.project.archivedProjects(project_id, statusArc).subscribe(
           response => {
             console.log(response);
-            console.log("archived")
+            console.log(statusArc)
             // window.location.reload()
           })
       }

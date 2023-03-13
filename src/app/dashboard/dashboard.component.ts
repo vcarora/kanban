@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DatePipe } from '@angular/common';
 import { LoginService } from '../services/login.service';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { DataStreamService } from '../services/data-stream.service';
 
 
 @Injectable({
@@ -25,34 +26,43 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
 })
 export class DashboardComponent {
 
-  constructor(private dialog : MatDialog, private project: ProjectService,
+  constructor(private dialog: MatDialog, private project: ProjectService,
+    private toggle: ToggleService, private token: TokenStorageService, private router: RouterService,
+    private snackBar: MatSnackBar, private serv: LoginService, private navbar: NavBarComponent,
+    private stream:DataStreamService) { }
 
-    private toggle : ToggleService, private token : TokenStorageService, private router: RouterService,
-    private snackBar : MatSnackBar, private serv: LoginService, private navbar: NavBarComponent){}
+  projectDuration?:number;
+  
+  projectsList$: project[] = []
 
-
-  projectsList$ : project[] = []
-
+  //task complition %
   value: any;
 
-  assignedProjects : project[] =[];
+  assignedProjects: project[] = [];
 
+  archiveProjects: project[] = []
 
-  selectedProject : project = {}
+  tempProject: project[] = []
+
+  selectedProject: project = {}
 
   showFiller = false;
 
-  totalTask?: number =0
+  totalTask?: number = 0
 
   completedTask: number = 0;
 
   temp: any;
 
-  sidenav : boolean = false
+  sidenav: boolean = false
 
   badgeValue: any;
 
   assignedValue: any;
+
+  archiveValue: number | any;
+
+  archiveData: boolean = false;
 
   valueData: boolean = false;
 
@@ -62,32 +72,40 @@ export class DashboardComponent {
 
   userDetails: user = {}
 
+  timeLine: number=0;
 
-  ngOnInit(){
+
+  ngOnInit() {
+    this.stream.currentTimeLine.subscribe(data => this.timeLine =data)
+    this.stream.currentProject.subscribe(data =>{
+      let update = this.projectsList$.findIndex(onj => onj.name == data.name);
+      console.log(this.projectsList$[update])
+      this.projectsList$[update] =data;
+    })
     this.assignValue = false;
     this.valueData = false;
-     this.navbar.ngOnInit();
+    this.navbar.ngOnInit();
     this.getCreatedProjects()
-    this.project.RefreshRequired.subscribe(respose=>{
+    this.project.RefreshRequired.subscribe(respose => {
       this.getCreatedProjects()
     })
     this.getAssignedProjects()
-    this.project.RefreshRequired.subscribe(respose=>{
+    this.project.RefreshRequired.subscribe(respose => {
       this.getAssignedProjects()
     })
   }
 
-  reload(){
+  reload() {
     this.router.toDashboard();
   }
 
-  openDialog() {
-    if(this.checktitleCondition()){
+  createNewProject() {
+    if (this.checktitleCondition()) {
       const dialogRef = this.dialog.open(ProjectDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-    }else{
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    } else {
       this.snackBar.open('Free user limiter to 3 project Only', 'Ok', {
         duration: 3000,
         horizontalPosition: 'center',
@@ -95,20 +113,28 @@ export class DashboardComponent {
       });
     }
   }
-  
-  showCreatedProjects(project : project){
+  calculateDate(project: project) {
+    {
+      const start = new Date(project.startDate!)
+      const end = new Date(project.duration!).getDate()
+      console.log(start.getDate() + "    " + end)
+      this.stream.changeDuration(start.getDate())
+    }
+  }
+
+  showCreatedProjects(project: project) {
     this.getCreatedProjects()
     this.showProjectDetails(project)
+    this.calculateDate(project)
     this.isActive = true;
   }
-  
-  showAssignedProjects(project : project){
+
+  showAssignedProjects(project: project) {
     this.getAssignedProjects()
     this.showProjectDetails(project)
   }
 
-  showProjectDetails(project : project){
-    
+  showProjectDetails(project: project) {
     console.log(this.completedTask);
     this.completedTask = 0;
     this.selectedProject = project;
@@ -116,38 +142,51 @@ export class DashboardComponent {
     this.token.saveProjectId(project?.project_id)
     this.totalTask = this.selectedProject.taskList?.length ?? 0;
 
-    if(this.totalTask !=0){
-      for(let task of this.selectedProject.taskList!){
+    if (this.totalTask != 0) {
+      for (let task of this.selectedProject.taskList!) {
         console.log(task.status);
-          if(task.status === "Completed"){
-            console.log("Inside Log");
-            this.completedTask=this.completedTask+1;
-          }
+        if (task.status === "Completed") {
+          console.log("Inside Log");
+          this.completedTask = this.completedTask + 1;
+        }
       }
       console.log(this.completedTask);
-       this.temp = 100/this.totalTask!;
-       this.value = this.completedTask!*this.temp;
-       this.value = this.value.toFixed(0);
+      this.temp = 100 / this.totalTask!;
+      this.value = this.completedTask! * this.temp;
+      this.value = this.value.toFixed(0);
     }
-    
-  }
-  
 
-  getCreatedProjects(){
+  }
+
+
+  getCreatedProjects() {
+    this.projectsList$ = [];
+    this.archiveProjects = [];
     this.project.getProjects().subscribe({
-      next: data =>{
+      next: data => {
         console.log(data)
-        this.projectsList$ = data
+        this.tempProject = data;
+        if (this.tempProject.length > 0) {
+          for (let temp of this.tempProject) {
+            if (temp.archive === 'LIVE') {
+              this.projectsList$.push(temp)
+            } else {
+              this.archiveProjects.push(temp)
+            }
+          }
+        }
+        // this.projectsList$ = data
         this.badgeValue = this.projectsList$.length;
+        this.archiveValue = this.archiveProjects.length;
         console.log(this.projectsList$.length);
-        
-      }     
+
+      }
     })
   }
 
-  getAssignedProjects(){
+  getAssignedProjects() {
     this.project.getAssignedProjects().subscribe({
-      next : data=>{
+      next: data => {
         this.assignedProjects = data
         this.assignedValue = this.assignedProjects.length;
       }
@@ -155,25 +194,28 @@ export class DashboardComponent {
   }
 
 
-  checktitleCondition(){
+  checktitleCondition() {
     let title = window.localStorage.getItem("title")
     let projectLength = this.projectsList$.length
-    if(title=== "FREE" && projectLength<3)
+    if (title === "FREE" && projectLength < 3)
       return true
-    if(title=== "FREE" && projectLength>=3)
+    if (title === "FREE" && projectLength >= 3)
       return false
-    if(title !="FREE")
+    if (title != "FREE")
       return true
     return false
 
   }
 
-  valueChange(){
-    this.valueData = !this.valueData;
-  }
-
-  anotherChange(){
-    this.assignValue = !this.assignValue;
-
+  matBadgeTogglor(title: string) {
+    if (title === 'PROJECT') {
+      this.valueData = !this.valueData;
+    }
+    if (title === 'ASSIGNED') {
+      this.assignValue = !this.assignValue;
+    }
+    if (title === 'ARCHIVE') {
+      this.archiveData = !this.archiveData;
+    }
   }
 }
