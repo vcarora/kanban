@@ -13,7 +13,7 @@
                 &nbsp;&nbsp;<mat-icon>create_new_folder</mat-icon>&nbsp;&nbsp;<span>New Project</span>
             </mat-list-item>
             <mat-expansion-panel  [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header (click)="valueChange()">
+                <mat-expansion-panel-header (click)="matBadgeTogglor('PROJECT')">
                     <div id="active">
                         <i class="fa-solid fa-tarp"></i> &nbsp;&nbsp; My Projects <span id="badge" *ngIf="!valueData && badgeValue!=0" matBadge="{{badgeValue}}" matBadgeColor="warn"></span>
                     </div>
@@ -23,7 +23,7 @@
                 </mat-nav-list>
             </mat-expansion-panel>
             <mat-expansion-panel  [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header  (click)="anotherChange()">
+                <mat-expansion-panel-header  (click)="matBadgeTogglor('ASSIGNED')">
                     <div>
                         <i class="fa-solid fa-calendar-check"></i> &nbsp;&nbsp; Assigned Projects <span id="badge" *ngIf="!assignValue && assignedValue!=0" matBadge="{{assignedValue}}" matBadgeColor="warn"></span>
                     </div>
@@ -33,12 +33,12 @@
                 </mat-nav-list>
             </mat-expansion-panel>
             <mat-expansion-panel  [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header  (click)="anotherChange()">
+                <mat-expansion-panel-header  (click)="matBadgeTogglor('ARCHIVE')">
                     <div>
                         <i class="fa-solid fa-trash-can-arrow-up"></i>&nbsp;&nbsp;Archive 
                     </div>
                 </mat-expansion-panel-header>
-                <mat-nav-list *ngFor="let project of assignedProjects">
+                <mat-nav-list *ngFor="let project of archiveProjects">
                     <a mat-list-item (click)="showAssignedProjects(project)">{{project?.name}}</a>
                 </mat-nav-list>
             </mat-expansion-panel>

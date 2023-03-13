@@ -130,12 +130,20 @@ export class ProjectDetailsComponent {
         verticalPosition: 'top',
       });
     } else {
-      let userSelection = confirm(this.projectDetails.name + ' Project will get deleted' + '.\n It cannot be restored again')
+      let statusArc:string;
+
+      if(this.projectDetails.archive==='LIVE'){
+        statusArc ='ARCHIVE';
+      }else{
+        statusArc ='LIVE';
+      }
+      let userSelection = confirm('Project ID    :  '+this.projectDetails.project_id + '\nProject Title :  '+   this.projectDetails.name +
+                                   '\nThe project will be ARCHIVED')
       if (userSelection) {
-        this.project.archivedProjects(project_id, "LIVE").subscribe(
+        this.project.archivedProjects(project_id,statusArc).subscribe(
           response => {
             console.log(response);
-            console.log("archived")
+            console.log(statusArc)
             // window.location.reload()
           })
       }

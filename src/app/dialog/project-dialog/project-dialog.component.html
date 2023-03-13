@@ -15,14 +15,14 @@
       <mat-form-field  class="form-fields" appearance="outline">
         <mat-label>Enter a date range</mat-label>
         <mat-date-range-input  [rangePicker]="picker">
-          <input matStartDate formControlName="start" placeholder="Start date">
+          <input matStartDate formControlName="startDate" placeholder="Start date">
           <input matEndDate formControlName="duration" placeholder="End date">
         </mat-date-range-input>
         <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       
-        <mat-error *ngIf="projectForm.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+        <mat-error *ngIf="projectForm.controls.startDate.hasError('matStartDateInvalid')">Invalid start date</mat-error>
         <mat-error *ngIf="projectForm.controls.duration.hasError('matEndDateInvalid')">Invalid end date</mat-error>
       </mat-form-field>
       
