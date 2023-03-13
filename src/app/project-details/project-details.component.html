@@ -84,9 +84,15 @@
                
                 <mat-card-content>
                   <div id="cards" class="container">
+                    <div id="addMember">
+                      <h2 id="plus" (click)="addMember()">
+                        <i id="plus_icon" class="fa-solid fa-circle-plus"></i><br><br>
+                        ADD NEW MEMBER <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TO PROJECT
+                      </h2>
+                  </div>
                     <ul *ngFor="let member of projectDetails?.assigned_empl">
                       <li><img *ngIf="member.profile_pic" id="img" src="{{member?.profile_pic}}" alt="image"><button *ngIf="!member.profile_pic" id="img"><i class="fa-solid fa-{{member.username?.charAt(0)}}"></i></button>
-                        <h3 id="contents">{{member?.email}}  &nbsp;&nbsp;&nbsp;<button (click)="removeMember(member)" matTooltip="Remove Member from Project" id="delete" mat-mini-fab color="accent"><mat-icon>delete</mat-icon></button></h3></li>
+                        <h3 id="members">{{member?.email}}  &nbsp;&nbsp;&nbsp;<button (click)="removeMember(member)" matTooltip="Remove Member from Project" id="delete" mat-icon-button color="accent"><i class="fa-solid fa-user-slash"></i></button></h3></li>   
                   </ul>
                   </div>
                 </mat-card-content>

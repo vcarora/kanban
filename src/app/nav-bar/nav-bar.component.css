@@ -130,6 +130,12 @@ h2{
   margin-left: 20px;
 }
 
+#menu{
+  position: fixed;
+  top: 30px;
+  left: 1720px;
+}
+
 
 #btn3{
   background-color: transparent;
@@ -167,6 +173,7 @@ mat-toolbar .btn_change{
   border-bottom: 0px;
   padding-bottom: 5px;
 }
+
 
 mat-toolbar .btn_login_change{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
