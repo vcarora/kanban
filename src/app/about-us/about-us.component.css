@@ -41,7 +41,7 @@ span{
 }
 
 footer{
-    margin-top: 41px;
+    margin-top: 47px;
 }
 
 
@@ -64,7 +64,8 @@ footer{
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
     overflow: hidden;
-    width: 100%;
+    width: 408px;
+    height: 500px;
   }
   
   .team-member,
