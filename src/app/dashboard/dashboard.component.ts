@@ -124,6 +124,10 @@ export class DashboardComponent {
 
   showCreatedProjects(project: project) {
     this.getCreatedProjects()
+    // let tempU  = this.projectsList$.filter(obj=> obj.project_id = project.project_id)
+    // console.log(this.projectsList$)
+    // console.log(project)
+    // console.log(tempU)
     this.showProjectDetails(project)
     this.calculateDate(project)
     this.isActive = true;

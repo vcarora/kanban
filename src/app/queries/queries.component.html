@@ -21,20 +21,20 @@
           <div class="screen-body-item">
             <div class="app-form">
               <div class="app-form-group">
-                <input class="app-form-control" placeholder="NAME" value="">
+                <input class="app-form-control" type="text" name="name" placeholder="NAME" [(ngModel)]="messagedata.name" >
               </div>
               <div class="app-form-group">
-                <input class="app-form-control" placeholder="EMAIL">
+                <input class="app-form-control" type="email" name="email" placeholder="EMAIL" [(ngModel)]="messagedata.email" >
               </div>
               <div class="app-form-group">
-                <input class="app-form-control" placeholder="CONTACT NO">
+                <input class="app-form-control" type="tel" name="contact" placeholder="CONTACT NO" [(ngModel)]="messagedata.contact" >
               </div>
               <div class="app-form-group message">
-                <input class="app-form-control" placeholder="MESSAGE">
+                <input class="app-form-control" type="text" name="message" placeholder="MESSAGE" [(ngModel)]="messagedata.message" >
               </div>
               <div class="app-form-group buttons">
-                <button class="app-form-button">CANCEL</button>
-                <button class="app-form-button">SEND</button>
+                <button class="app-form-button" routerLink="/home">CANCEL</button>
+                <button class="app-form-button" (click)="sendquerie()">SEND</button>
               </div>
               <div id="content">
                 <h2>
