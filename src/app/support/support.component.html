@@ -1,7 +1,9 @@
 <div id="main-container">
+  
     <div id="chats-list" >
+      <h1>Open Chats</h1>
         <div *ngFor="let chat of chatsList">
-            <h3 (click)="getMessages(chat?.chat_id)">{{chat?.chat_id}}</h3>
+            <h3 (click)="getMessages(chat?.chat_id)">{{chat?.chat_id | slice:7}}</h3>
         </div>
 
     </div>
