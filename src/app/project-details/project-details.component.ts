@@ -1,4 +1,5 @@
 import { JsonpInterceptor } from '@angular/common/http';
+
 import { Component, Inject, Injectable, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AddMemberDialogComponent } from '../dialog/add-member-dialog/add-member-dialog.component';
@@ -62,6 +63,8 @@ export class ProjectDetailsComponent {
     this.emails = window.localStorage.getItem('email');
     
   }
+
+ 
 
   taskDialog(): void {
     if (this.projectDetails.project_id ?? 0 != 0) {

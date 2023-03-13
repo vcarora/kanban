@@ -50,14 +50,15 @@ export class TaskDialogComponent {
     this.getAllTask();
   }
 
-  getUpdatedProjectDetails() {
-    this.project.getProjectById().subscribe({
-      next: data => {
-        console.log(data)
-        this.projectDetail = data
-      }
-    })
-  }
+
+  // getUpdatedProjectDetails() {
+  //   this.project.getProjectById().subscribe({
+  //     next: data => {
+  //       console.log(data)
+  //       this.projectDetail = data
+  //     }
+  //   })
+  // }
 
   getAllTask(){
     console.log("inside");
@@ -67,4 +68,5 @@ export class TaskDialogComponent {
       }
     })
   }
+
 }
