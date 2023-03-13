@@ -1,10 +1,10 @@
 <div id="main-container">
     <div id="top-bar">
-        <div *ngIf="projectDetails.name">
+        <div *ngIf="projectDetails?.name">
             <h1>{{projectDetails.name}}</h1>
             <p>Project End date :  {{projectDetails.duration | date : "dd/MM/yyyy"}} </p>
         </div>
-        <div *ngIf="!projectDetails.name">
+        <div *ngIf="!projectDetails?.name">
           <div class="d-flex">
             <h1>Welcome - {{userName}}</h1>
             <img *ngIf="title" id="title" src="../../assets/crown.png" alt="" srcset="">
@@ -13,7 +13,7 @@
 
         </div>
 
-        <div id="progress-bar" *ngIf="projectDetails.name"> 
+        <div id="progress-bar" *ngIf="projectDetails?.name"> 
           <h2 id="bar"> Task Completed In <mat-icon id="percentage">percentage</mat-icon> :</h2>
           <div>
             <h2 *ngIf="projectDetails.name" id="value">{{value}}<mat-icon id="percentages">percentage</mat-icon></h2>
@@ -53,32 +53,31 @@
         <mat-tab-group color="warn"> 
             <mat-tab>
               <ng-template mat-tab-label>
-                <h2>TASK</h2>
+                <h2 id="head">TASK</h2>
               </ng-template>
               <mat-card class="scrollable-content">
-               
                 <mat-card-content>
-                  <app-task-board [taskList]="projectDetails.taskList"></app-task-board>
+                  <app-task-board [taskList]="projectDetails!.taskList"></app-task-board>
                 </mat-card-content>
               </mat-card>
             </mat-tab>
             <mat-tab label="Description">
               <ng-template mat-tab-label>
-                <h2>DESCRIPTION</h2>
+                <h2 id="head">DESCRIPTION</h2>
               </ng-template>
                 <mat-card  class="scrollable-content">
                  
                   <mat-card-content>
 
                     <div id="cards" class="container card">
-                      <h3 id="contents">{{projectDetails.description}} </h3>
+                      <h3 id="contents">{{projectDetails!.description}} </h3>
                     </div>
                   </mat-card-content>
                 </mat-card>
               </mat-tab>
             <mat-tab label="Members">
               <ng-template mat-tab-label>
-                <h2>MEMBERS</h2>
+                <h2 id="head">MEMBERS</h2>
               </ng-template>
               <mat-card  class="scrollable-content">
                
@@ -96,8 +95,5 @@
             <mat-tab disabled></mat-tab>
             <mat-tab disabled></mat-tab>
           </mat-tab-group>
-          <div>
-            <button id="support"><i class="fa-solid fa-user-headset"></i></button>
-          </div>
 
 </div>

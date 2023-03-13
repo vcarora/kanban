@@ -18,7 +18,7 @@ h1{
     width: 100%;
     font-weight: bold;
     text-align: center;
-    font-family: "kanyon";
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .task-status{
