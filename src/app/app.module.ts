@@ -62,6 +62,7 @@ import { DatePipe } from '@angular/common';
 import {MatBadgeModule} from '@angular/material/badge';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import {OverlayModule} from '@angular/cdk/overlay';
+import { QueriesComponent } from './queries/queries.component';
 
 
 
@@ -93,6 +94,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     ForgetPassComponent,
     ResetPassComponent,
     EditProfileComponent,
+    QueriesComponent,
     
 
   ],
