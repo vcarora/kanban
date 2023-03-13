@@ -64,6 +64,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { QueriesComponent } from './queries/queries.component';
 import { EditComponentComponent } from './dialog/edit-component/edit-component.component';
+import { DeleteVerifyDialogComponent } from './dialog/delete-verify-dialog/delete-verify-dialog.component';
 
 
 
@@ -97,8 +98,7 @@ import { EditComponentComponent } from './dialog/edit-component/edit-component.c
     EditProfileComponent,
     QueriesComponent,
     EditComponentComponent,
-    
-
+    DeleteVerifyDialogComponent
   ],
   imports: [
     BrowserModule,
