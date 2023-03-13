@@ -32,9 +32,15 @@ export class ProjectDetailsComponent {
   userDetails: user = {}
   firstLetter: any;
 
+
   timeLine:number=0;
 
   isNotNull: boolean = false;
+
+  emails: any;
+
+  hidden: boolean = false;
+
 
   //task complition %
   @Input()
@@ -56,9 +62,8 @@ export class ProjectDetailsComponent {
         console.log(this.userDetails);
       }
     })
-
+    this.emails = window.localStorage.getItem('email');
   }
-
 
   taskDialog(): void {
     if (this.projectDetails.project_id ?? 0 != 0) {

@@ -37,13 +37,13 @@
         <mat-card id="card">
           <mat-card-content class="btn">
               
-                <button [disabled]="isNotNull" mat-fab matTooltip="Add New Task's to Project" (click)="taskDialog()">
+                <button mat-fab matTooltip="Add New Task's to Project" (click)="taskDialog()">
                   <mat-icon>add</mat-icon>
                 </button><br><br><br><br>
-                <button mat-fab matTooltip="Add New Member to Project" (click)="addMember()">
+                <button [hidden]="hidden" mat-fab matTooltip="Add New Member to Project" (click)="addMember()">
                   <mat-icon>group_add</mat-icon>
                 </button><br><br><br><br>
-                <button matTooltip="Delete the Project" mat-fab (click)="deleteProject()">
+                <button  matTooltip="Delete the Project" mat-fab (click)="deleteProject()">
                   <mat-icon>delete</mat-icon>
                 </button>
       
@@ -86,7 +86,7 @@
                   <div id="cards" class="container">
                     <ul *ngFor="let member of projectDetails?.assigned_empl">
                       <li><img *ngIf="member.profile_pic" id="img" src="{{member?.profile_pic}}" alt="image"><button *ngIf="!member.profile_pic" id="img"><i class="fa-solid fa-{{member.username?.charAt(0)}}"></i></button>
-                        <h3 id="contents">{{member?.email}}  &nbsp;&nbsp;&nbsp;<button matTooltip="Remove Member from Project" id="delete" mat-mini-fab color="accent"><mat-icon>delete</mat-icon></button></h3></li>
+                        <h3 id="contents">{{member?.email}}  &nbsp;&nbsp;&nbsp;<button (click)="removeMember(member)" matTooltip="Remove Member from Project" id="delete" mat-mini-fab color="accent"><mat-icon>delete</mat-icon></button></h3></li>
                   </ul>
                   </div>
                 </mat-card-content>
