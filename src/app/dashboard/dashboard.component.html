@@ -9,7 +9,7 @@
             <!-- <mat-list-item routerLink="/dashboard"> -->
                 <!-- <mat-icon>dashboard</mat-icon><span>Dashboard</span> -->
             <!-- </mat-list-item> -->
-            <mat-list-item id="new" (click)="openDialog()">
+            <mat-list-item id="new" (click)="createNewProject()">
                 &nbsp;&nbsp;<mat-icon>create_new_folder</mat-icon>&nbsp;&nbsp;<span>New Project</span>
             </mat-list-item>
             <mat-expansion-panel  [class.mat-elevation-z0]="true">
@@ -35,7 +35,7 @@
             <mat-expansion-panel  [class.mat-elevation-z0]="true">
                 <mat-expansion-panel-header  (click)="matBadgeTogglor('ARCHIVE')">
                     <div>
-                        <i class="fa-solid fa-trash-can-arrow-up"></i>&nbsp;&nbsp;Archive 
+                        <i class="fa-solid fa-trash-can-arrow-up"></i>&nbsp;&nbsp;Archive <span id="badge" *ngIf="!archiveData && archiveValue!=0" matBadge="{{archiveValue}}" matBadgeColor="warn"></span>
                     </div>
                 </mat-expansion-panel-header>
                 <mat-nav-list *ngFor="let project of archiveProjects">
