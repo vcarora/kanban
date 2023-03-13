@@ -1,4 +1,5 @@
 import { Component, NgZone } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from '../services/login.service';
 import { ProjectService } from '../services/project.service';
 import { RouterService } from '../services/router.service';
@@ -16,14 +17,22 @@ export class PricingsComponent {
   name: any = "";
   email: any = '';
   rzp: any;
+  title: any;
   redirect?: boolean;
 
-  constructor(private projectService: ProjectService, private zone: NgZone, private loginServ: LoginService, private router: RouterService,private token:TokenStorageService) { }
+  constructor(private projectService: ProjectService, private zone: NgZone, private loginServ: LoginService, private router: RouterService,private token:TokenStorageService, private snack: MatSnackBar) { }
 
   ngOnInit(): void {
     this.name = window.localStorage.getItem('username');
     this.email = window.localStorage.getItem('user-email');
+    this.title = window.localStorage.getItem('title');
     console.log(this.email ?? "NO_USER");
+  }
+
+  freeMessage(){
+    this.snack.open("Enjoy the Free Benefits No Need To Pay", 'OK', {
+      duration: 3000
+    })
   }
 
 
