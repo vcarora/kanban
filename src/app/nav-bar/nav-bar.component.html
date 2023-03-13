@@ -29,7 +29,7 @@
     </div>
       
     <div id="nav-btns">
-      <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'"  routerLink="/contact" [hidden]="isAdmin">Contact</button>
+      <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'"  routerLink="/query" [hidden]="isAdmin">Contact</button>
       <button id="btn3"  [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/pricing"> Pricing</button>
       <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/about">About Us</button>
       <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/support" [hidden]="!isAdmin" >Support</button>
@@ -48,7 +48,7 @@
 
      
       <button mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" *ngIf="!tokenExist">Log in</button>
-      <button mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_signup'" routerLink="/register" *ngIf="!tokenExist">Sign in</button>
+      <button mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_signup'" routerLink="/register" *ngIf="!tokenExist">Sign Up</button>
     </div>
    
       

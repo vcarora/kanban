@@ -91,6 +91,7 @@ h3>mat-icon{
   height: 50px;
   color: #fff;
   border-radius: 20px;
+  z-index: 0;
 }
 
 .container{

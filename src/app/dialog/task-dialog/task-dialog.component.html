@@ -44,7 +44,7 @@
     </mat-form-field>
 
     <div mat-dialog-actions id="btns">
-      <button id="btn1" mat-flat-button (click)="onNoClick()" color="warn">Cancel</button>
+      <button id="btn1" mat-flat-button type="button" (click)="onNoClick()" color="warn">Cancel</button>
       <button mat-raised-button [mat-dialog-close]="formData.name" [disabled]="task.form.invalid" type="submit" color="primary" cdkFocusInitial>Ok</button>
     </div>
 

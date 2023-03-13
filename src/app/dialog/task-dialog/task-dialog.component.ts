@@ -11,45 +11,47 @@ import { ProjectService } from '../../services/project.service';
 })
 export class TaskDialogComponent {
 
-  formData : task = {
-    status:'TO DO'
+  formData: task = {
+    status: 'TO DO'
   }
 
-  emails:user[] = [];
-  projectDetail : any ={}
+  emails: user[] = [];
+  projectDetail: any = {}
 
   constructor(
-    public dialogRef: MatDialogRef<TaskDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: any, private project : ProjectService) {}
+    public dialogRef: MatDialogRef<TaskDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private project: ProjectService) { }
 
-    priorities : string[]=['Low','Moderate','High']
-    statuses : string[] =['TO DO','In Progress']
+  priorities: string[] = ['Low', 'Moderate', 'High']
+  statuses: string[] = ['TO DO', 'In Progress']
 
-    ngOnInit() {
-      // will log the entire data object
-      console.log(this.data.project_id)
-      console.log(this.data.emailList)
-      this.emails=this.data.emailList;
-    }
+  ngOnInit() {
+    // will log the entire data object
+    console.log(this.data.project_id)
+    console.log(this.data.emailList)
+    this.emails = this.data.emailList;
+  }
 
-  addTask(task : NgForm){
+  addTask(task: NgForm) {
     //  
     console.log(task.value)
-    this.project.addTask(this.data.project_id,task.value).subscribe({
-      next : data=>{
-        console.log(data)
-      //  this.getUpdatedProjectDetails()
-
-      }
-    })
-
+    if (task.value) { 
+      this.project.addTask(this.data.project_id, task.value).subscribe({
+        next: data => {
+          console.log(data)
+        }
+      })
+    }
   }
+
   onNoClick(): void {
+    console.log("Hiii");
+
     this.dialogRef.close();
   }
 
-  getUpdatedProjectDetails(){
+  getUpdatedProjectDetails() {
     this.project.getProjectById().subscribe({
-      next: data =>{
+      next: data => {
         console.log(data)
         this.projectDetail = data
       }

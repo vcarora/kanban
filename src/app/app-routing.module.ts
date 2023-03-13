@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PricingsComponent } from './pricings/pricings.component';
+import { QueriesComponent } from './queries/queries.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { AuthGuard } from './services/auth.guard';
@@ -21,8 +22,9 @@ const routes: Routes = [
   {path : "login",component: LoginComponent},
   {path: "register", component: RegisterComponent},
   {path: "dashboard", component: DashboardComponent},
+  {path: "query", component: QueriesComponent},
   {path: "home",component: HomeComponent},
-  {path: "contact", component: ContactUsComponent},
+  {path: "chat", component: ContactUsComponent},
   {path: "pricing", component: PricingsComponent},
   {path: "about", component: AboutUsComponent},
   {path: "edit", component: EditProfileComponent},
