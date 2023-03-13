@@ -29,6 +29,8 @@ export class TaskCardComponent {
   userDetails: any;
   isOpen = false;
 
+  visibility: boolean = true;
+
   statuses : string[] =['TO DO','In Progress','Submitted','Completed']
 
   members: any = [];
@@ -43,6 +45,12 @@ export class TaskCardComponent {
     })
     
   }
+
+  changeVisibility(){
+    this.visibility = !this.visibility;
+  }
+
+
   changepriority(data:any){
     const project_id : number = this.token.getProjectId()
     this.isOpen = !this.isOpen
