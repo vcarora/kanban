@@ -8,6 +8,10 @@
   margin-bottom: 10px;
 }
 
+.task-card:hover > #button{
+  visibility: visible;
+}
+
 div {
   display: flex;
   justify-content: space-between;
@@ -81,7 +85,9 @@ mat-card-subtitle {
 }
 
 mat-progress-bar {
+  margin-top: -32px;
   background-color: #FF6600;
+  border-radius: 50px;
 }
 
 mat-select {
@@ -126,6 +132,42 @@ img {
   border-radius: 50%;
   width: 20px;
   height: 20px;
+}
+
+#buttons{
+  position: absolute;
+  top: 110px;
+  left: 100px;
+  background-color: transparent;
+}
+
+#icon{
+  border: 0;
+  position: absolute;
+  top: 110px;
+  left: 170px;
+  background-color: transparent;
+
+}
+
+#icon:hover{
+  color: orange;
+}
+
+#delete:hover{
+  color: red;
+}
+
+#delete{
+  position: absolute;
+  top: 110px;
+  right: 20px;
+  background-color: transparent;
+  color: black;
+}
+
+i{
+  font-size: 17px;
 }
 
 .priority-list {
