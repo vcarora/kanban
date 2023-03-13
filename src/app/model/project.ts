@@ -5,10 +5,10 @@ export type project = {
     "duration"? : Date;
     "startDate"?: Date;
     "taskList"? : task[];
-    "assigned_emp"? :string[];
+    "assigned_emp"?: string[];
     "email"? : string;
     "archive"?: string; 
-    "assigned_empl"?:user[]
+    "assigned_empl"?: user[]
 }
 
 export type task = {

@@ -31,7 +31,9 @@ export class ProjectDetailsComponent {
   userDetails: user = {}
   firstLetter: any;
 
-  isNotNull: boolean = false;
+  emails: any;
+
+  hidden: boolean = false;
 
   @Input()
   value: any;
@@ -51,15 +53,9 @@ export class ProjectDetailsComponent {
         console.log(this.userDetails);
       }
     })
-
+    this.emails = window.localStorage.getItem('email');
   }
 
-
-  ngOnChange() {
-    if (this.projectDetails) {
-      this.isNotNull = true;
-    }
-  }
 
 
   taskDialog(): void {
