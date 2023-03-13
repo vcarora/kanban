@@ -33,6 +33,7 @@
       <button id="btn3"  [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/pricing"> Pricing</button>
       <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/about">About Us</button>
       <button id="btn3" [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/support" [hidden]="!isAdmin" >Support</button>
+      <button *ngIf="tokenExist" id="menu" matTooltip="Dashboard" routerLink="/dashboard" mat-icon-button><i class="fa-brands fa-foursquare"></i></button>
          <button (click)="isOpen = !isOpen" cdkOverlayOrigin #trigger="cdkOverlayOrigin" [hidden]="!tokenExist" id="user"><img id="user_img" src="{{userDetails.profile_pic}}" alt=""></button>
         <button *ngIf="!userDetails.profile_pic && tokenExist" (click)="isOpen = !isOpen" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin" id="user"><i class="fa-solid fa-{{firstLetter}}"></i></button> 
         <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="isOpen">
