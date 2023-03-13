@@ -3,6 +3,7 @@ import { task } from '../model/project';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { ProjectService } from '../services/project.service';
 import { TokenStorageService } from '../services/token-storage.service';
+import { DataStreamService } from '../services/data-stream.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class TaskBoardComponent {
 @Input()
 taskList : task[] | undefined =[] 
 
-constructor(private project: ProjectService, private token : TokenStorageService){}
+constructor(private project: ProjectService, private token : TokenStorageService, private stream: DataStreamService){}
 
 ngOnInit(){
 }
@@ -46,5 +47,6 @@ drop(event: CdkDragDrop<any[]>, status: string) {
   getTasksByStatus(status: string) {
     return this.taskList?.filter(task => task.status === status);
   }
+
 
 }

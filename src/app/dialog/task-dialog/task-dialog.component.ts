@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, NgForm } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProjectDetailsComponent } from 'src/app/project-details/project-details.component';
+import { DataStreamService } from 'src/app/services/data-stream.service';
 import { task, user } from '../../model/project';
 import { ProjectService } from '../../services/project.service';
 
@@ -19,7 +21,7 @@ export class TaskDialogComponent {
   projectDetail: any = {}
 
   constructor(
-    public dialogRef: MatDialogRef<TaskDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private project: ProjectService) { }
+    public dialogRef: MatDialogRef<TaskDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private project: ProjectService, private stream: DataStreamService, private projects: ProjectDetailsComponent) { }
 
   priorities: string[] = ['Low', 'Moderate', 'High']
   statuses: string[] = ['TO DO', 'In Progress']
@@ -32,7 +34,6 @@ export class TaskDialogComponent {
   }
 
   addTask(task: NgForm) {
-    //  
     console.log(task.value)
     if (task.value) { 
       this.project.addTask(this.data.project_id, task.value).subscribe({
@@ -45,8 +46,8 @@ export class TaskDialogComponent {
 
   onNoClick(): void {
     console.log("Hiii");
-
     this.dialogRef.close();
+    this.getAllTask();
   }
 
   getUpdatedProjectDetails() {
@@ -54,6 +55,15 @@ export class TaskDialogComponent {
       next: data => {
         console.log(data)
         this.projectDetail = data
+      }
+    })
+  }
+
+  getAllTask(){
+    console.log("inside");
+    this.project.getAllTask(this.data.project_id).subscribe({
+      next: data =>{
+        console.log(data);
       }
     })
   }

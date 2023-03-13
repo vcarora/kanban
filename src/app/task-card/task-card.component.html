@@ -6,22 +6,16 @@
       <mat-card-header>
         <mat-card-title>{{task.name}}
           <div>
-            <img src="{{userDetails?.profile_pic}}" matTooltip="{{userDetails?.email}}" alt="profile pictures">
+            <img *ngIf="userDetails?.profile_pic" src="{{userDetails?.profile_pic}}" matTooltip="{{userDetails?.email}}" alt="profile pictures">
+            <button mat-icon-button id="buttons" *ngIf="!userDetails?.profile_pic" matTooltip="No Members Added to Task"><i id="add" class="fa-solid fa-user-plus"></i></button> 
           </div>
-        </mat-card-title><mat-icon>short_text</mat-icon>
+        </mat-card-title><button mat-icon-button matTooltip="Edit Task" id="icon"><i id="pen" class="fa-solid fa-file-pen"></i></button>
         <mat-card-subtitle>{{task.description}}</mat-card-subtitle>
       </mat-card-header>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
+      <button id="delete" matTooltip="Delete Task" color="warn" mat-icon-button (click)="deleteTask(task)" >
+        <i id="trash" class="fa-solid fa-trash"></i>
       </button>
-
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item (click)="deleteTask(task)">
-          <mat-icon>delete</mat-icon>
-          <span>Delete Task</span>
-        </button>
-      </mat-menu>
     </div>
 
     <mat-card-content>
@@ -45,9 +39,9 @@
         <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
       </mat-select> -->
     </mat-card-actions>
-    <mat-card-footer>
-      <mat-progress-bar mode="determinate" value="50"></mat-progress-bar>
-    </mat-card-footer>
+    <!-- <mat-card-footer> -->
+      <!-- <mat-progress-bar mode="determinate" value="50"></mat-progress-bar> -->
+    <!-- </mat-card-footer> -->
   </mat-card>
 
 </div>

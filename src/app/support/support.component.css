@@ -4,12 +4,42 @@
     padding: 1rem;
     height: 100%;
 }
+
+h1{
+  background-color: orange;
+  margin: -1rem;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+  padding: .5rem;
+}
 #chats-list{
     width: 23%;
     height: 90%;
     margin-right: 2%;
     background-color: rgb(240, 237, 237);
+    border-radius: 20px;
     padding: 1rem;
+}
+
+#chats-list>div{
+  background-color: darkgray;
+  padding: 3px;
+  border-radius: 10px;
+  margin: 2px;
+}
+#chats-list>div:hover{
+  background-color: lightgray;
+}
+
+h3{
+  color: white;
+  margin-left: 5px;
+}
+h3:hover{
+  color: black;
 }
 #messages{
     background-color: white;

@@ -78,7 +78,7 @@ export class DashboardComponent {
   ngOnInit() {
     this.stream.currentTimeLine.subscribe(data => this.timeLine =data)
     this.stream.currentProject.subscribe(data =>{
-      let update = this.projectsList$.findIndex(onj => onj.name == data.name);
+    let update = this.projectsList$.findIndex(onj => onj.name == data.name);
       console.log(this.projectsList$[update])
       this.projectsList$[update] =data;
     })

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import { project } from '../model/project';
+import { project, task } from '../model/project';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +20,9 @@ export class DataStreamService {
 
   changeProject(project:project){
     this.sorceProject.next(project)
+  }
+
+  changeTask(task: any){
+    this.sorceProject.next(task);
   }
 }
