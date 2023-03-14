@@ -49,7 +49,7 @@ export class TaskCardComponent {
     console.log(this.members)
     for(let member of this.members){
       if(member.profile_pic == '' || null){
-        console.log(member.username);
+        console.log(member.username); 
         this.firstLetter = member.username?.charAt(0);
         console.log(this.firstLetter);
       }

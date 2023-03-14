@@ -31,14 +31,14 @@ export class ProjectDetailsComponent {
   projectDetails: project = {}
 
   constructor(public dialog: MatDialog, private project: ProjectService, private token: TokenStorageService,
-              private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService,
-              private dash: DashboardComponent,) { }
+              private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService) { }
 
   task: task[] = []
   title: boolean = false;
   userName: string | any = '';
   firstLetter: any;
 
+  creator: any;
 
   timeLine:number=0;
 
@@ -62,14 +62,14 @@ export class ProjectDetailsComponent {
     this.userName = window.localStorage.getItem("username");
     console.log(this.userName);
     this.userName = this.userName.toUpperCase();
+    this.emails = window.localStorage.getItem('user-email');
+    this.stream.currentCreator.subscribe( data =>{
+      this.creator = data;
+    })
     this.emails = window.localStorage.getItem('email');
 
     let limiter: Map<string,Inject>;
-    
-    
   }
-
- 
 
   taskDialog(): void {
     if (this.projectDetails.project_id ?? 0 != 0) {

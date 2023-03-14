@@ -42,7 +42,7 @@
                   <input type="email" id="email" name="email_id" value="{{userDetails.email}}" [(ngModel)]="tempUser.email_id" readonly> 
                 </div>
               </div>
-              <button *ngIf="!verified" class="btn btn-outline-secondary mb-5" type="button" (click)="passChange = !passChange">chnage password</button>
+              <button *ngIf="!verified" class="btn btn-outline-secondary mb-5" type="button" (click)="passChange = !passChange">change password</button>
               <div *ngIf="passChange" class="fieldset">
                 <label for="pass">Current Password</label>
                 <div class="input-group input-wrapper">
@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="fieldset" *ngIf="verified">
-                <label for="pass">Password</label>
+                <label for="pass">New Password</label>
                 <div class="input-wrapper">
                   <span class="icon"><i class="fas fa-key"></i></span>
                   <input type="password" id="pass" autocomplete="current-password" name="password" [(ngModel)]="tempUser.password">

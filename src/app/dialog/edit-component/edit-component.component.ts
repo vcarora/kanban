@@ -27,6 +27,8 @@ export class EditComponentComponent {
 
   statuses: string[] = ['TO DO', 'In Progress', 'Submitted', 'Completed']
 
+  creator: any;
+
   ngOnInit() {
     console.log(this.data);
     this.task = this.data
@@ -40,6 +42,9 @@ export class EditComponentComponent {
       }
     }
     console.log(this.selectedValue);
+    this.stream.currentCreator.subscribe( data =>{
+      this.creator = data;
+    })
   }
 
   updatedTask() {

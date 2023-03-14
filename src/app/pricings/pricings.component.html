@@ -72,7 +72,7 @@
           <img src="../../assets/pay2.jpg" alt="image-2">
         </figure>
   
-        <button *ngIf="name && title=='FREE' " (click)="pay()">Pay Now</button>
+        <button *ngIf="name && title=='FREE'" (click)="pay()">Pay Now</button>
         <h2 *ngIf="name && title=='PREMIUM'">Thankyou For Subscribing</h2>
         <div>
           <button id="dash" *ngIf="name && title=='PREMIUM'" routerLink="/dashboard">Dashboard</button>

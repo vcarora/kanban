@@ -11,9 +11,9 @@
         <mat-select id="priority" [(ngModel)]="task.status"  name="status" [value]="task.status">
             <mat-option *ngFor= "let status of statuses" [value]="status" >{{status}}</mat-option>
         </mat-select>
-        <mat-form-field appearance="outline" id="input4">
+        <mat-form-field  appearance="outline" id="input4">
             <mat-label>Members</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="selectedValue" multiple>
+            <mat-select [disabled]="creator" [(ngModel)]="selectedValue" name="selectedValue" multiple>
               <mat-option [disabled]="isOptionDisabled(email.email)" *ngFor="let email of emails" [value]="email.email">
                 {{email.email}}
               </mat-option>
