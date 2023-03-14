@@ -39,6 +39,16 @@ export class DeleteVerifyDialogComponent {
         }
       })
     }
+    changePrjectState(){
+      this.project.archivedProjects(this.data.project_id,"LIVE").subscribe({
+        next:data=>{
+          console.log(data)
+          // window.location.reload()
+          this.dialogRef.close();
+          
+        }
+      })
+    }
 
     cancle(){
       this.dialogRef.close();

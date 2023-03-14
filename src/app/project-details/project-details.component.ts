@@ -63,6 +63,9 @@ export class ProjectDetailsComponent {
     console.log(this.userName);
     this.userName = this.userName.toUpperCase();
     this.emails = window.localStorage.getItem('email');
+
+    let limiter: Map<string,Inject>;
+    
     
   }
 
@@ -154,7 +157,7 @@ export class ProjectDetailsComponent {
                               {data: this.projectDetails});
           archiveRef.afterClosed().subscribe(data=>{
             console.log(data)
-            window.location.reload()
+            // window.location.reload()
           })
           
       }
