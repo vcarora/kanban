@@ -13,11 +13,17 @@ export class DataStreamService {
   currentProject = this.sorceProject.asObservable()
   private sorceMembers = new BehaviorSubject<Array<user>>([])
   currebtMembers = this.sorceMembers.asObservable()
+  private sorceCreator = new BehaviorSubject<boolean>(true);
+  currentCreator = this.sorceCreator.asObservable()
 
   constructor() { }
 
   changeDuration(duration:number){
     this.SorcetimeLine.next(duration)
+  }
+
+  changeCreator(value: boolean){
+    this.sorceCreator.next(value)
   }
 
   changeProject(project:project){

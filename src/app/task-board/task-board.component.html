@@ -32,7 +32,7 @@
                     <div *ngIf="getTasksByStatus('Submitted')?.length === 0" class="text"><h1>No task in list</h1></div>
             <div *ngFor="let task of taskList">
                 <div *ngIf="task?.status=== 'Submitted'" >
-                    <app-task-card [task]="task" cdkDrag ></app-task-card> 
+                    <app-task-card [task]="task" cdkDrag [cdkDragDisabled]="creator"></app-task-card> 
                 </div>                
             </div>
         
@@ -42,11 +42,11 @@
         <div id="completed" class="task-status">
             <h1><mat-icon id="done">check_circle</mat-icon>COMPLETED</h1>
 
-                <div  class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('Completed') || []" id="Completed" (cdkDropListDropped)="drop($event, 'Completed')">
+                <div  class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('Completed') || []" id="Completed" [cdkDropListDisabled]="creator"  (cdkDropListDropped)="drop($event, 'Completed')">
                     <div *ngIf="getTasksByStatus('Completed')?.length === 0" class="text"><h1>No task in list</h1></div>
             <div *ngFor="let task of taskList">
-                <div *ngIf="task?.status=== 'Completed'" id="non-responsive">
-                    <app-task-card [task]="task" ></app-task-card> 
+                <div *ngIf="task?.status=== 'Completed'" >
+                    <app-task-card [task]="task"></app-task-card> 
                 </div>                
             </div>
 
