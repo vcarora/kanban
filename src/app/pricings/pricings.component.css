@@ -26,6 +26,19 @@ body {
   font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+h2{
+  font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+}
+
+#dash{
+  position: absolute;
+  top: 280px;
+  left: 120px;
+}
+
 /* .flip-card-container */
 .flip-card-container {
   --hue: 150;

@@ -104,7 +104,11 @@ export class ProjectService {
   }
 
   archivedProjects(project_id: any, status: any){
-    return this.http.post(PROJECT_API+'archive/'+project_id+'?archiveStatus='+status, null)
+    return this.http.post(PROJECT_API+'archive/'+project_id+'?archiveStatus='+status, null).pipe(
+      tap(()=>{
+        this.RefreshRequired.next()
+      })
+    )    
   }
 
   getAllTask(id: any){

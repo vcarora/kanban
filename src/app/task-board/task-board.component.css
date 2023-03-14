@@ -53,7 +53,7 @@ mat-icon{
 .card_container{
     background-color: #e2e2e6;
     border-radius: 20px;
-    height: 500px;
+    height: 480px;
     overflow-x: auto;
     overflow-y: auto;
 }

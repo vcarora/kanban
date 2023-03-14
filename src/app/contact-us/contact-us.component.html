@@ -1,4 +1,5 @@
 <mat-card class="mat-card" >
+
   <!-- <div [hidden]="!isLoggedIn">
     <mat-card-title><h1>WRITE TO US!</h1></mat-card-title>
     <mat-card-content>
@@ -32,10 +33,10 @@
   </div>
       <div id="input-message">
     <form #chat="ngForm" (ngSubmit)="sendMessage(chat)">        
-        <mat-form-field appearance="outline">      
-          <input matInput type="text" name="message" placeholder="type your query here" [(ngModel)]="formData.message" #message="ngModel" required>
-        </mat-form-field>
-        <button mat-icon-button type="submit" [disabled]="chat.form.invalid"><mat-icon>send</mat-icon></button>
+       
+          <input id="input" type="text" name="message" placeholder="Type your query here" [(ngModel)]="formData.message" #message="ngModel" required>
+      
+        <button mat-mini-fab type="submit" [disabled]="chat.form.invalid"><mat-icon>send</mat-icon></button>
     </form>
   </div>
 
@@ -46,3 +47,8 @@
   <div>
     <img src="../../assets/person1.png" alt="person" id="person">
   </div>
+
+
+  <footer>
+    <app-footer></app-footer>
+  </footer>

@@ -88,15 +88,6 @@ export class DashboardComponent {
     this.getCreatedProjects()
     this.project.RefreshRequired.subscribe(respose => {
       this.getCreatedProjects()
-      if(this.token.getProjectId()){
-        let pId : any = this.token.getProjectId()
-      
-        this.project.getProjectById(pId).subscribe({
-          next: data =>{
-            this.selectedProject = data
-          }
-        })
-      }
     })
     this.getAssignedProjects()
     this.project.RefreshRequired.subscribe(respose => {
@@ -118,7 +109,7 @@ export class DashboardComponent {
       this.snackBar.open('Free user limiter to 3 project Only', 'Ok', {
         duration: 3000,
         horizontalPosition: 'center',
-        verticalPosition: 'top',
+        verticalPosition: 'top'
       });
     }
   }
