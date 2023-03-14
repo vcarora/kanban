@@ -66,6 +66,9 @@ export class ProjectDetailsComponent {
     this.stream.currentCreator.subscribe( data =>{
       this.creator = data;
     })
+    this.emails = window.localStorage.getItem('email');
+
+    let limiter: Map<string,Inject>;
   }
 
   taskDialog(): void {
@@ -154,7 +157,7 @@ export class ProjectDetailsComponent {
                               {data: this.projectDetails});
           archiveRef.afterClosed().subscribe(data=>{
             console.log(data)
-            window.location.reload()
+            // window.location.reload()
           })
           
       }
