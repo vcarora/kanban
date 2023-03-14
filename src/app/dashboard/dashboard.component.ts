@@ -78,7 +78,6 @@ export class DashboardComponent {
   email: any;
 
   ngOnInit() {
-    this.stream.currentTimeLine.subscribe(data => this.timeLine =data)
     this.stream.currentProject.subscribe(data =>{
     let update = this.projectsList$.findIndex(onj => onj.name == data.name);
       console.log(this.projectsList$[update])
@@ -134,6 +133,9 @@ export class DashboardComponent {
     // console.log(tempU)
     this.showProjectDetails(project)
     this.calculateDate(project)
+    if(project.assigned_empl!= null){
+      this.stream.changeMembers(project.assigned_empl)
+    }
     this.isActive = true;
     if(this.email === project.email){
       console.log("hello");
