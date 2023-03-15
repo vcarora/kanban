@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, map} from 'rxjs';
 import { project, task, user } from '../model/project';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class DataStreamService {
   currebtMembers = this.sorceMembers.asObservable()
   private sorceCreator = new BehaviorSubject<boolean>(true);
   currentCreator = this.sorceCreator.asObservable()
+
+  //member count in a taskList
+  private sourceMemberCount = new BehaviorSubject<Map<string,number>>(new Map())
+  currentMemberCount = this.sourceMemberCount.asObservable()
 
   constructor() { }
 
@@ -35,5 +39,8 @@ export class DataStreamService {
   }
   changeMembers(members:user[]){
     this.sorceMembers.next(members)
+  }
+  changeMemberCounter(memberCount:Map<string,number>){
+    this.sourceMemberCount.next(memberCount)
   }
 }

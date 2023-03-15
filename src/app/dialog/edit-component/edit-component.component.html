@@ -14,7 +14,7 @@
         <mat-form-field  appearance="outline" id="input4">
             <mat-label>Members</mat-label>
             <mat-select [disabled]="creator" [(ngModel)]="selectedValue" name="selectedValue" multiple>
-              <mat-option [disabled]="isOptionDisabled(email.email)" *ngFor="let email of emails" [value]="email.email">
+              <mat-option [disabled]="isOptionDisabled(email.email) || isOprionLimiter(email.email!)" *ngFor="let email of emails" [value]="email.email">
                 {{email.email}}
               </mat-option>
             </mat-select>

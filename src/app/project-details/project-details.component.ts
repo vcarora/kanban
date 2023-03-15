@@ -33,7 +33,7 @@ export class ProjectDetailsComponent {
   constructor(public dialog: MatDialog, private project: ProjectService, private token: TokenStorageService,
               private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService) { }
 
-  task: task[] = []
+  // task: task[] = []
   title: boolean = false;
   userName: string | any = '';
   firstLetter: any;
@@ -68,7 +68,7 @@ export class ProjectDetailsComponent {
     })
     this.emails = window.localStorage.getItem('email');
 
-    let limiter: Map<string,Inject>;
+    let limiter: Map<string,Inject>
   }
 
   taskDialog(): void {
@@ -175,15 +175,15 @@ export class ProjectDetailsComponent {
     console.log(data.email)
   }
 
-  getAllTaskDetails(){
-    console.log(this.projectDetails?.project_id);
-    this.project.getAllTask(this.projectDetails?.project_id).subscribe({
-      next: data =>{
-       this.task.push(data);
-       console.log(this.task);
-       this.projectDetails.taskList = this.task;
-      }
-    });
-    return this.task;
-  }
+  // getAllTaskDetails(){
+  //   console.log(this.projectDetails?.project_id);
+  //   this.project.getAllTask(this.projectDetails?.project_id).subscribe({
+  //     next: data =>{
+  //      this.task.push(data);
+  //      console.log(this.task);
+  //      this.projectDetails.taskList = this.task;
+  //     }
+  //   });
+  //   return this.task;
+  // }
 }
