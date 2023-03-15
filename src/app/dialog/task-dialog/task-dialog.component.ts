@@ -20,6 +20,8 @@ export class TaskDialogComponent {
   emails: user[] = [];
   projectDetail: any = {}
 
+  user: user = {};
+
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private project: ProjectService, private stream: DataStreamService, private projects: ProjectDetailsComponent) { }
 

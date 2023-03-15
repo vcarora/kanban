@@ -8,7 +8,7 @@
       </mat-card-header>
       <mat-card-content class="memberList mt-3" *ngFor="let user of task.memberList">
           <img *ngIf="user?.profile_pic" src="{{user?.profile_pic}}" matTooltip="{{user?.email}}" alt="profile pictures">
-          <button *ngIf="!user?.profile_pic" matTooltip="{{user?.email}}" id="profile"><i id="name" class="fa-solid fa-{{firstLetter}}"></i></button>
+          <button *ngIf="!user?.profile_pic" matTooltip="{{user?.email}}" id="profile"><i id="name" class="fa-solid fa-{{user.username?.charAt(0)}}"></i></button>
       </mat-card-content>
     </div>
 

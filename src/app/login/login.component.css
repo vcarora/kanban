@@ -38,6 +38,12 @@ h1{
     font-size: 13px;
 }
 
+#eye{
+	position: absolute;
+	top: 160px;
+	left: 250px;
+}
+
 h6{
     position: absolute;
     top: 10px;

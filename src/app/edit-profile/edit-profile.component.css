@@ -6,8 +6,8 @@ main {
 
 #gif{
     position: absolute;
-    top: 250px;
-    left: 20px;
+    top: 350px;
+    left: 450px;
 }
 
 #details{
@@ -30,6 +30,34 @@ main {
 
 #change-avatar{
   cursor: pointer;
+}
+
+#change{
+  margin-top: -20px;
+  margin-bottom: 40px;
+  margin-left: 120px;
+}
+
+#eye{
+  position: inherit;
+  top: 15px;
+  right: 30px;
+}
+
+#eye1{
+  position: absolute;
+  right: 25px;
+  top: 50px;
+}
+
+#success{
+  background-color: rgb(3, 211, 3);
+}
+
+#verify{
+  margin-top: 6px;
+  margin-left: -23px;
+  background-color: #ffc604;
 }
 
 .title{
@@ -187,7 +215,7 @@ main section form .fieldset .input-wrapper select {
   color: #495057;
 }
 main section form .fieldset .input-wrapper:focus .icon, main section form .fieldset .input-wrapper:focus-within .icon, main section form .fieldset .input-wrapper:hover .icon {
-  color: #538e46;
+  color: #ffc604;
 }
 main section form .fieldset:first-child {
   margin-top: 0;

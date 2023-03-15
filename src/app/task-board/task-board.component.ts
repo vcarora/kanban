@@ -19,6 +19,10 @@ taskList : task[] | undefined =[]
 
 creator: any;
 
+isArchiveStatus: any;
+
+archived: boolean = false;
+
 disableDrop = true;
 
 constructor(private project: ProjectService, private token : TokenStorageService, private stream: DataStreamService){}
@@ -28,6 +32,10 @@ ngOnInit(){
     this.creator = data;
   })
   console.log(this.creator);
+
+  this.stream.currentArchive.subscribe( data =>{
+    this.isArchiveStatus = data;
+  })
 }
 
 

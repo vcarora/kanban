@@ -47,14 +47,6 @@ export class TaskCardComponent {
   ngOnInit(){
     this.stream.currebtMembers.subscribe(data=> this.members = data)
     console.log(this.members)
-    for(let member of this.members){
-      if(member.profile_pic == '' || null){
-        console.log(member.username); 
-        this.firstLetter = member.username?.charAt(0);
-        console.log(this.firstLetter);
-      }
-      
-    }
   }
 
   taskDetails(task: any){
