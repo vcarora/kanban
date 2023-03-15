@@ -16,6 +16,8 @@ export class EditProfileComponent {
   verified?:boolean
   passChange?:boolean
 
+  hide = true;
+
   constructor(private token: TokenStorageService, private loginService : LoginService){}
 
   ngOnInit(){

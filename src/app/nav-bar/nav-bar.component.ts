@@ -80,7 +80,8 @@ export class NavBarComponent {
  
  @HostListener('window:scroll',['$event']) scrollFunc(e : Event){
  
-    let scrollValue = (e.target as Element).scrollTop  
+    let scrollValue = (e.target as Element).scrollTop 
+    
   if (scrollValue > 20)
   {
     this.toolbar_variable = true

@@ -23,4 +23,5 @@ export type user = {
     "username"?: string;
     "title"?: string;
     "profile_pic"?: string;
+    "taskCount"?: number;
 }

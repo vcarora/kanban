@@ -11,46 +11,35 @@ export class DeleteVerifyDialogComponent {
 
   inputText?: string;
 
-  projectTitle?:string;
+  projectTitle?: string;
 
-  inputEqual?:boolean;
+  inputEqual?: boolean;
 
   constructor(public dialogRef: MatDialogRef<DeleteVerifyDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
     private project: ProjectService) { }
 
-    ngOnInit(){
-      console.log(this.data)
-      this.projectTitle = this.data.name
-    }
-    changeValue(){
-      if(this.inputText === this.projectTitle){
-        this.inputEqual=true;
-      }else
-        this.inputEqual=false
-    }
+  ngOnInit() {
+    console.log(this.data)
+    this.projectTitle = this.data.name
+  }
+  changeValue() {
+    if (this.inputText === this.projectTitle) {
+      this.inputEqual = true;
+    } else
+      this.inputEqual = false
+  }
 
-    deleteProject(){
-      this.project.deleteProject(this.data.project_id).subscribe({
-        next:data=>{
-          console.log(data)
-          // window.location.reload()
-          this.dialogRef.close();
-          
-        }
-      })
-    }
-    changePrjectState(){
-      this.project.archivedProjects(this.data.project_id,"LIVE").subscribe({
-        next:data=>{
-          console.log(data)
-          // window.location.reload()
-          this.dialogRef.close();
-          
-        }
-      })
-    }
+  deleteProject() {
+    this.project.deleteProject(this.data.project_id).subscribe({
+      next: data => {
+        console.log(data)
+        // window.location.reload()
+        this.dialogRef.close();
 
-    cancle(){
-      this.dialogRef.close();
-    }
+      }
+    })
+  }
+  cancle() {
+    this.dialogRef.close();
+  }
 }
