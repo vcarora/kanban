@@ -16,7 +16,8 @@
     </mat-card-content>
     <mat-card-actions class=" mt-4 d-flex justify-content-end">
         <button type="button" class="btn btn-outline-dark me-3" (click)="cancle()">Cancle</button>
-        <button type="button" class="btn btn-outline-secondary" *ngIf="!inputEqual" >Drop Project</button>
+        <button type="button" class="btn btn-outline-success me-3" *ngIf="!inputEqual" (click)="changePrjectState()">Live Project</button>
+        <button type="button" class="btn btn-outline-secondary" *ngIf="!inputEqual" disabled>Drop Project</button>
         <button type="button" class="btn btn-danger" *ngIf="inputEqual" (click)="deleteProject()" >Drop Project</button>
     </mat-card-actions>
 </mat-card>

@@ -5,7 +5,7 @@ import { messageData } from '../model/queries';
 import { TokenStorageService } from './token-storage.service';
 
 const CHAT_API = 'http://localhost:9500/support/'
-const CONTACT_US = 'http://localhost:9500//kanban/info/contactUs'
+const CONTACT_US = 'http://localhost:9500/kanban/info/contactUs'
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };

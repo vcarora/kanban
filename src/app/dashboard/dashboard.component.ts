@@ -1,4 +1,4 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { project, user } from '../model/project';
 import { ProjectDialogComponent } from '../dialog/project-dialog/project-dialog.component';
@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 import { LoginService } from '../services/login.service';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { DataStreamService } from '../services/data-stream.service';
+import { ProjectDetailsComponent } from '../project-details/project-details.component';
 
 
 @Injectable({
@@ -29,7 +30,7 @@ export class DashboardComponent {
   constructor(private dialog: MatDialog, private project: ProjectService,
     private toggle: ToggleService, private token: TokenStorageService, private router: RouterService,
     private snackBar: MatSnackBar, private serv: LoginService, private navbar: NavBarComponent,
-    private stream:DataStreamService) { }
+    private stream:DataStreamService, private projectDetail: ProjectDetailsComponent) { }
 
   projectDuration?:number;
   
@@ -74,9 +75,9 @@ export class DashboardComponent {
 
   timeLine: number=0;
 
+  email: any;
 
   ngOnInit() {
-    this.stream.currentTimeLine.subscribe(data => this.timeLine =data)
     this.stream.currentProject.subscribe(data =>{
     let update = this.projectsList$.findIndex(onj => onj.name == data.name);
       console.log(this.projectsList$[update])
@@ -93,6 +94,8 @@ export class DashboardComponent {
     this.project.RefreshRequired.subscribe(respose => {
       this.getAssignedProjects()
     })
+
+    this.email = window.localStorage.getItem('user-email');
   }
 
   reload() {
@@ -130,12 +133,21 @@ export class DashboardComponent {
     // console.log(tempU)
     this.showProjectDetails(project)
     this.calculateDate(project)
+    if(project.assigned_empl!= null){
+      this.stream.changeMembers(project.assigned_empl)
+    }
     this.isActive = true;
+    if(this.email === project.email){
+      console.log("hello");
+      // this.creator = false;
+      this.stream.changeCreator(false);
+    }
   }
 
   showAssignedProjects(project: project) {
     this.getAssignedProjects()
     this.showProjectDetails(project)
+    this.stream.changeCreator(true);
   }
 
   showProjectDetails(project: project) {
