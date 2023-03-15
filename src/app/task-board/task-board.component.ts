@@ -4,6 +4,7 @@ import {CdkDrag, CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem} f
 import { ProjectService } from '../services/project.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { DataStreamService } from '../services/data-stream.service';
+import { count, map } from 'rxjs';
 
 
 @Component({
@@ -13,8 +14,18 @@ import { DataStreamService } from '../services/data-stream.service';
 })
 export class TaskBoardComponent {
 
-@Input()
 taskList : task[] | undefined =[] 
+
+memberCount:Map<string,number> = new Map()
+
+@Input()
+set taskListData(value:task[] | undefined){
+  this.memberCount.clear()
+  this.taskList = value
+  if(value!= undefined){
+    this.memberCounter(value)
+  }
+}
 
 
 creator: any;
@@ -72,5 +83,15 @@ drop(event: CdkDragDrop<any[]>, status: string) {
     return this.creator;
   }
 
+  memberCounter(value:task[]){
+    console.log('taskListData')
+    value.forEach(element => {
+      element.memberList?.forEach(elementM =>{
+        this.memberCount.set(elementM.email??'',(this.memberCount.get(elementM.email??'')|| 0)+1)
+      })
+    });
+    console.log(this.memberCount)
+    this.stream.changeMemberCounter(this.memberCount)
+  }
 
 }

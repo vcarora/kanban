@@ -16,7 +16,7 @@ export class EditComponentComponent {
 
   constructor(public dialogRef: MatDialogRef<EditComponentComponent>, private project: ProjectService, private token: TokenStorageService, @Inject(MAT_DIALOG_DATA) public data: any, private stream: DataStreamService) { }
 
-
+  memberCount:Map<string,number> = new Map()
   task: task = {}
 
   formData: task = {}
@@ -24,6 +24,7 @@ export class EditComponentComponent {
   emails: user[] = [];
 
   selectedValue?: string[] = [];
+  limitedMember?: string[] = [];
 
   statuses: string[] = ['TO DO', 'In Progress', 'Submitted', 'Completed']
 
@@ -36,6 +37,9 @@ export class EditComponentComponent {
       this.emails = data;
       console.log(this.emails);
     })
+    this.stream.currentMemberCount.subscribe(data=>{
+      this.memberCount = data
+    })
     if (this.task.memberList != null) {
       for (let values of this.task.memberList!) {
         this.selectedValue?.push(values.email!);
@@ -45,6 +49,7 @@ export class EditComponentComponent {
     this.stream.currentCreator.subscribe( data =>{
       this.creator = data;
     })
+    this.emailReduser()
   }
 
   updatedTask() {
@@ -84,5 +89,20 @@ export class EditComponentComponent {
   }
   isOptionDisabled(opt: any): boolean {
     return this.selectedValue?.length! >= 3 && !this.selectedValue?.find(elm => elm == opt)
+  }
+  emailReduser(){
+    this.limitedMember = [];
+    for(let temp of this.emails){
+      if(this.memberCount.has(temp.email!)){
+        if(this.memberCount.get(temp.email!) ==3)
+        this.limitedMember?.push(temp.email!)
+      }
+    }
+    console.log(this.limitedMember)
+  }
+  isOprionLimiter(opt:string):boolean{
+    let data = this.limitedMember?.find(elm => elm == opt)?this.selectedValue?.find(elm => elm == opt)?false:true:false
+    console.log(data)
+    return data
   }
 }
