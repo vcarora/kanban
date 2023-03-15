@@ -49,7 +49,8 @@
 		<h2 class="form-title" id="signup"><span>or</span>Log in</h2>
 		<div class="form-holder">
 			<input type="email" class="input" placeholder="Email" required formControlName="email"/>
-			<input type="password" class="input" placeholder="Password" required formControlName="password" />
+			<input [type]="hide ? 'password' : 'text'" class="input" placeholder="Password" required formControlName="password" />
+            <mat-icon id="eye" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 		</div>
 		<button [disabled]="!loginForm.valid" type="submit" class="submit-btn">Log in</button>
         <h6 id="forgot" routerLink="/forgetPassword">Forgot Password ?</h6>

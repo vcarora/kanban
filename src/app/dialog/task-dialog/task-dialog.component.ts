@@ -21,6 +21,8 @@ export class TaskDialogComponent {
   projectDetail: any = {}
   memberCount:Map<string,number> = new Map()
 
+  user: user = {};
+
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private project: ProjectService, private stream: DataStreamService, private projects: ProjectDetailsComponent) { }
 

@@ -77,6 +77,8 @@ export class DashboardComponent {
 
   email: any;
 
+
+
   ngOnInit() {
     this.stream.currentProject.subscribe(data =>{
     let update = this.projectsList$.findIndex(onj => onj.name == data.name);
@@ -96,6 +98,7 @@ export class DashboardComponent {
     })
 
     this.email = window.localStorage.getItem('user-email');
+    
   }
 
   reload() {
@@ -142,12 +145,20 @@ export class DashboardComponent {
       // this.creator = false;
       this.stream.changeCreator(false);
     }
+    this.stream.changeArchive(project.archive!);
   }
 
   showAssignedProjects(project: project) {
     this.getAssignedProjects()
     this.showProjectDetails(project)
     this.stream.changeCreator(true);
+    this.stream.changeArchive(project.archive!);
+  }
+
+  showArchiveProjects(project: project){
+    this.getAssignedProjects()
+    this.showProjectDetails(project)
+    this.stream.changeArchive(project.archive!);
   }
 
   showProjectDetails(project: project) {

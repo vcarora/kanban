@@ -15,6 +15,8 @@ export class DataStreamService {
   currebtMembers = this.sorceMembers.asObservable()
   private sorceCreator = new BehaviorSubject<boolean>(true);
   currentCreator = this.sorceCreator.asObservable()
+  private sorceArchive = new BehaviorSubject<string>("LIVE")
+  currentArchive = this.sorceArchive.asObservable()
 
   //member count in a taskList
   private sourceMemberCount = new BehaviorSubject<Map<string,number>>(new Map())
@@ -39,6 +41,10 @@ export class DataStreamService {
   }
   changeMembers(members:user[]){
     this.sorceMembers.next(members)
+  }
+
+  changeArchive(value: string){
+    this.sorceArchive.next(value)
   }
   changeMemberCounter(memberCount:Map<string,number>){
     this.sourceMemberCount.next(memberCount)

@@ -48,6 +48,8 @@ export class ProjectDetailsComponent {
 
   hidden: boolean = false;
 
+  isArchiveStatus: any;
+
 
   //task complition %
   @Input()
@@ -65,6 +67,10 @@ export class ProjectDetailsComponent {
     this.emails = window.localStorage.getItem('user-email');
     this.stream.currentCreator.subscribe( data =>{
       this.creator = data;
+    })
+
+    this.stream.currentArchive.subscribe( data =>{
+      this.isArchiveStatus = data;
     })
     this.emails = window.localStorage.getItem('email');
 
@@ -175,15 +181,25 @@ export class ProjectDetailsComponent {
     console.log(data.email)
   }
 
-  // getAllTaskDetails(){
-  //   console.log(this.projectDetails?.project_id);
-  //   this.project.getAllTask(this.projectDetails?.project_id).subscribe({
-  //     next: data =>{
-  //      this.task.push(data);
-  //      console.log(this.task);
-  //      this.projectDetails.taskList = this.task;
-  //     }
-  //   });
-  //   return this.task;
-  // }
+
+  changeProjectState(){
+    this.project.archivedProjects(this.projectDetails.project_id,"LIVE").subscribe({
+      next:data=>{
+        console.log(data)
+      }
+    })
+  }
+
+  getAllTaskDetails(){
+    console.log(this.projectDetails?.project_id);
+    this.project.getAllTask(this.projectDetails?.project_id).subscribe({
+      next: data =>{
+       this.task.push(data);
+       console.log(this.task);
+       this.projectDetails.taskList = this.task;
+       
+      }
+    });
+    return this.task;
+  }
 }
