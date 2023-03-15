@@ -28,8 +28,8 @@
 
       <mat-form-field appearance="outline" id="input4">
         <mat-label>Members</mat-label>
-        <mat-select [(ngModel)]="formData.memberList" name="memberList" multiple>
-          <mat-option [matTooltip]="email.email!" matTooltipPosition="left" *ngFor="let email of emails" [value]="email">
+        <mat-select [(ngModel)]="selectedValue" name="memberList" multiple>
+          <mat-option [matTooltip]="email.email!" [disabled]="isOptionDisabled(email.email)" matTooltipPosition="left" *ngFor="let email of emails" [value]="email.email">
             {{email.email}}
           </mat-option>
         </mat-select>

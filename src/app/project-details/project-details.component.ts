@@ -33,7 +33,7 @@ export class ProjectDetailsComponent {
   constructor(public dialog: MatDialog, private project: ProjectService, private token: TokenStorageService,
               private snackBar: MatSnackBar, private loginServ: LoginService, private stream:DataStreamService) { }
 
-  task: task[] = []
+  // task: task[] = []
   title: boolean = false;
   userName: string | any = '';
   firstLetter: any;
@@ -74,7 +74,7 @@ export class ProjectDetailsComponent {
     })
     this.emails = window.localStorage.getItem('email');
 
-    let limiter: Map<string,Inject>;
+    let limiter: Map<string,Inject>
   }
 
   taskDialog(): void {
