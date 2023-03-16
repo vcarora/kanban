@@ -5,8 +5,8 @@
             <div class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('TO DO') || []" id="todo" (cdkDropListDropped)="drop($event, 'TO DO')" [cdkDropListConnectedTo]="['inprogress','Submitted', 'Completed']">
                 <div *ngIf="getTasksByStatus('TO DO')?.length === 0" class="text"><h1>No task in list</h1></div>
             <div *ngFor="let task of taskList">
-                <div  *ngIf="task?.status=== 'TO DO'">
-                    <app-task-card [task]="task" cdkDrag ></app-task-card> 
+                <div  *ngIf="task?.status=== 'TO DO'" [ngClass]="isArchiveStatus === 'ARCHIVE'? 'not_responsive' : 'responsive'">
+                    <app-task-card [task]="task" cdkDrag [cdkDragDisabled]="isArchiveStatus === 'ARCHIVE'"></app-task-card> 
                 </div>                
             </div>
     </div>
@@ -18,8 +18,8 @@
                     <div *ngIf="getTasksByStatus('In Progress')?.length === 0" class="text"><h1>No task in list</h1></div>
             <div *ngFor="let task of taskList">
                 
-                <div *ngIf="task?.status=== 'In Progress'">
-                    <app-task-card [task]="task" cdkDrag></app-task-card> 
+                <div *ngIf="task?.status=== 'In Progress'" [ngClass]="isArchiveStatus === 'ARCHIVE'? 'not_responsive' : 'responsive'">
+                    <app-task-card [task]="task" cdkDrag [cdkDragDisabled]="isArchiveStatus === 'ARCHIVE'"></app-task-card> 
                 </div>                
             </div>
        
@@ -31,8 +31,8 @@
                 <div class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('Submitted') || []" id="Submitted" (cdkDropListDropped)="drop($event, 'Submitted')">
                     <div *ngIf="getTasksByStatus('Submitted')?.length === 0" class="text"><h1>No task in list</h1></div>
             <div *ngFor="let task of taskList">
-                <div *ngIf="task?.status=== 'Submitted'" >
-                    <app-task-card [task]="task" cdkDrag [cdkDragDisabled]="creator"></app-task-card> 
+                <div *ngIf="task?.status=== 'Submitted'" [ngClass]="isArchiveStatus === 'ARCHIVE'? 'not_responsive' : 'responsive'">
+                    <app-task-card [task]="task" cdkDrag [cdkDragDisabled]="creator || isArchiveStatus === 'ARCHIVE'"></app-task-card> 
                 </div>                
             </div>
         
@@ -45,7 +45,7 @@
                 <div  class="card_container" id="style1" cdkDropList [cdkDropListData]="getTasksByStatus('Completed') || []" id="Completed" [cdkDropListDisabled]="creator"  (cdkDropListDropped)="drop($event, 'Completed')">
                     <div *ngIf="getTasksByStatus('Completed')?.length === 0" class="text"><h1>No task in list</h1></div>
             <div *ngFor="let task of taskList">
-                <div *ngIf="task?.status=== 'Completed'" >
+                <div *ngIf="task?.status=== 'Completed'" id="non-responsive" [ngClass]="isArchiveStatus === 'ARCHIVE'? 'not_responsive' : 'responsive'">
                     <app-task-card [task]="task"></app-task-card> 
                 </div>                
             </div>

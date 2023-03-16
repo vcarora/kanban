@@ -97,14 +97,15 @@ mat-toolbar>div .btn_login:hover{
     margin-top: 20px;
     background-color: transparent;
     border: 0;
-    width: 150px;
+    width: 100px;
+    margin-left: 10px;
 }
 
 #btn2:hover{
   border-radius: 30px;
   width: 100px;
-  margin-left: 20px;
-  background-color: #d1c4bd;
+  background-color: black;
+  color: white;
 }
 
 #btn4{
@@ -112,14 +113,14 @@ mat-toolbar>div .btn_login:hover{
   background-color: transparent;
   border: 0;
   width: 150px;
+  margin-left: -15px;
 }
 
 #btn4:hover{
   border-radius: 30px;
   width: 150px;
-  margin-left: 10px;
-  margin-right: 10px;
-  background-color: #d1c4bd;
+  background-color: black;
+  color: white;
 }
 
 h2{
@@ -225,8 +226,10 @@ mat-toolbar .btn_signup_change{
 
 #list{
   margin-top: 10px;
-  background-color: white;
+  background-color: #f5d775;
   border-radius: 10px;
+  height: 150px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 @media screen and (max-width: 500px){
   #btn3{

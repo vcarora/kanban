@@ -1,5 +1,5 @@
 <div id="main-container">
-    <div id="top-bar" breakpoint="md">
+    <div id="top-bar" >
         <div *ngIf="projectDetails?.name" layout="row" layout-xs="column">
             <h1>{{projectDetails.name}}</h1>
             <p>Project Start date : {{projectDetails.startDate | date : "dd/MM/yyyy"}} End date : {{projectDetails.duration | date : "dd/MM/yyyy"}}</p>
@@ -36,15 +36,17 @@
         <mat-card id="card">
           <mat-card-content class="btn">
               
-                <button mat-fab matTooltip="Add New Task's to Project" (click)="taskDialog()" >
+                <button class="me-5" *ngIf="isArchiveStatus ==='LIVE'"  mat-fab matTooltip="Add New Task's to Project" (click)="taskDialog()" >
                   <mat-icon>add</mat-icon>
-                </button><br><br><br><br>
-                <button [hidden]="hidden" mat-fab matTooltip="Add New Member to Project" (click)="addMember()" [disabled]="creator">
+                </button>
+                <button class="me-5" *ngIf="isArchiveStatus ==='ARCHIVE'" mat-fab matTooltip="Remove from Archive Project" (click)="changeProjectState()"><i class="fa-solid fa-boxes-packing"></i></button>
+                <button class="me-5" *ngIf="isArchiveStatus ==='LIVE'" mat-fab matTooltip="Add New Member to Project" (click)="addMember()" [disabled]="creator">
                   <mat-icon>group_add</mat-icon>
                 </button><br><br><br><br>
-                <button  matTooltip="Delete the Project" mat-fab (click)="deleteProject()" [disabled]="creator">
+                <button  matTooltip="Delete the Project" mat-fab (click)="deleteProject()" *ngIf="isArchiveStatus ==='ARCHIVE'">
                   <mat-icon>delete</mat-icon>
                 </button>
+                <button mat-fab matTooltip="Archive This Project" *ngIf="isArchiveStatus ==='LIVE'" (click)="deleteProject()" [disabled]="creator"><mat-icon>archive</mat-icon></button>
       
             </mat-card-content>
         </mat-card>
@@ -57,7 +59,7 @@
               </ng-template>
               <mat-card class="scrollable-content">
                 <mat-card-content>
-                  <app-task-board [taskList]="projectDetails.taskList"></app-task-board>
+                  <app-task-board [taskListData]="projectDetails.taskList"></app-task-board>
                 </mat-card-content>
               </mat-card>
             </mat-tab>
@@ -83,15 +85,15 @@
                
                 <mat-card-content>
                   <div id="cards" class="container">
-                    <div *ngIf="!creator" id="addMember">
-                      <h2 id="plus"  (click)="addMember()">
+                    <div [hidden]="(isArchiveStatus === 'ARCHIVE')" *ngIf="!creator" id="addMember">
+                      <h2 id="plus" (click)="addMember()">
                         <i id="plus_icon" class="fa-solid fa-circle-plus"></i><br><br>
                         ADD NEW MEMBER <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TO PROJECT
                       </h2>
                   </div>
                     <ul *ngFor="let member of projectDetails?.assigned_empl">
                       <li><img *ngIf="member.profile_pic" id="img" src="{{member?.profile_pic}}" alt="image"><button *ngIf="!member.profile_pic" id="img"><i class="fa-solid fa-{{member.username?.charAt(0)}}"></i></button>
-                        <h3 id="members">{{member?.email}}  &nbsp;&nbsp;&nbsp;<button [disabled]="creator" (click)="removeMember(member)" matTooltip="Remove Member from Project" id="delete" mat-icon-button color="accent"><i class="fa-solid fa-user-slash"></i></button></h3></li>   
+                        <h3 id="members">{{member?.email}}  &nbsp;&nbsp;&nbsp;<button [disabled]="creator || isArchiveStatus === 'ARCHIVE'" (click)="removeMember(member)" matTooltip="Remove Member from Project" id="delete" mat-icon-button color="accent"><i class="fa-solid fa-user-slash"></i></button></h3></li>   
                   </ul>
                   </div>
                 </mat-card-content>
