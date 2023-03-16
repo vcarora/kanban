@@ -15,7 +15,8 @@ export type task = {
     "description"? : string;
     "status"? : string;
     "priority"? : string;
-    "memberList"?:user[]
+    "memberList"?:user[];
+    "lastChangedBy"?: string;
 }
 
 export type user = {

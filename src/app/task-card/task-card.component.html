@@ -45,7 +45,8 @@
       </mat-menu> -->
       
       <button mat-icon-button (click)="taskDetails(task)" matTooltip="Edit Task"><i id="pen" class="fa-solid fa-file-pen"></i></button>
-      <button mat-icon-button  matTooltip="Delete Task" (click)="deleteTask(task)"><i id="trash" class="fa-solid fa-trash"></i></button>
+      <button mat-icon-button  matTooltip="Delete Task" [disabled]="creator" (click)="deleteTask(task)"><i id="trash" class="fa-solid fa-trash"></i></button>
+      <h5>{{task.lastChangedBy}} &nbsp;&nbsp;<i matTooltip="Last Edited" class="fa-solid fa-check-double"></i></h5>
     </mat-card-actions>
     <!-- <mat-card-footer> -->
       <!-- <mat-progress-bar mode="determinate" value="50"></mat-progress-bar> -->

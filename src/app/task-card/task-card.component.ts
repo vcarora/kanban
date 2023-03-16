@@ -44,9 +44,15 @@ export class TaskCardComponent {
 
   members: user[] = [];
 
+  creator: any;
+
   ngOnInit(){
     this.stream.currebtMembers.subscribe(data=> this.members = data)
     console.log(this.members)
+    this.stream.currentCreator.subscribe(data =>{
+      this.creator = data;
+    })
+
   }
 
   taskDetails(task: any){

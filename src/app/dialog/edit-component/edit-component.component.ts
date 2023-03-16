@@ -68,6 +68,7 @@ export class EditComponentComponent {
     console.log(this.task);
 
     const project_id: number = this.token.getProjectId()
+    this.task.lastChangedBy = window.localStorage.getItem("user-email")??'';
     this.project.updateTaskStatus(project_id, this.task).subscribe({
       next: data => {
         console.log(data)

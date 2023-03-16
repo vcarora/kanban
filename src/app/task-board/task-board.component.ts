@@ -36,6 +36,7 @@ archived: boolean = false;
 
 disableDrop = true;
 
+
 constructor(private project: ProjectService, private token : TokenStorageService, private stream: DataStreamService){}
 
 ngOnInit(){
@@ -65,6 +66,7 @@ drop(event: CdkDragDrop<any[]>, status: string) {
       task.status = status;
       const project_id : number = this.token.getProjectId();
       console.log(project_id);
+      task.lastChangedBy = window.localStorage.getItem("user-email");
       this.project.updateTaskStatus(project_id, task).subscribe({
         next: data => {
           console.log(data);
