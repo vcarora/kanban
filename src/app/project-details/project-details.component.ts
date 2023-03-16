@@ -190,16 +190,4 @@ export class ProjectDetailsComponent {
     })
   }
 
-  // getAllTaskDetails(){
-    // console.log(this.projectDetails?.project_id);
-    // this.project.getAllTask(this.projectDetails?.project_id).subscribe({
-      // next: data =>{
-      //  this.task.push(data);
-      //  console.log(this.task);
-      //  this.projectDetails.taskList = this.task;
-      //  
-      // }
-    // });
-    // return this.task;
-  // }
 }

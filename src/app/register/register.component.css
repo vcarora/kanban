@@ -322,4 +322,20 @@ h6{
    color: #222;
 	 -webkit-transition: all 0.3s ease;
 }
- 
+
+@media screen and (max-width: 500px){
+	#res_img{
+		display: none;
+	}
+
+	.form-structor {
+		background-color: #222;
+		border-radius: 15px;
+		height: 550px;
+		width: 550px;
+		position: absolute;
+		top: 250px;
+		left: 20px;
+		overflow: hidden;
+   }
+} 

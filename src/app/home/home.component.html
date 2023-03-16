@@ -1,54 +1,47 @@
-
-<h1>
-   One Web App to focus on all your projects.
-</h1>
-
-<!-- <h2><b>Collaborate With your collegues <br> All of your work in one place: </b> <br><mat-icon id="icon">check_circle</mat-icon> Task Management  <br><mat-icon id="icon">check_circle</mat-icon> Goals <br><mat-icon id="icon">check_circle</mat-icon> Chat Support and many more..</h2> -->
+<div id="main-container">
 
 <div>
-  <img id="gifs" src="../../assets/desc.png" alt="GIF">
-</div>
-
-
-<div>
+  <h1 >
+    One Web App to focus on all your projects.
+ </h1>
     <img class="gif" id="gif" src="../../assets/working@home.gif" alt="">
 </div>
 
-<div>
+<div >
+  <img id="gifs" src="../../assets/desc.png" alt="GIF">
+</div>
+
+<div id="btns">
   <button id="btn" *ngIf="name" mat-raised-button routerLink="/dashboard">Get Started</button>
   <button id="btn" *ngIf="!name" mat-raised-button routerLink="/register">Get Started</button>
 </div>
 
 
-<!-- <section>
-    <h2>Premium Products? <br> Coming Soon...</h2>
-</section> -->
-
-<!-- <section id="section1"> -->
-    <!-- <h3><mat-icon id="star">grade</mat-icon><mat-icon id="star">grade</mat-icon><mat-icon id="star">grade</mat-icon><mat-icon id="star">grade</mat-icon><mat-icon id="star">grade</mat-icon><span id="rating"> Based on 1000 <mat-icon>+</mat-icon> reviews</span></h3> -->
-<!-- </section> -->
-
 
 <div class="container">
   <mat-card id="cards">
       <mat-card-content>
-        <h2>“Management is, above all, a practice where art, science, and craft meet.” -Henry Mintzberg. ... <br><br><br><br>
-          “The key to successful leadership today is influence not authority.” - Kenneth Blanchard.  <br><br><br>
-        Let's Join Together and Create a Community <br><br>
-        FOKUS WELCOME's You...</h2>
-        <button id="join" mat-raised-button routerLink="/pricing" >Join Now</button>
+        <div>
+          <h2>“Management is, above all, a practice where art, science, and craft meet.” -Henry Mintzberg. ... <br><br><br><br>
+            “The key to successful leadership today is influence not authority.” - Kenneth Blanchard.  <br><br><br>
+          Let's Join Together and Create a Community <br><br>
+          FOKUS WELCOME's You...</h2>
+          <button id="join" mat-raised-button routerLink="/pricing" >Join Now</button>
+        </div>       
         <img id="card_img" src="../../assets/card_gif.gif" alt="GIF">
       </mat-card-content>
   </mat-card>
 </div>
 
-  <div>
+  <div class="extra">
     <h2 id="extra">Start Now and Experience Our Futuristic UI </h2>
   </div>
 
-  <div>
+  <div id="carousel-container">
     <iframe id="carouselExampleInterval" width="500" height="450" src="https://www.youtube.com/embed/tgbNymZ7vqY" ></iframe>
   </div>
+
+</div>
 
 
 <footer>

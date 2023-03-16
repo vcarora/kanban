@@ -1,6 +1,6 @@
 <div id="main-container">
-    <div id="top-bar">
-        <div *ngIf="projectDetails?.name">
+    <div id="top-bar" >
+        <div *ngIf="projectDetails?.name" layout="row" layout-xs="column">
             <h1>{{projectDetails.name}}</h1>
             <p>Project Start date : {{projectDetails.startDate | date : "dd/MM/yyyy"}} End date : {{projectDetails.duration | date : "dd/MM/yyyy"}}</p>
         </div>
@@ -13,7 +13,7 @@
 
         </div>
 
-        <div id="progress-bar" *ngIf="projectDetails?.name"> 
+        <div id="progress-bar" *ngIf="projectDetails?.name" layout="row" layout-xs="column"> 
           <h2 id="bar"> Task Completed In <mat-icon id="percentage">percentage</mat-icon> :</h2>
           <div>
             <h2 *ngIf="projectDetails.name" id="value">{{value}}<mat-icon id="percentages">percentage</mat-icon></h2>
@@ -99,9 +99,9 @@
                 </mat-card-content>
               </mat-card>
             </mat-tab>
-            <mat-tab disabled></mat-tab>
-            <mat-tab disabled></mat-tab>
-            <mat-tab disabled></mat-tab>
+            <mat-tab class="disabled-tab" disabled></mat-tab>
+            <mat-tab class="disabled-tab" disabled></mat-tab>
+            <mat-tab class="disabled-tab" disabled></mat-tab>
           </mat-tab-group>
 
 </div>
