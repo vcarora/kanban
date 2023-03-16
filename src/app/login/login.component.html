@@ -37,13 +37,15 @@
         <!-- </div> -->
 <!-- </div> -->
 
+<div id="main-container">
+     
 
 <div id="welcome">
     <img src="../../assets/welcome.png" alt="WELCOME">
     <h1>WELCOME BACK</h1>
 </div>
 
-<div class="form-structor">
+<div  id="login-form" class="form-structor">
 	<div class="signup">
         <form [formGroup]="loginForm" (submit)="onLogin()">
 		<h2 class="form-title" id="signup"><span>or</span>Log in</h2>
@@ -61,6 +63,7 @@
 			<h2 class="form-title" id="login" routerLink="/register"><h6>Don't have an Account ?</h6>Sign Up</h2>
 		</div>
 	</div>
+</div>
 </div>
 
     

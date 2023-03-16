@@ -228,3 +228,11 @@ mat-toolbar .btn_signup_change{
   background-color: white;
   border-radius: 10px;
 }
+@media screen and (max-width: 500px){
+  #btn3{
+    display: none;
+  }
+  #btn5{
+    display: none;
+  }
+}
