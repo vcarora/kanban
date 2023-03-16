@@ -176,4 +176,24 @@ h1{
     background-color: transparent;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+@media screen and (max-width: 500px){
+    #top-bar{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* padding: 2rem;
+        background-color: white;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px; */
+    }
+    #main-container{
+        height: auto;
+        width: auto;
+        overflow: hidden;
+    }
+    .disabled-tab{
+        display: none;
+        visibility: hidden;
+    }
 
+}

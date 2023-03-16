@@ -1,4 +1,10 @@
-<mat-card class="mat-card" >
+<div id="main-container">
+
+  <div id="img">
+    <img src="../../assets/person1.png" alt="person" id="person">
+  </div>
+
+  <mat-card class="mat-card" >
 
   <!-- <div [hidden]="!isLoggedIn">
     <mat-card-title><h1>WRITE TO US!</h1></mat-card-title>
@@ -44,14 +50,11 @@
     
 
   </mat-card>
-  <div>
-    <img src="../../assets/person1.png" alt="person" id="person">
-  </div>
 
   <div *ngIf="title" id="adv">
     <h1>GET FASTER REPLIES NOW ... ! <br> AND 24/7 SUPPORT <br><button id="get" mat-raised-button color="warn" routerLink="/pricing">GET NOW</button></h1>
   </div>
-
+</div>
   <footer>
     <app-footer></app-footer>
   </footer>

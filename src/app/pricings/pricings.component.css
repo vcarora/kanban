@@ -13,7 +13,7 @@
 }
 
 /* body */
-body {
+/* body {
   min-height: 100vh;
   padding: 40px;
 
@@ -24,6 +24,12 @@ body {
 
   background: hsl(220, 10%, 12%);
   font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
+} */
+
+#d-flex{
+  display: flex;
+  justify-content: space-between;
+  margin: 4%;
 }
 
 h2{
@@ -51,9 +57,9 @@ h2{
   width: 350px;
   height: 500px;
   margin: 40px;
-  position: relative;
-  top: 100px;
-  left: 450px;
+  /* position: relative; */
+  /* top: 100px; */
+  /* left: 450px; */
   margin-left: 100px;
   perspective: 1000px;
 }
@@ -373,9 +379,10 @@ button:focus+.design-container {
 
 
 #payment{
-    position: relative;
+    /* position: relative;
     top: 150px;
-    left: 250px;
+    left: 250px; */
+    margin-top: 5%;
 }
 
 
@@ -405,3 +412,13 @@ mat-icon{
       visibility: hidden;
     }
   }
+
+
+@media screen and (max-width: 500px){
+
+  #d-flex{
+    display: flex;
+    flex-direction: column;
+  }
+
+}

@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
- html, body {
+ /* html, body {
 	 position: relative;
 	 min-height: 100vh;
 	 background-color: #e1e8ee;
@@ -9,6 +9,10 @@
 	 font-family: "Fira Sans", Helvetica, Arial, sans-serif;
 	 -webkit-font-smoothing: antialiased;
 	 -moz-osx-font-smoothing: grayscale;
+} */
+
+#main-container{
+	display: flex;
 }
  .form-structor {
 	 background-color: #222;
@@ -51,16 +55,18 @@ h6{
     font-size: 13px;
   }
 
-#google{
+/* #google{
     position: relative;
     top: 30px;
     right: -50px;
-}
+} */
 
 #welcome{
-    position: relative;
+    /* position: relative;
     top: 150px;
-    left: 500px;
+    left: 500px; */
+	margin-left: 10%;
+	margin-top: 7%;
     width: 550px;
 }
 
@@ -283,5 +289,27 @@ h6{
 	 opacity: 1;
 	 visibility: visible;
 	 -webkit-transition: all 0.3s ease;
+}
+
+@media screen and (max-width : 500px){
+	#main-container{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form-structor {
+		background-color: #222;
+		border-radius: 15px;
+		height: 550px;
+		width: 450px;
+		position: absolute;
+		top: 250px;
+		left: 20px;
+		overflow: hidden;
+   }
+   
+   img{
+	display: none;
+   }
 }
  
