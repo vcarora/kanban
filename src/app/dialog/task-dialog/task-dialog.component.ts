@@ -51,6 +51,7 @@ export class TaskDialogComponent {
     }
     task.value.memberList = [];
     task.value.memberList = tempMember;
+    task.value.lastChangedBy = window.localStorage.getItem('user-email');
     if (task.value) { 
       this.project.addTask(this.data.project_id, task.value).subscribe({
         next: data => {

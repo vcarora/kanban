@@ -7,8 +7,13 @@
       [opened]="(isHandset$ | async) === true">
     <mat-toolbar></mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Login</a>
-      <a mat-list-item href="#">Sign Up</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" *ngIf="!tokenExist">Login</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_login_change':'btn_signup'" routerLink="/register" *ngIf="!tokenExist">Sign Up</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_change':'btn_original'"  routerLink="/query" [hidden]="isAdmin">Contact</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/pricing"> Pricing</a>
+      <a mat-list-item [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/about">About Us</a>
+      <a  mat-list-item [ngClass]="toolbar_variable?'btn_change':'btn_original'" routerLink="/support" [hidden]="!isAdmin" >Support</a>
+      <a mat-list-item  *ngIf="tokenExist" id="menu" matTooltip="Dashboard" routerLink="/dashboard" mat-icon-button><i class="fa-brands fa-foursquare"></i></a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content (scroll)="scrollFunc($event)">
@@ -48,8 +53,8 @@
         <!-- This button triggers the overlay and is it's origin -->
 
      
-      <button mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" *ngIf="!tokenExist">Log in</button>
-      <button mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_signup'" routerLink="/register" *ngIf="!tokenExist">Sign Up</button>
+      <button id="btn5" mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_login'" (click)="login()" *ngIf="!tokenExist">Log in</button>
+      <button id="btn5" mat-raised-button [ngClass]="toolbar_variable?'btn_login_change':'btn_signup'" routerLink="/register" *ngIf="!tokenExist">Sign Up</button>
     </div>
    
       
