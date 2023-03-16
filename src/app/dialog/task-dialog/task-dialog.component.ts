@@ -16,9 +16,12 @@ export class TaskDialogComponent {
   formData: task = {
     status: 'TO DO'
   }
-
+  selectedValue?: string[] = [];
   emails: user[] = [];
   projectDetail: any = {}
+  memberCount:Map<string,number> = new Map()
+
+  user: user = {};
 
   constructor(
     public dialogRef: MatDialogRef<TaskDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private project: ProjectService, private stream: DataStreamService, private projects: ProjectDetailsComponent) { }
@@ -30,11 +33,24 @@ export class TaskDialogComponent {
     // will log the entire data object
     console.log(this.data.project_id)
     console.log(this.data.emailList)
+    this.stream.currentMemberCount.subscribe(data=>{
+      this.memberCount = data
+    })
     this.emails = this.data.emailList;
+    this.emailReduser()
   }
 
   addTask(task: NgForm) {
-    console.log(task.value)
+    let tempMember: user[] = [];
+    for (let temp of this.emails) {
+      for (let exVlaue of this.selectedValue!) {
+        if (temp.email === exVlaue) {
+          tempMember.push(temp);
+        }
+      }
+    }
+    task.value.memberList = [];
+    task.value.memberList = tempMember;
     if (task.value) { 
       this.project.addTask(this.data.project_id, task.value).subscribe({
         next: data => {
@@ -48,6 +64,9 @@ export class TaskDialogComponent {
     console.log("Hiii");
     this.dialogRef.close();
     this.getAllTask();
+  }
+  isOptionDisabled(opt: any): boolean {
+    return this.selectedValue?.length! >= 3 && !this.selectedValue?.find(elm => elm == opt)
   }
 
 
@@ -67,6 +86,15 @@ export class TaskDialogComponent {
         console.log(data);
       }
     })
+  }
+
+  emailReduser(){
+    for(let temp of this.emails){
+      if(this.memberCount.has(temp.email!)){
+        if(this.memberCount.get(temp.email!) ==3)
+        this.emails = this.emails.filter(remove=>remove.email!= temp.email)
+      }
+    }
   }
 
 }

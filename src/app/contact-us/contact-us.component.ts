@@ -29,6 +29,8 @@ export class ContactUsComponent {
 
   chatUpdate : any 
 
+  title: boolean = false;
+
   // async ngOnInit() { 
   //   while (true) { 
   //   await this.getMessage() 
@@ -75,6 +77,11 @@ export class ContactUsComponent {
       console.log("interval")
        
      }, 1000);
+
+
+     if (window.localStorage.getItem("title") === "FREE") {
+      this.title = true;
+    }
     
   }
 

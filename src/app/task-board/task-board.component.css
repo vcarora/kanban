@@ -78,7 +78,15 @@ mat-icon{
     margin-top: 150px;
 }
 
+.responsive{
+    pointer-events: all;
+}
+
 #non-responsive{
+    pointer-events: none;
+}
+
+.not_responsive{
     pointer-events: none;
 }
 

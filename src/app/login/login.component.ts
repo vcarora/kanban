@@ -17,7 +17,7 @@ export class LoginComponent {
   errorMessage = '';
   name :any = '';
 
-
+  hide = true;
   constructor(private fb: FormBuilder, private loginService : LoginService, 
     private token : TokenStorageService,
     private route : RouterService,private snackBar: MatSnackBar){}
