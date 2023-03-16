@@ -26,10 +26,10 @@
   font-family: "Lato", "Segoe Ui", -apple-system, BlinkMacSystemFont, sans-serif;
 } */
 
-#d-flex{
-  display: flex;
-  justify-content: space-between;
-  margin: 4%;
+
+.d-flex{
+  margin-top: 100px;
+  margin-left: 450px;
 }
 
 h2{
@@ -416,9 +416,16 @@ mat-icon{
 
 @media screen and (max-width: 500px){
 
-  #d-flex{
+  .d-flex{
     display: flex;
     flex-direction: column;
+    margin-left: -10px;
+  }
+
+  #payment{
+    width: 200px;
+    height: 200px;
+    margin-left: 200px;
   }
 
 }

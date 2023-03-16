@@ -11,7 +11,7 @@
   footer{
     position: absolute;
     top: auto;
-   display: flex;
+    display: flex;
    justify-content: space-between;
    align-items: center;
    background-color: #cdd8e0;
@@ -33,4 +33,21 @@
     color: black;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    
+  }
+
+  @media screen  and (max-width: 500px){
+
+    footer{
+      height: 100px;
+    }
+
+    #ft_btn{
+      margin-right: 20px;
+      margin-top: 10px;
+    }
+
+    h3{
+      margin-left: 20px;
+      margin-top: 30px;
+    }
   }
