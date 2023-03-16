@@ -91,7 +91,17 @@ export class DashboardComponent {
     this.getCreatedProjects()
     this.project.RefreshRequired.subscribe(respose => {
       this.getCreatedProjects()
+      if(this.token.getProjectId()){
+        let pId : any = this.token.getProjectId()
+      
+        this.project.getProjectById(pId).subscribe({
+          next: data =>{
+            this.selectedProject = data
+          }
+        })
+      }
     })
+
     this.getAssignedProjects()
     this.project.RefreshRequired.subscribe(respose => {
       this.getAssignedProjects()
@@ -245,4 +255,5 @@ export class DashboardComponent {
       this.archiveData = !this.archiveData;
     }
   }
+  
 }
