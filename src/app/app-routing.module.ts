@@ -27,11 +27,12 @@ const routes: Routes = [
   {path: "chat", component: ContactUsComponent},
   {path: "pricing", component: PricingsComponent},
   {path: "about", component: AboutUsComponent},
-  {path: "edit", component: EditProfileComponent},
-  {path: "support",component: SupportComponent},
+  {path: "edit", component: EditProfileComponent, canActivate: [AuthGuard]},
+  {path: "support",component: SupportComponent, canActivate: [AuthGuard]},
   {path: "forgetPassword",component:ForgetPassComponent},
   {path: "reset_password/forget",pathMatch : 'full',component:ResetPassComponent},
   {path : "**",component: NotFoundComponent}
+
   
 ];
 

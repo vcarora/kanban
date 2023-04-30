@@ -118,7 +118,7 @@ export class ProjectDetailsComponent {
             }, error: err => {
               this.snackBar.open('Failed to Invite Member. Please enter only registered member email !!', 'Ok', {
                 duration: 3000,
-                horizontalPosition: 'right',
+                horizontalPosition:'center',
                 verticalPosition: 'top',
               });
             }

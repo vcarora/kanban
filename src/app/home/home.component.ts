@@ -12,4 +12,5 @@ export class HomeComponent {
   ngOnInit(): void{
     this.name = window.localStorage.getItem('username');
   }
+
 }
